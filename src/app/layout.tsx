@@ -1,4 +1,4 @@
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/next"
 import type { Metadata } from "next"
 import { DM_Sans, Source_Serif_4 } from "next/font/google"
 import { SiteFooter } from "@/components/layout/site-footer"
