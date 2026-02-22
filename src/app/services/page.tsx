@@ -2,6 +2,7 @@ import { Code2, Languages, Sparkles } from "lucide-react"
 import type { Metadata } from "next"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = {
   title: "Services — Development, AI, and Localization",
@@ -46,8 +47,30 @@ const services = [
 ] as const
 
 export default function ServicesPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: services.map((service, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Service",
+        name: service.title,
+        provider: {
+          "@type": "Person",
+          name: siteConfig.author,
+          url: siteConfig.url,
+        },
+      },
+    })),
+  }
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 md:py-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <h1 className="text-balance font-heading font-semibold text-3xl">Services</h1>
       <p className="mt-2 mb-12 text-lg text-muted-foreground">
         I help startups, agencies, and businesses build and improve their software.
@@ -75,9 +98,14 @@ export default function ServicesPage() {
         <h2 className="text-balance font-heading font-semibold text-xl">
           Interested? Let&rsquo;s talk about your project.
         </h2>
-        <Button asChild className="mt-4">
-          <Link href="/contact">Get in Touch</Link>
-        </Button>
+        <div className="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <Button asChild>
+            <Link href="/contact">Get in Touch</Link>
+          </Button>
+          <Button variant="ghost" asChild>
+            <Link href="/blog">Read about my experience in Japan</Link>
+          </Button>
+        </div>
       </section>
     </div>
   )

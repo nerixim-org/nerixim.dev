@@ -1,6 +1,8 @@
 import type { Metadata } from "next"
 import Image from "next/image"
+import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
+import { siteConfig } from "@/lib/site-config"
 
 export const metadata: Metadata = {
   title: "About — Developer, Language Enthusiast, Builder",
@@ -26,8 +28,26 @@ const languages = [
 ]
 
 export default function AboutPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: siteConfig.author,
+    url: siteConfig.url,
+    sameAs: [siteConfig.links.github],
+    jobTitle: "Software Developer",
+    knowsLanguage: ["en", "ja", "ru"],
+    worksFor: {
+      "@type": "Organization",
+      name: "Freelance",
+    },
+  }
+
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 md:py-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Top section — Avatar + intro */}
       <div className="flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
         <Image src="/avatar-placeholder.svg" alt="Nikita" width={120} height={120} className="rounded-full" priority />
@@ -57,8 +77,18 @@ export default function AboutPage() {
           but culturally adapted.
         </p>
         <p className="text-base text-muted-foreground leading-relaxed">
-          I&rsquo;m currently freelancing and building my own products. If you have a project that could use someone who
-          bridges cultures and code, I&rsquo;d like to hear about it.
+          I&rsquo;m currently freelancing and building my own products. I also{" "}
+          <Link href="/blog" className="underline underline-offset-4 hover:text-foreground">
+            write about
+          </Link>{" "}
+          freelancing in Japan, taxes, and the things I learn along the way.
+        </p>
+        <p className="text-base text-muted-foreground leading-relaxed">
+          If you have a project that could use someone who bridges cultures and code, I&rsquo;d like to{" "}
+          <Link href="/contact" className="underline underline-offset-4 hover:text-foreground">
+            hear about it
+          </Link>
+          .
         </p>
       </section>
 

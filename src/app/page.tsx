@@ -1,5 +1,6 @@
 import { CtaSection } from "@/components/home/cta-section"
 import { Hero } from "@/components/home/hero"
+import { RecentPosts } from "@/components/home/recent-posts"
 import { ServicesPreview } from "@/components/home/services-preview"
 
 export default function HomePage() {
@@ -7,6 +8,7 @@ export default function HomePage() {
     <>
       <Hero />
       <ServicesPreview />
+      <RecentPosts />
       <CtaSection />
     </>
   )
