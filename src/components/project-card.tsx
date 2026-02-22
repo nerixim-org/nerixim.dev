@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { cn } from "@/lib/utils"
 
 interface ProjectCardProps {
   title: string
@@ -20,10 +21,10 @@ export function ProjectCard({ title, description, tags, href, status }: ProjectC
   const { label, variant } = statusConfig[status]
 
   const card = (
-    <Card className={href ? "transition-colors group-hover:border-foreground/20" : undefined}>
+    <Card className={cn(href && "transition-colors group-hover:border-foreground/20")}>
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle className="font-heading font-semibold text-lg">{title}</CardTitle>
+          <CardTitle className="text-balance font-heading font-semibold text-lg">{title}</CardTitle>
           <Badge variant={variant}>{label}</Badge>
         </div>
       </CardHeader>
@@ -42,7 +43,7 @@ export function ProjectCard({ title, description, tags, href, status }: ProjectC
 
   if (href) {
     return (
-      <Link href={href} className="group" target="_blank">
+      <Link href={href} className="group" target="_blank" rel="noopener noreferrer">
         {card}
       </Link>
     )

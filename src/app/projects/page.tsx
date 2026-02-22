@@ -31,7 +31,7 @@ const projects = [
 export default function ProjectsPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 md:py-24">
-      <h1 className="font-heading font-semibold text-3xl">Projects</h1>
+      <h1 className="text-balance font-heading font-semibold text-3xl">Projects</h1>
       <p className="mt-2 mb-12 text-lg text-muted-foreground">Things I&rsquo;m building and have built.</p>
 
       <div className="space-y-6">

@@ -32,7 +32,7 @@ export default function AboutPage() {
       <div className="flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
         <Image src="/avatar-placeholder.svg" alt="Nikita" width={120} height={120} className="rounded-full" priority />
         <div>
-          <h1 className="font-heading font-semibold text-3xl">Nikita</h1>
+          <h1 className="text-balance font-heading font-semibold text-3xl">Nikita</h1>
           <p className="mt-1 text-lg text-muted-foreground">
             Software developer, language enthusiast, builder of things.
           </p>
@@ -64,7 +64,7 @@ export default function AboutPage() {
 
       {/* Skills/tech section */}
       <section className="mt-16">
-        <h2 className="font-heading font-semibold text-xl">Tech</h2>
+        <h2 className="text-balance font-heading font-semibold text-xl">Tech</h2>
         <div className="mt-4 flex flex-wrap gap-2">
           {skills.map((skill) => (
             <Badge key={skill} variant="secondary">
@@ -76,7 +76,7 @@ export default function AboutPage() {
 
       {/* Languages section */}
       <section className="mt-16">
-        <h2 className="font-heading font-semibold text-xl">Languages</h2>
+        <h2 className="text-balance font-heading font-semibold text-xl">Languages</h2>
         <div className="mt-4 grid grid-cols-3 gap-4">
           {languages.map((lang) => (
             <div key={lang.name}>

@@ -17,7 +17,10 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 border-border/40 border-b bg-background/80 backdrop-blur-sm">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
-        <Link href="/" className="font-heading font-semibold text-lg tracking-tight">
+        <Link
+          href="/"
+          className="font-heading font-semibold text-lg tracking-tight focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
+        >
           {siteConfig.name}
         </Link>
 
@@ -29,7 +32,7 @@ export function SiteHeader() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-md px-3 py-1.5 text-sm transition-colors",
+                  "rounded-md px-3 py-1.5 text-sm transition-colors focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2",
                   pathname === item.href ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                 )}
               >
@@ -48,7 +51,7 @@ export function SiteHeader() {
             aria-label="Open menu"
             onClick={() => setMobileNavOpen(true)}
           >
-            <Menu className="size-4" />
+            <Menu className="size-4" aria-hidden="true" />
           </Button>
         </div>
       </div>

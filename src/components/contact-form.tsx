@@ -1,6 +1,6 @@
 "use client"
 
-import { useActionState } from "react"
+import { useActionState, useRef } from "react"
 import { type ContactFormState, submitContactForm } from "@/app/contact/actions"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -10,6 +10,7 @@ export function ContactForm() {
   const [state, formAction, isPending] = useActionState<ContactFormState, FormData>(submitContactForm, {
     success: false,
   })
+  const formRef = useRef<HTMLFormElement>(null)
 
   if (state.success) {
     return (
@@ -21,21 +22,48 @@ export function ContactForm() {
   }
 
   return (
-    <form action={formAction} className="space-y-6">
+    <form ref={formRef} action={formAction} className="space-y-6">
       <div>
         <label htmlFor="name" className="font-medium text-sm">
           Name
         </label>
-        <Input id="name" type="text" name="name" placeholder="Your name" required className="mt-1.5" />
-        {state.fieldErrors?.name && <p className="mt-1 text-destructive text-sm">{state.fieldErrors.name[0]}</p>}
+        <Input
+          id="name"
+          type="text"
+          name="name"
+          autoComplete="name"
+          placeholder="Your name…"
+          defaultValue={state.values?.name}
+          required
+          className="mt-1.5"
+        />
+        {state.fieldErrors?.name && (
+          <p className="mt-1 text-destructive text-sm" role="alert">
+            {state.fieldErrors.name[0]}
+          </p>
+        )}
       </div>
 
       <div>
         <label htmlFor="email" className="font-medium text-sm">
           Email
         </label>
-        <Input id="email" type="email" name="email" placeholder="your@email.com" required className="mt-1.5" />
-        {state.fieldErrors?.email && <p className="mt-1 text-destructive text-sm">{state.fieldErrors.email[0]}</p>}
+        <Input
+          id="email"
+          type="email"
+          name="email"
+          autoComplete="email"
+          spellCheck={false}
+          placeholder="you@example.com…"
+          defaultValue={state.values?.email}
+          required
+          className="mt-1.5"
+        />
+        {state.fieldErrors?.email && (
+          <p className="mt-1 text-destructive text-sm" role="alert">
+            {state.fieldErrors.email[0]}
+          </p>
+        )}
       </div>
 
       <div>
@@ -45,18 +73,27 @@ export function ContactForm() {
         <Textarea
           id="message"
           name="message"
-          placeholder="Tell me about your project..."
+          placeholder="Tell me about your project…"
+          defaultValue={state.values?.message}
           rows={6}
           required
           className="mt-1.5"
         />
-        {state.fieldErrors?.message && <p className="mt-1 text-destructive text-sm">{state.fieldErrors.message[0]}</p>}
+        {state.fieldErrors?.message && (
+          <p className="mt-1 text-destructive text-sm" role="alert">
+            {state.fieldErrors.message[0]}
+          </p>
+        )}
       </div>
 
-      {state.error && <p className="text-destructive text-sm">{state.error}</p>}
+      {state.error && (
+        <p className="text-destructive text-sm" role="alert">
+          {state.error} Please check your connection and try again.
+        </p>
+      )}
 
       <Button type="submit" disabled={isPending}>
-        {isPending ? "Sending..." : "Send message"}
+        {isPending ? "Sending…" : "Send Message"}
       </Button>
     </form>
   )

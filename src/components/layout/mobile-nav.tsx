@@ -23,7 +23,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
               key={item.href}
               href={item.href}
               onClick={() => onOpenChange(false)}
-              className="rounded-md px-3 py-2.5 text-base text-muted-foreground transition-colors hover:text-foreground"
+              className="rounded-md px-3 py-2.5 text-base text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
             >
               {item.title}
             </Link>

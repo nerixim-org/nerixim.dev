@@ -12,19 +12,23 @@ export type ContactFormState = {
   success: boolean
   error?: string
   fieldErrors?: Record<string, string[]>
+  values?: { name: string; email: string; message: string }
 }
 
 export async function submitContactForm(_prevState: ContactFormState, formData: FormData): Promise<ContactFormState> {
-  const parsed = contactSchema.safeParse({
-    name: formData.get("name"),
-    email: formData.get("email"),
-    message: formData.get("message"),
-  })
+  const rawValues = {
+    name: (formData.get("name") as string) ?? "",
+    email: (formData.get("email") as string) ?? "",
+    message: (formData.get("message") as string) ?? "",
+  }
+
+  const parsed = contactSchema.safeParse(rawValues)
 
   if (!parsed.success) {
     return {
       success: false,
       fieldErrors: z.flattenError(parsed.error).fieldErrors,
+      values: rawValues,
     }
   }
 
@@ -34,6 +38,7 @@ export async function submitContactForm(_prevState: ContactFormState, formData: 
     return {
       success: false,
       error: "Contact form is not configured. Please try again later.",
+      values: rawValues,
     }
   }
 
@@ -80,6 +85,7 @@ export async function submitContactForm(_prevState: ContactFormState, formData: 
     return {
       success: false,
       error: "Failed to send message. Please try again.",
+      values: rawValues,
     }
   }
 }

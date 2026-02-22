@@ -41,6 +41,10 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
   },
+  other: {
+    "theme-color-light": "#faf9f7",
+    "theme-color-dark": "#1f2028",
+  },
   robots: { index: true, follow: true },
 }
 
