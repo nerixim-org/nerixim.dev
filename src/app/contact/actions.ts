@@ -1,6 +1,5 @@
 "use server"
 
-import { Resend } from "resend"
 import { z } from "zod"
 
 const contactSchema = z.object({
@@ -29,16 +28,48 @@ export async function submitContactForm(_prevState: ContactFormState, formData: 
     }
   }
 
-  const resend = new Resend(process.env.RESEND_API_KEY)
+  const webhookUrl = process.env.SLACK_WEBHOOK_URL
+  if (!webhookUrl) {
+    return {
+      success: false,
+      error: "Contact form is not configured. Please try again later.",
+    }
+  }
 
   try {
-    await resend.emails.send({
-      from: "nerixim.dev <contact@nerixim.dev>",
-      to: process.env.CONTACT_EMAIL!,
-      replyTo: parsed.data.email,
-      subject: `Contact form: ${parsed.data.name}`,
-      text: `Name: ${parsed.data.name}\nEmail: ${parsed.data.email}\n\n${parsed.data.message}`,
+    const response = await fetch(webhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        blocks: [
+          {
+            type: "header",
+            text: {
+              type: "plain_text",
+              text: `Contact form: ${parsed.data.name}`,
+            },
+          },
+          {
+            type: "section",
+            fields: [
+              { type: "mrkdwn", text: `*Name:*\n${parsed.data.name}` },
+              { type: "mrkdwn", text: `*Email:*\n${parsed.data.email}` },
+            ],
+          },
+          {
+            type: "section",
+            text: {
+              type: "mrkdwn",
+              text: `*Message:*\n${parsed.data.message}`,
+            },
+          },
+        ],
+      }),
     })
+
+    if (!response.ok) {
+      throw new Error("Slack webhook failed")
+    }
 
     return { success: true }
   } catch {

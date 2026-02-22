@@ -32,13 +32,11 @@ export const metadata: Metadata = {
     siteName: "nerixim",
     title: "nerixim — Software Developer",
     description: "Full-stack developer based in Japan.",
-    images: [{ url: "/og-default.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
     title: "nerixim — Software Developer",
     description: "Full-stack developer based in Japan.",
-    images: ["/og-default.png"],
   },
   icons: {
     icon: "/favicon.svg",
