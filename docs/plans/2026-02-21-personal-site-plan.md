@@ -1,8 +1,8 @@
 # Plan: Personal/Business Website (Hub Site)
 
 Date: 2026-02-21
-Updated: 2026-02-22
-Status: Planning
+Updated: 2026-02-23
+Status: Gate 1 (implementation complete, deployment pending)
 Type: MVP build plan
 
 ---
@@ -69,15 +69,15 @@ No code. Just decisions that unblock everything else.
 
 Build and deploy the site with real content on every page. No placeholder text. No "coming soon" sections. Every page either has content or doesn't exist.
 
-- [ ] Set up Next.js project (App Router, Tailwind, MDX)
-- [ ] Build layout: header, footer, nav (responsive, dark mode)
-- [ ] Build and write: Home page
-- [ ] Build and write: About page (your story, skills, photo)
-- [ ] Build and write: Services page (dev, AI consulting, localization)
-- [ ] Build and write: Projects page (existing work, Pechka description)
-- [ ] Build: Contact page (simple form -- Formspree or similar, no backend)
-- [ ] Build: Blog index page (empty state is ok if design is ready)
-- [ ] Set up Open Graph / social meta tags
+- [x] Set up Next.js project (App Router, Tailwind, MDX)
+- [x] Build layout: header, footer, nav (responsive, dark mode)
+- [x] Build and write: Home page
+- [x] Build and write: About page (your story, skills, photo)
+- [x] Build and write: Services page (dev, AI consulting, localization)
+- [x] Build and write: Projects page (existing work, Pechka description)
+- [x] Build: Contact page (Slack webhook integration, server action)
+- [x] Build: Blog index page (empty state is ok if design is ready)
+- [x] Set up Open Graph / social meta tags (dynamic OG image via opengraph-image.tsx)
 - [ ] Deploy to Vercel
 - [ ] Set up Vercel Analytics (free tier)
 - [ ] Verify: site loads fast, looks good on mobile, dark mode works
@@ -367,6 +367,12 @@ Gate 3 is 2-3 weeks after launch, not "someday." Japanese is a must, just not a 
 | Brand name | nerixim | Already have GitHub org, unique, works in EN/JP/RU | 2026-02-22 |
 | Domain | nerixim.dev | Signals developer, HTTPS enforced, ~$12/yr, available | 2026-02-22 |
 | Repo structure | Single public repo, drafts in .gitignore | Simplicity > edge cases, code is portfolio | 2026-02-22 |
+| Contact form | Slack incoming webhook | Simpler than Formspree, no DNS/email setup, instant notification | 2026-02-23 |
+| Linter/formatter | Biome (not ESLint/Prettier) | Faster, single tool, enforces CSS class sorting | 2026-02-23 |
+| UI components | shadcn/ui (new-york style) | Accessible, composable, Tailwind-native | 2026-02-23 |
+| Design direction | Refined minimal (serif + sans) | Source Serif 4 + DM Sans, dark mode first-class | 2026-02-23 |
+| OG image | Dynamic opengraph-image.tsx | No static images to maintain, auto-generates | 2026-02-23 |
+| Validation | Zod v4 | Type-safe, server action compatible | 2026-02-23 |
 
 ---
 
