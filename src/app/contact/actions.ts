@@ -4,7 +4,7 @@ import { z } from "zod"
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
+  email: z.email("Invalid email address"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 })
 
@@ -24,7 +24,7 @@ export async function submitContactForm(_prevState: ContactFormState, formData: 
   if (!parsed.success) {
     return {
       success: false,
-      fieldErrors: parsed.error.flatten().fieldErrors,
+      fieldErrors: z.flattenError(parsed.error).fieldErrors,
     }
   }
 
@@ -68,11 +68,13 @@ export async function submitContactForm(_prevState: ContactFormState, formData: 
     })
 
     if (!response.ok) {
+      console.error("Slack webhook failed", JSON.stringify(await response.text(), null, 2))
       throw new Error("Slack webhook failed")
     }
 
     return { success: true }
-  } catch {
+  } catch (error) {
+    console.error("Failed to send message", JSON.stringify(error, null, 2))
     return {
       success: false,
       error: "Failed to send message. Please try again.",
