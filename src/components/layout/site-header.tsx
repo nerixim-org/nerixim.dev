@@ -1,26 +1,23 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { Menu } from "lucide-react";
-import { siteConfig } from "@/lib/site-config";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/layout/theme-toggle";
-import { MobileNav } from "@/components/layout/mobile-nav";
+import { Menu } from "lucide-react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { useState } from "react"
+import { MobileNav } from "@/components/layout/mobile-nav"
+import { ThemeToggle } from "@/components/layout/theme-toggle"
+import { Button } from "@/components/ui/button"
+import { siteConfig } from "@/lib/site-config"
+import { cn } from "@/lib/utils"
 
 export function SiteHeader() {
-  const pathname = usePathname();
-  const [mobileNavOpen, setMobileNavOpen] = useState(false);
+  const pathname = usePathname()
+  const [mobileNavOpen, setMobileNavOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-sm">
+    <header className="sticky top-0 z-50 border-border/40 border-b bg-background/80 backdrop-blur-sm">
       <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-4">
-        <Link
-          href="/"
-          className="font-heading text-lg font-semibold tracking-tight"
-        >
+        <Link href="/" className="font-heading font-semibold text-lg tracking-tight">
           {siteConfig.name}
         </Link>
 
@@ -33,9 +30,7 @@ export function SiteHeader() {
                 href={item.href}
                 className={cn(
                   "rounded-md px-3 py-1.5 text-sm transition-colors",
-                  pathname === item.href
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground"
+                  pathname === item.href ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                 )}
               >
                 {item.title}
@@ -60,5 +55,5 @@ export function SiteHeader() {
 
       <MobileNav open={mobileNavOpen} onOpenChange={setMobileNavOpen} />
     </header>
-  );
+  )
 }

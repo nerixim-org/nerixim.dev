@@ -1,18 +1,13 @@
-"use client";
+"use client"
 
-import Link from "next/link";
-import { siteConfig } from "@/lib/site-config";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
-import { ThemeToggle } from "@/components/layout/theme-toggle";
+import Link from "next/link"
+import { ThemeToggle } from "@/components/layout/theme-toggle"
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
+import { siteConfig } from "@/lib/site-config"
 
 interface MobileNavProps {
-  open: boolean;
-  onOpenChange: (open: boolean) => void;
+  open: boolean
+  onOpenChange: (open: boolean) => void
 }
 
 export function MobileNav({ open, onOpenChange }: MobileNavProps) {
@@ -20,9 +15,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent side="right" className="w-72">
         <SheetHeader>
-          <SheetTitle className="font-heading text-lg">
-            {siteConfig.name}
-          </SheetTitle>
+          <SheetTitle className="font-heading text-lg">{siteConfig.name}</SheetTitle>
         </SheetHeader>
         <nav className="flex flex-col gap-1 px-4">
           {siteConfig.nav.map((item) => (
@@ -30,7 +23,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
               key={item.href}
               href={item.href}
               onClick={() => onOpenChange(false)}
-              className="text-muted-foreground hover:text-foreground rounded-md px-3 py-2.5 text-base transition-colors"
+              className="rounded-md px-3 py-2.5 text-base text-muted-foreground transition-colors hover:text-foreground"
             >
               {item.title}
             </Link>
@@ -41,5 +34,5 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
         </div>
       </SheetContent>
     </Sheet>
-  );
+  )
 }

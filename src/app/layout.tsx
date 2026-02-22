@@ -1,22 +1,22 @@
-import type { Metadata } from "next";
-import { Source_Serif_4, DM_Sans } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
-import { Providers } from "./providers";
-import { SiteHeader } from "@/components/layout/site-header";
-import { SiteFooter } from "@/components/layout/site-footer";
-import "./globals.css";
+import { Analytics } from "@vercel/analytics/react"
+import type { Metadata } from "next"
+import { DM_Sans, Source_Serif_4 } from "next/font/google"
+import { SiteFooter } from "@/components/layout/site-footer"
+import { SiteHeader } from "@/components/layout/site-header"
+import { Providers } from "./providers"
+import "./globals.css"
 
 const sourceSerif = Source_Serif_4({
   variable: "--font-heading",
   subsets: ["latin"],
   display: "swap",
-});
+})
 
 const dmSans = DM_Sans({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
-});
+})
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nerixim.dev"),
@@ -24,8 +24,7 @@ export const metadata: Metadata = {
     default: "nerixim — Software Developer",
     template: "%s | nerixim",
   },
-  description:
-    "Full-stack developer based in Japan. Building software across languages and borders.",
+  description: "Full-stack developer based in Japan. Building software across languages and borders.",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -45,12 +44,12 @@ export const metadata: Metadata = {
     icon: "/favicon.svg",
   },
   robots: { index: true, follow: true },
-};
+}
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang="en" className={`${sourceSerif.variable} ${dmSans.variable}`} suppressHydrationWarning>
@@ -65,5 +64,5 @@ export default function RootLayout({
         </Providers>
       </body>
     </html>
-  );
+  )
 }

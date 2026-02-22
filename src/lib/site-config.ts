@@ -1,8 +1,7 @@
 export const siteConfig = {
   name: "nerixim",
   title: "Nikita — Software Developer",
-  description:
-    "Full-stack developer building software across languages and borders. Based in Japan.",
+  description: "Full-stack developer building software across languages and borders. Based in Japan.",
   url: "https://nerixim.dev",
   author: "Nikita",
   links: {
@@ -15,4 +14,4 @@ export const siteConfig = {
     { title: "Blog", href: "/blog" },
     { title: "Contact", href: "/contact" },
   ],
-} as const;
+} as const

@@ -1,14 +1,14 @@
-import Link from "next/link";
-import { Github } from "lucide-react";
-import { siteConfig } from "@/lib/site-config";
-import { Separator } from "@/components/ui/separator";
+import { Github } from "lucide-react"
+import Link from "next/link"
+import { Separator } from "@/components/ui/separator"
+import { siteConfig } from "@/lib/site-config"
 
 export function SiteFooter() {
   return (
     <footer>
       <Separator />
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-8">
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           &copy; {new Date().getFullYear()} {siteConfig.name}
         </p>
         <Link
@@ -22,5 +22,5 @@ export function SiteFooter() {
         </Link>
       </div>
     </footer>
-  );
+  )
 }

@@ -1,52 +1,34 @@
-import Link from "next/link";
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import Link from "next/link"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 
 interface ProjectCardProps {
-  title: string;
-  description: string;
-  tags: string[];
-  href?: string;
-  status: "live" | "in-progress" | "planned";
+  title: string
+  description: string
+  tags: string[]
+  href?: string
+  status: "live" | "in-progress" | "planned"
 }
 
 const statusConfig = {
   live: { label: "Live", variant: "default" as const },
   "in-progress": { label: "In Progress", variant: "secondary" as const },
   planned: { label: "Planned", variant: "outline" as const },
-};
+}
 
-export function ProjectCard({
-  title,
-  description,
-  tags,
-  href,
-  status,
-}: ProjectCardProps) {
-  const { label, variant } = statusConfig[status];
+export function ProjectCard({ title, description, tags, href, status }: ProjectCardProps) {
+  const { label, variant } = statusConfig[status]
 
   const card = (
-    <Card
-      className={
-        href ? "group-hover:border-foreground/20 transition-colors" : undefined
-      }
-    >
+    <Card className={href ? "transition-colors group-hover:border-foreground/20" : undefined}>
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle className="font-heading text-lg font-semibold">
-            {title}
-          </CardTitle>
+          <CardTitle className="font-heading font-semibold text-lg">{title}</CardTitle>
           <Badge variant={variant}>{label}</Badge>
         </div>
       </CardHeader>
       <CardContent>
-        <p className="text-sm text-muted-foreground">{description}</p>
+        <p className="text-muted-foreground text-sm">{description}</p>
       </CardContent>
       <CardFooter className="flex-wrap gap-2">
         {tags.map((tag) => (
@@ -56,15 +38,15 @@ export function ProjectCard({
         ))}
       </CardFooter>
     </Card>
-  );
+  )
 
   if (href) {
     return (
       <Link href={href} className="group" target="_blank">
         {card}
       </Link>
-    );
+    )
   }
 
-  return card;
+  return card
 }
