@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { ContactForm } from "@/components/contact-form"
 
 export const metadata: Metadata = {
-  title: "Contact — Get in Touch About a Project or Collaboration",
+  title: "Contact — Get in Touch About Your Project",
   description:
     "Have a project in mind or want to discuss a collaboration? Reach out about software development, AI integration, localization, or consulting work.",
 }

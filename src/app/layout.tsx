@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | nerixim",
   },
   description:
-    "Full-stack developer based in Japan, building software across languages and borders. Specializing in web development, AI integration, and bilingual localization.",
+    "Full-stack developer based in Japan, building software across languages and borders. Web development, AI integration, and localization.",
   alternates: {
     canonical: "/",
   },

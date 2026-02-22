@@ -2,7 +2,7 @@
 
 Date: 2026-02-21
 Updated: 2026-02-23
-Status: Gate 1 (implementation complete, deployment pending)
+Status: Gate 1 COMPLETE (2026-02-23)
 Type: MVP build plan
 
 ---
@@ -78,9 +78,11 @@ Build and deploy the site with real content on every page. No placeholder text. 
 - [x] Build: Contact page (Slack webhook integration, server action)
 - [x] Build: Blog index page (empty state is ok if design is ready)
 - [x] Set up Open Graph / social meta tags (dynamic OG image via opengraph-image.tsx)
-- [ ] Deploy to Vercel
-- [ ] Set up Vercel Analytics (free tier)
-- [ ] Verify: site loads fast, looks good on mobile, dark mode works
+- [x] Deploy to Vercel
+- [x] Set up Vercel Analytics (free tier)
+- [x] Verify: site loads fast, looks good on mobile, dark mode works
+
+**Gate 1: COMPLETE** (2026-02-23)
 
 **Gate 1 exit criteria:** Site is live at your domain. All 6 pages exist with real copy. Contact form works. You can share the URL with someone and not be embarrassed.
 
@@ -373,6 +375,11 @@ Gate 3 is 2-3 weeks after launch, not "someday." Japanese is a must, just not a 
 | Design direction | Refined minimal (serif + sans) | Source Serif 4 + DM Sans, dark mode first-class | 2026-02-23 |
 | OG image | Dynamic opengraph-image.tsx | No static images to maintain, auto-generates | 2026-02-23 |
 | Validation | Zod v4 | Type-safe, server action compatible | 2026-02-23 |
+| Spam protection | Cloudflare Turnstile | Free, privacy-friendly, graceful degradation when env vars absent | 2026-02-23 |
+| Security headers | next.config.ts custom headers | X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy | 2026-02-23 |
+| Sitemap/robots | Dynamic via Next.js App Router | sitemap.ts + robots.ts, auto-updated | 2026-02-23 |
+| Privacy policy | Static page at /privacy | Minimal, covers contact form + Vercel Analytics + Turnstile | 2026-02-23 |
+| Site audit tool | squirrelscan (squirrel CLI) | 230+ rules, LLM-optimized output, score 52→83 after fixes | 2026-02-23 |
 
 ---
 

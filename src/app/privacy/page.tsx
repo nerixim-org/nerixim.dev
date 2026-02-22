@@ -2,9 +2,9 @@ import type { Metadata } from "next"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
+  title: "Privacy Policy — How Your Information Is Handled",
   description:
-    "How nerixim.dev handles your data — what is collected, how it is used, and what third-party services are involved.",
+    "How nerixim.dev handles your information. What the contact form collects, how analytics work, and which third-party services are used.",
 }
 
 export default function PrivacyPage() {

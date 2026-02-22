@@ -19,7 +19,7 @@ const projects = [
     description: "This site. A hub for my work, writing, and tools.",
     status: "live" as const,
     tags: ["Next.js", "TypeScript", "Tailwind CSS"],
-    href: "https://nerixim.dev",
+    href: "/",
   },
   {
     title: "Freelance Development",
