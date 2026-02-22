@@ -30,6 +30,7 @@ export async function submitContactForm(_prevState: ContactFormState, formData: 
 
   const webhookUrl = process.env.SLACK_WEBHOOK_URL
   if (!webhookUrl) {
+    console.error("SLACK_WEBHOOK_URL is not set")
     return {
       success: false,
       error: "Contact form is not configured. Please try again later.",
@@ -37,6 +38,7 @@ export async function submitContactForm(_prevState: ContactFormState, formData: 
   }
 
   try {
+    console.log("Sending message to Slack", { webhookUrl, parsedData: JSON.stringify(parsed.data) })
     const response = await fetch(webhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -46,7 +48,7 @@ export async function submitContactForm(_prevState: ContactFormState, formData: 
             type: "header",
             text: {
               type: "plain_text",
-              text: `Contact form: ${parsed.data.name}`,
+              text: `nerixim.dev contact form submission from ${parsed.data.name}`,
             },
           },
           {
