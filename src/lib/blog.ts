@@ -26,7 +26,8 @@ export type Post = PostFrontmatter & {
 	content: string
 }
 
-export const mdxOptions = {
+// biome-ignore lint/suspicious/noExplicitAny: rehype plugin types are complex and incompatible with next-mdx-remote's expected types
+export const mdxOptions: { rehypePlugins: any[] } = {
 	rehypePlugins: [
 		rehypeSlug,
 		[rehypeAutolinkHeadings, { behavior: "wrap" }],
@@ -35,7 +36,7 @@ export const mdxOptions = {
 			{ theme: { dark: "github-dark", light: "github-light" } },
 		],
 	],
-} as const
+}
 
 export async function getPostBySlug(slug: string): Promise<Post> {
 	const filePath = path.join(BLOG_DIR, `${slug}.mdx`)
