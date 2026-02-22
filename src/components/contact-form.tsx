@@ -1,5 +1,6 @@
 "use client"
 
+import { Turnstile } from "@marsidev/react-turnstile"
 import { useActionState, useRef } from "react"
 import { type ContactFormState, submitContactForm } from "@/app/contact/actions"
 import { Button } from "@/components/ui/button"
@@ -86,9 +87,11 @@ export function ContactForm() {
         )}
       </div>
 
+      {process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY && <Turnstile siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY} />}
+
       {state.error && (
         <p className="text-destructive text-sm" role="alert">
-          {state.error} Please check your connection and try again.
+          {state.error}
         </p>
       )}
 

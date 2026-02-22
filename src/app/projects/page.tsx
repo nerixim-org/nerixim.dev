@@ -2,8 +2,9 @@ import type { Metadata } from "next"
 import { ProjectCard } from "@/components/project-card"
 
 export const metadata: Metadata = {
-  title: "Projects",
-  description: "Things I've built and am building.",
+  title: "Projects — Things I Am Building and Have Built",
+  description:
+    "A collection of software projects including language learning apps, developer tools, and client work. Built with TypeScript, React, Next.js, Swift, and more.",
 }
 
 const projects = [

@@ -22,22 +22,28 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL("https://nerixim.dev"),
   title: {
-    default: "nerixim — Software Developer",
+    default: "nerixim — Software Developer Based in Japan",
     template: "%s | nerixim",
   },
-  description: "Full-stack developer based in Japan. Building software across languages and borders.",
+  description:
+    "Full-stack developer based in Japan, building software across languages and borders. Specializing in web development, AI integration, and bilingual localization.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://nerixim.dev",
     siteName: "nerixim",
-    title: "nerixim — Software Developer",
-    description: "Full-stack developer based in Japan.",
+    title: "nerixim — Software Developer Based in Japan",
+    description:
+      "Full-stack developer based in Japan, building software across languages and borders. Web development, AI integration, and localization.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "nerixim — Software Developer",
-    description: "Full-stack developer based in Japan.",
+    title: "nerixim — Software Developer Based in Japan",
+    description:
+      "Full-stack developer based in Japan, building software across languages and borders. Web development, AI integration, and localization.",
   },
   icons: {
     icon: "/favicon.svg",

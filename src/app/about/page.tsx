@@ -3,9 +3,9 @@ import Image from "next/image"
 import { Badge } from "@/components/ui/badge"
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About — Developer, Language Enthusiast, Builder",
   description:
-    "Software developer based in Japan. Trilingual (EN/JP/RU). Building products across languages and borders.",
+    "Software developer based in Japan. Trilingual in English, Japanese, and Russian. Building products that work across languages, cultures, and borders.",
 }
 
 const skills = [

@@ -4,8 +4,9 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 
 export const metadata: Metadata = {
-  title: "Services",
-  description: "Software development, AI integration, and localization services.",
+  title: "Services — Development, AI Integration, and Localization",
+  description:
+    "Software development, AI integration, and bilingual localization services for startups, agencies, and businesses. Full-stack web and mobile development based in Japan.",
 }
 
 const services = [

@@ -15,11 +15,47 @@ export type ContactFormState = {
   values?: { name: string; email: string; message: string }
 }
 
+async function verifyTurnstile(token: string): Promise<boolean> {
+  const secret = process.env.TURNSTILE_SECRET_KEY
+  if (!secret) {
+    return true
+  }
+
+  const response = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({ secret, response: token }),
+  })
+
+  const data = (await response.json()) as { success: boolean }
+  return data.success
+}
+
 export async function submitContactForm(_prevState: ContactFormState, formData: FormData): Promise<ContactFormState> {
   const rawValues = {
     name: (formData.get("name") as string) ?? "",
     email: (formData.get("email") as string) ?? "",
     message: (formData.get("message") as string) ?? "",
+  }
+
+  const turnstileToken = formData.get("cf-turnstile-response") as string
+  if (process.env.TURNSTILE_SECRET_KEY) {
+    if (!turnstileToken) {
+      return {
+        success: false,
+        error: "Spam verification failed. Please try again.",
+        values: rawValues,
+      }
+    }
+
+    const verified = await verifyTurnstile(turnstileToken)
+    if (!verified) {
+      return {
+        success: false,
+        error: "Spam verification failed. Please try again.",
+        values: rawValues,
+      }
+    }
   }
 
   const parsed = contactSchema.safeParse(rawValues)
@@ -43,7 +79,6 @@ export async function submitContactForm(_prevState: ContactFormState, formData: 
   }
 
   try {
-    console.log("Sending message to Slack", { webhookUrl, parsedData: JSON.stringify(parsed.data) })
     const response = await fetch(webhookUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -75,13 +110,13 @@ export async function submitContactForm(_prevState: ContactFormState, formData: 
     })
 
     if (!response.ok) {
-      console.error("Slack webhook failed", JSON.stringify(await response.text(), null, 2))
+      console.error("Slack webhook failed", await response.text())
       throw new Error("Slack webhook failed")
     }
 
     return { success: true }
   } catch (error) {
-    console.error("Failed to send message", JSON.stringify(error, null, 2))
+    console.error("Failed to send message", error)
     return {
       success: false,
       error: "Failed to send message. Please try again.",

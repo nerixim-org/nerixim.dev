@@ -8,9 +8,17 @@ export function SiteFooter() {
     <footer>
       <Separator />
       <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-8">
-        <p className="text-muted-foreground text-sm">
-          &copy; {new Date().getFullYear()} {siteConfig.name}
-        </p>
+        <div className="flex items-center gap-4">
+          <p className="text-muted-foreground text-sm">
+            &copy; {new Date().getFullYear()} {siteConfig.name}
+          </p>
+          <Link
+            href="/privacy"
+            className="text-muted-foreground text-sm transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
+          >
+            Privacy
+          </Link>
+        </div>
         <Link
           href={siteConfig.links.github}
           target="_blank"

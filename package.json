@@ -11,6 +11,7 @@
     "compile": "npx tsgo --noEmit -p ./tsconfig.json || (>&2 echo '❌️ Compile failed' && exit 1)"
   },
   "dependencies": {
+    "@marsidev/react-turnstile": "^1.4.2",
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "^16.1.6",

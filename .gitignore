@@ -39,6 +39,9 @@ content/blog/drafts/
 # vercel
 .vercel
 
+# squirrel (audit tool)
+squirrel.toml
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
