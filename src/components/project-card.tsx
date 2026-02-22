@@ -1,0 +1,70 @@
+import Link from "next/link";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  CardFooter,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
+interface ProjectCardProps {
+  title: string;
+  description: string;
+  tags: string[];
+  href?: string;
+  status: "live" | "in-progress" | "planned";
+}
+
+const statusConfig = {
+  live: { label: "Live", variant: "default" as const },
+  "in-progress": { label: "In Progress", variant: "secondary" as const },
+  planned: { label: "Planned", variant: "outline" as const },
+};
+
+export function ProjectCard({
+  title,
+  description,
+  tags,
+  href,
+  status,
+}: ProjectCardProps) {
+  const { label, variant } = statusConfig[status];
+
+  const card = (
+    <Card
+      className={
+        href ? "group-hover:border-foreground/20 transition-colors" : undefined
+      }
+    >
+      <CardHeader>
+        <div className="flex items-center justify-between">
+          <CardTitle className="font-heading text-lg font-semibold">
+            {title}
+          </CardTitle>
+          <Badge variant={variant}>{label}</Badge>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <p className="text-sm text-muted-foreground">{description}</p>
+      </CardContent>
+      <CardFooter className="flex-wrap gap-2">
+        {tags.map((tag) => (
+          <Badge key={tag} variant="outline" className="text-xs">
+            {tag}
+          </Badge>
+        ))}
+      </CardFooter>
+    </Card>
+  );
+
+  if (href) {
+    return (
+      <Link href={href} className="group" target="_blank">
+        {card}
+      </Link>
+    );
+  }
+
+  return card;
+}
