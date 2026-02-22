@@ -67,10 +67,8 @@ export default function ServicesPage() {
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 md:py-24">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      {/* biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data requires dangerouslySetInnerHTML */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <h1 className="text-balance font-heading font-semibold text-3xl">Services</h1>
       <p className="mt-2 mb-12 text-lg text-muted-foreground">
         I help startups, agencies, and businesses build and improve their software.
