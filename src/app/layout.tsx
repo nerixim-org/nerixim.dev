@@ -2,8 +2,6 @@ import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata } from "next"
 import { DM_Sans, Source_Serif_4 } from "next/font/google"
-import { SiteFooter } from "@/components/layout/site-footer"
-import { SiteHeader } from "@/components/layout/site-header"
 import { Providers } from "./providers"
 import "./globals.css"
 
@@ -64,11 +62,7 @@ export default function RootLayout({
     <html lang="en" className={`${sourceSerif.variable} ${dmSans.variable}`} suppressHydrationWarning>
       <body className="min-h-screen bg-background font-body antialiased">
         <Providers>
-          <div className="relative flex min-h-screen flex-col">
-            <SiteHeader />
-            <main className="flex-1">{children}</main>
-            <SiteFooter />
-          </div>
+          {children}
           <Analytics />
           <SpeedInsights />
         </Providers>

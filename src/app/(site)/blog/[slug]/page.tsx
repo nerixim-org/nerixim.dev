@@ -55,6 +55,10 @@ export default async function BlogPostPage({ params }: Props) {
     notFound()
   }
 
+  if (!post.published) {
+    notFound()
+  }
+
   const headings = extractHeadings(post.content)
   const relatedPosts = await getRelatedPosts(post.slug, post.tags)
   const postUrl = `${siteConfig.url}/blog/${slug}`

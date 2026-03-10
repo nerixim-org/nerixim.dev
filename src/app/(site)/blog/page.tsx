@@ -40,6 +40,7 @@ export default async function BlogPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 md:py-24">
       {/* biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data requires dangerouslySetInnerHTML */}
+      {/** biome-ignore lint/style/useNamingConvention: see above */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
       <h1 className="text-balance font-heading font-semibold text-3xl">Blog</h1>

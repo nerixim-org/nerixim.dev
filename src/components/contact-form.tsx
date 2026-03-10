@@ -2,7 +2,7 @@
 
 import { Turnstile } from "@marsidev/react-turnstile"
 import { useActionState, useRef } from "react"
-import { type ContactFormState, submitContactForm } from "@/app/contact/actions"
+import { type ContactFormState, submitContactForm } from "@/app/(site)/contact/actions"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
