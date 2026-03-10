@@ -54,6 +54,7 @@ function ConstellationBackground() {
     const dotColor = isDark ? "rgba(200, 200, 220, 0.5)" : "rgba(60, 60, 80, 0.35)"
     const lineColor = isDark ? "rgba(200, 200, 220," : "rgba(60, 60, 80,"
 
+    // biome-ignore lint/complexity/noExcessiveCognitiveComplexity: complex animation logic
     function animate() {
       if (!(ctx && canvas)) {
         return

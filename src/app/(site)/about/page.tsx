@@ -45,6 +45,7 @@ export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 md:py-24">
       {/* biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data requires dangerouslySetInnerHTML */}
+      {/** biome-ignore lint/style/useNamingConvention: see above */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       {/* Top section — Avatar + intro */}
       <div className="flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
