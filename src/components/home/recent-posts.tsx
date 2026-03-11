@@ -15,21 +15,25 @@ export async function RecentPosts() {
 
   return (
     <section className="py-16 md:py-24">
-      <div className="mx-auto max-w-5xl px-4">
-        <div className="flex items-baseline justify-between">
-          <h2 className="text-balance font-heading font-semibold text-2xl tracking-tight">{t("heading")}</h2>
-          <Link
-            href="/blog"
-            className="flex items-center gap-1 text-muted-foreground text-sm transition-colors hover:text-foreground"
-          >
-            {t("allPosts")}
-            <ArrowRight aria-hidden="true" className="size-3.5" />
-          </Link>
-        </div>
-        <div className="mt-6 grid gap-4 md:grid-cols-2">
-          {recentPosts.map((post) => (
-            <PostCard key={post.slug} post={post} />
-          ))}
+      <div className="section-shell">
+        <div className="surface-panel px-6 py-8 sm:px-8 sm:py-10">
+          <div className="flex items-baseline justify-between gap-4">
+            <h2 className="text-balance font-heading font-semibold text-2xl tracking-tight md:text-3xl">
+              {t("heading")}
+            </h2>
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-1 rounded-full px-2 py-1 text-muted-foreground text-sm transition-colors hover:bg-background/80 hover:text-foreground"
+            >
+              {t("allPosts")}
+              <ArrowRight aria-hidden="true" className="size-3.5" />
+            </Link>
+          </div>
+          <div className="mt-6 grid gap-4 md:grid-cols-2">
+            {recentPosts.map((post) => (
+              <PostCard key={post.slug} post={post} />
+            ))}
+          </div>
         </div>
       </div>
     </section>

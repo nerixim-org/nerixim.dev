@@ -39,11 +39,11 @@ export default async function HomePage({ params }: Props) {
   setRequestLocale(locale)
 
   return (
-    <>
+    <div className="home-canvas">
       <Hero />
       <ServicesPreview />
       <RecentPosts />
       <CtaSection />
-    </>
+    </div>
   )
 }

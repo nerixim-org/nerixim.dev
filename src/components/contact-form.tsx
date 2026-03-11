@@ -21,14 +21,14 @@ export function ContactForm() {
     return (
       <div
         aria-live="polite"
-        className="rounded-lg border border-green-200 bg-green-50 px-6 py-8 text-center dark:border-green-900 dark:bg-green-950"
+        className="surface-panel rounded-[1.75rem] border-primary/15 bg-primary/5 px-6 py-8 text-center"
       >
-        <p className="font-medium text-green-900 dark:text-green-100">{t("success")}</p>
-        <p className="mt-1 text-green-700 text-sm dark:text-green-300">{t("successDetail")}</p>
+        <p className="font-medium text-foreground">{t("success")}</p>
+        <p className="mt-1 text-muted-foreground text-sm">{t("successDetail")}</p>
         <button
           type="button"
           onClick={() => setDismissed(true)}
-          className="mt-4 text-green-700 text-sm underline underline-offset-4 transition-colors hover:text-green-900 dark:text-green-300 dark:hover:text-green-100"
+          className="mt-4 text-muted-foreground text-sm underline underline-offset-4 transition-colors hover:text-foreground"
         >
           {t("sendAnother")}
         </button>
@@ -37,7 +37,7 @@ export function ContactForm() {
   }
 
   return (
-    <form ref={formRef} action={formAction} className="space-y-6">
+    <form ref={formRef} action={formAction} className="surface-panel space-y-6 p-6 sm:p-8">
       <input type="hidden" name="locale" value={locale} />
       <div>
         <label htmlFor="name" className="font-medium text-sm">
@@ -110,7 +110,7 @@ export function ContactForm() {
         </p>
       )}
 
-      <Button type="submit" disabled={isPending}>
+      <Button type="submit" size="lg" disabled={isPending} className="w-full sm:w-auto">
         {isPending ? t("sending") : t("send")}
       </Button>
     </form>

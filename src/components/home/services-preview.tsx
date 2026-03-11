@@ -19,19 +19,28 @@ export function ServicesPreview() {
   }))
 
   return (
-    <section className="py-16 md:py-24">
-      <div className="mx-auto max-w-5xl px-4">
-        <h2 className="mb-8 text-balance font-heading font-semibold text-2xl tracking-tight">{t("heading")}</h2>
-        <div className="grid gap-6 md:grid-cols-3">
-          {services.map((service) => (
-            <Link key={service.title} href="/services" className="group">
-              <Card className="h-full transition-colors group-hover:border-foreground/20">
-                <CardHeader>
-                  <service.icon className="size-5 text-muted-foreground" aria-hidden="true" />
-                  <CardTitle className="font-heading text-lg">{service.title}</CardTitle>
+    <section className="py-14 md:py-24">
+      <div className="section-shell">
+        <h2 className="max-w-2xl text-balance font-heading font-semibold text-2xl tracking-tight md:text-3xl">
+          {t("heading")}
+        </h2>
+        <div className="mt-8 grid gap-6 md:grid-cols-3">
+          {services.map((service, index) => (
+            <Link
+              key={service.title}
+              href="/services"
+              className="group block animate-fade-in-up"
+              style={{ animationDelay: `${index * 90 + 80}ms` }}
+            >
+              <Card className="surface-panel-interactive h-full gap-0 py-0">
+                <CardHeader className="gap-3 px-5 pt-5 pb-3 sm:px-6 sm:pt-6">
+                  <div className="icon-tile">
+                    <service.icon className="size-5" aria-hidden="true" />
+                  </div>
+                  <CardTitle className="font-heading text-lg leading-snug">{service.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground text-sm">{service.description}</p>
+                <CardContent className="px-5 pt-0 pb-5 sm:px-6 sm:pb-6">
+                  <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>
                 </CardContent>
               </Card>
             </Link>

@@ -1,6 +1,5 @@
 import { Github } from "lucide-react"
 import { useTranslations } from "next-intl"
-import { Separator } from "@/components/ui/separator"
 import { Link } from "@/i18n/navigation"
 import { siteConfig } from "@/lib/site-config"
 
@@ -8,10 +7,12 @@ export function SiteFooter() {
   const t = useTranslations("footer")
 
   return (
-    <footer>
-      <Separator />
-      <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-8">
-        <div className="flex items-center gap-4">
+    <footer className="mt-16">
+      <div className="section-shell">
+        <div className="gradient-rule h-px opacity-80" />
+      </div>
+      <div className="section-shell flex flex-wrap items-center gap-x-4 gap-y-2 py-8 sm:justify-between sm:py-10">
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
           <p className="text-muted-foreground text-sm">
             &copy; {new Date().getFullYear()} {siteConfig.name}
           </p>

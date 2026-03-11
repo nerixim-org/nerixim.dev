@@ -32,10 +32,10 @@
   },
   "home": {
     "hero": {
-      "title": "Building software across languages and borders.",
-      "description": "Full-stack developer based in Japan. I ship products in English, Japanese, and Russian.",
-      "seeMyWork": "See My Work",
-      "getInTouch": "Get in Touch"
+      "title": "Software for teams working across languages and markets.",
+      "description": "Based in Japan, I help teams ship products in English, Japanese, and Russian across web, mobile, AI, and localization work.",
+      "seeMyWork": "See Selected Work",
+      "getInTouch": "Discuss Your Project"
     },
     "services": {
       "heading": "What I do",
@@ -57,9 +57,9 @@
       "allPosts": "All posts"
     },
     "cta": {
-      "heading": "Have a project? Let's talk.",
-      "description": "I'm currently available for freelance work and collaborations.",
-      "getInTouch": "Get in Touch"
+      "heading": "Need development, AI integration, or localization support?",
+      "description": "I work with teams in Japan and abroad on products that need both technical depth and language awareness.",
+      "getInTouch": "Discuss Your Project"
     }
   },
   "about": {
@@ -99,7 +99,7 @@
       "description": "Full-stack web and mobile development, AI integration, and bilingual EN/JP/RU localization for startups and agencies based in Japan."
     },
     "heading": "Services",
-    "description": "I help startups, agencies, and businesses build and improve their software.",
+    "description": "I help teams ship software, AI workflows, and localized product experiences across English, Japanese, and Russian markets.",
     "whoThisIsFor": "Who this is for: {who}",
     "development": {
       "title": "Software Development",
@@ -170,7 +170,7 @@
       "description": "Have a project in mind or want to discuss a collaboration? Reach out about software development, AI integration, localization, or consulting work."
     },
     "heading": "Get in Touch",
-    "description": "Have a project in mind? Want to discuss a collaboration? Send me a message.",
+    "description": "Share a few details about your project, timeline, and language needs. I'll review it and get back to you soon.",
     "form": {
       "name": "Name",
       "namePlaceholder": "Your name…",

@@ -54,38 +54,45 @@ function ServicesContent() {
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16 md:py-24">
+    <div className="page-shell max-w-4xl">
       {/* biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data requires dangerouslySetInnerHTML */}
       {/** biome-ignore lint/style/useNamingConvention: see above */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <h1 className="text-balance font-heading font-semibold text-3xl">{t("heading")}</h1>
-      <p className="mt-2 mb-12 text-lg text-muted-foreground">{t("description")}</p>
+      <h1 className="text-balance font-heading font-semibold text-3xl md:text-4xl">{t("heading")}</h1>
+      <p className="mt-3 max-w-2xl text-lg text-muted-foreground leading-relaxed">{t("description")}</p>
 
-      <div className="space-y-12">
+      <div className="mt-12 space-y-8">
         {services.map((service) => {
           const Icon = service.icon
           return (
-            <section key={service.title}>
-              <Icon className="size-6 text-muted-foreground" aria-hidden="true" />
-              <h2 className="mt-2 text-balance font-heading font-semibold text-xl">{service.title}</h2>
-              <ul className="mt-4 list-inside list-disc space-y-1 text-muted-foreground">
+            <section key={service.title} className="surface-panel p-8 sm:p-10">
+              <div className="icon-tile">
+                <Icon className="size-5" aria-hidden="true" />
+              </div>
+              <h2 className="mt-5 text-balance font-heading font-semibold text-xl md:text-2xl">{service.title}</h2>
+              <p className="mt-3 max-w-2xl text-muted-foreground text-sm italic leading-relaxed">
+                {t("whoThisIsFor", { who: service.who })}
+              </p>
+              <ul className="mt-6 grid gap-3 text-muted-foreground text-sm leading-relaxed sm:grid-cols-2">
                 {service.items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li key={item} className="rounded-2xl border border-border/70 bg-background/70 px-4 py-3">
+                    {item}
+                  </li>
                 ))}
               </ul>
-              <p className="mt-3 text-muted-foreground/80 text-sm italic">{t("whoThisIsFor", { who: service.who })}</p>
             </section>
           )
         })}
       </div>
 
-      <section className="mt-16 rounded-lg bg-muted/50 p-8 text-center">
-        <h2 className="text-balance font-heading font-semibold text-xl">{t("cta.heading")}</h2>
-        <div className="mt-4 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <Button asChild>
+      <section className="surface-panel relative mt-16 overflow-hidden px-8 py-10 text-center sm:px-10">
+        <div className="gradient-rule absolute inset-x-0 top-0 h-px opacity-90" aria-hidden="true" />
+        <h2 className="text-balance font-heading font-semibold text-xl md:text-2xl">{t("cta.heading")}</h2>
+        <div className="mt-5 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <Button size="lg" asChild>
             <Link href="/contact">{t("cta.getInTouch")}</Link>
           </Button>
-          <Button variant="ghost" asChild>
+          <Button size="lg" variant="outline" asChild>
             <Link href="/blog">{t("cta.readBlog")}</Link>
           </Button>
         </div>

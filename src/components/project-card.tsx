@@ -20,7 +20,7 @@ export function ProjectCard({ title, description, tags, href, status, statusLabe
   }
 
   const card = (
-    <Card className={cn(href && "transition-colors group-hover:border-foreground/20")}>
+    <Card className={cn("h-full border-border/80 bg-card/90", href ? "surface-panel-interactive" : "surface-panel")}>
       <CardHeader>
         <div className="flex items-center justify-between">
           <CardTitle className="text-balance font-heading font-semibold text-lg">{title}</CardTitle>
@@ -43,7 +43,11 @@ export function ProjectCard({ title, description, tags, href, status, statusLabe
   if (href) {
     const isExternal = href.startsWith("http")
     return (
-      <Link href={href} className="group" {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}>
+      <Link
+        href={href}
+        className="group block h-full"
+        {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+      >
         {card}
       </Link>
     )

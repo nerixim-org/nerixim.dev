@@ -54,50 +54,52 @@ function AboutContent() {
   }
 
   return (
-    <div className="mx-auto max-w-3xl px-4 py-16 md:py-24">
+    <div className="page-shell max-w-4xl">
       {/* biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD structured data requires dangerouslySetInnerHTML */}
       {/** biome-ignore lint/style/useNamingConvention: see above */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <div className="flex flex-col items-center gap-6 text-center md:flex-row md:text-left">
+      <div className="surface-panel flex flex-col items-center gap-6 px-8 py-10 text-center md:flex-row md:text-left">
         <Image
           src="/avatar-placeholder.svg"
           alt={t("name")}
           width={120}
           height={120}
-          className="rounded-full"
+          className="rounded-full border border-border/80 bg-surface-muted p-2 shadow-surface"
           priority
         />
         <div>
-          <h1 className="text-balance font-heading font-semibold text-3xl">{t("name")}</h1>
+          <h1 className="text-balance font-heading font-semibold text-3xl md:text-4xl">{t("name")}</h1>
           <p className="mt-1 text-lg text-muted-foreground">{t("tagline")}</p>
         </div>
       </div>
 
-      <section className="mt-16 space-y-5">
-        <p className="text-base text-muted-foreground leading-relaxed">{t("story.p1")}</p>
-        <p className="text-base text-muted-foreground leading-relaxed">{t("story.p2")}</p>
-        <p className="text-base text-muted-foreground leading-relaxed">{t("story.p3")}</p>
-        <p className="text-base text-muted-foreground leading-relaxed">
-          {t("story.p4_pre")}
-          <Link href="/blog" className="underline underline-offset-4 hover:text-foreground">
-            {t("story.p4_link")}
-          </Link>
-          {t("story.p4_post")}
-        </p>
-        <p className="text-base text-muted-foreground leading-relaxed">
-          {t("story.p5_pre")}
-          <Link href="/contact" className="underline underline-offset-4 hover:text-foreground">
-            {t("story.p5_link")}
-          </Link>
-          {t("story.p5_post")}
-        </p>
+      <section className="surface-panel mt-16 px-8 py-10">
+        <p className="max-w-3xl text-foreground text-lg leading-relaxed">{t("story.p1")}</p>
+        <div className="mt-6 space-y-5">
+          <p className="text-base text-muted-foreground leading-relaxed">{t("story.p2")}</p>
+          <p className="text-base text-muted-foreground leading-relaxed">{t("story.p3")}</p>
+          <p className="text-base text-muted-foreground leading-relaxed">
+            {t("story.p4_pre")}
+            <Link href="/blog" className="underline underline-offset-4 hover:text-foreground">
+              {t("story.p4_link")}
+            </Link>
+            {t("story.p4_post")}
+          </p>
+          <p className="text-base text-muted-foreground leading-relaxed">
+            {t("story.p5_pre")}
+            <Link href="/contact" className="underline underline-offset-4 hover:text-foreground">
+              {t("story.p5_link")}
+            </Link>
+            {t("story.p5_post")}
+          </p>
+        </div>
       </section>
 
       <section className="mt-16">
         <h2 className="text-balance font-heading font-semibold text-xl">{t("tech.heading")}</h2>
         <div className="mt-4 flex flex-wrap gap-2">
           {skills.map((skill) => (
-            <Badge key={skill} variant="secondary">
+            <Badge key={skill} variant="secondary" className="border border-primary/10 bg-primary/5 text-foreground">
               {skill}
             </Badge>
           ))}
@@ -106,11 +108,11 @@ function AboutContent() {
 
       <section className="mt-16">
         <h2 className="text-balance font-heading font-semibold text-xl">{t("languages.heading")}</h2>
-        <div className="mt-4 grid grid-cols-3 gap-4">
+        <div className="mt-4 grid gap-4 sm:grid-cols-3">
           {languages.map((lang) => (
-            <div key={lang.name}>
+            <div key={lang.name} className="surface-panel p-4">
               <p className="font-medium">{lang.name}</p>
-              <p className="text-muted-foreground text-sm">{lang.level}</p>
+              <p className="mt-1 text-muted-foreground text-sm">{lang.level}</p>
             </div>
           ))}
         </div>

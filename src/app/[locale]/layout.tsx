@@ -5,6 +5,7 @@ import { DM_Sans, Source_Serif_4 } from "next/font/google"
 import { notFound } from "next/navigation"
 import { NextIntlClientProvider } from "next-intl"
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server"
+import { ConsoleSignature } from "@/components/layout/console-signature"
 import type { Locale } from "@/i18n/routing"
 import { routing } from "@/i18n/routing"
 import { getOpenGraphLocale } from "@/i18n/urls"
@@ -82,6 +83,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       <body className="min-h-screen bg-background font-body antialiased">
         <Providers>
           <NextIntlClientProvider messages={messages}>
+            <ConsoleSignature />
             {children}
             <Analytics />
             <SpeedInsights />

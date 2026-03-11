@@ -22,9 +22,9 @@ export default async function ContactPage({ params }: Props) {
   const t = await getTranslations({ locale, namespace: "contact" })
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-16 md:py-24">
-      <h1 className="text-balance font-heading font-semibold text-3xl">{t("heading")}</h1>
-      <p className="mt-2 mb-8 text-muted-foreground">{t("description")}</p>
+    <div className="page-shell max-w-3xl">
+      <h1 className="text-balance font-heading font-semibold text-3xl md:text-4xl">{t("heading")}</h1>
+      <p className="mt-3 mb-8 max-w-2xl text-muted-foreground leading-relaxed">{t("description")}</p>
       <ContactForm />
     </div>
   )
