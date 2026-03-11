@@ -1,16 +1,17 @@
 "use client"
 
-import Link from "next/link"
 import { ThemeToggle } from "@/components/layout/theme-toggle"
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet"
+import { Link } from "@/i18n/navigation"
 import { siteConfig } from "@/lib/site-config"
 
 interface MobileNavProps {
   open: boolean
   onOpenChange: (open: boolean) => void
+  navItems: { title: string; href: string }[]
 }
 
-export function MobileNav({ open, onOpenChange }: MobileNavProps) {
+export function MobileNav({ open, onOpenChange, navItems }: MobileNavProps) {
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent side="right" className="w-72">
@@ -18,7 +19,7 @@ export function MobileNav({ open, onOpenChange }: MobileNavProps) {
           <SheetTitle className="font-heading text-lg">{siteConfig.name}</SheetTitle>
         </SheetHeader>
         <nav className="flex flex-col gap-1 px-4">
-          {siteConfig.nav.map((item) => (
+          {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}

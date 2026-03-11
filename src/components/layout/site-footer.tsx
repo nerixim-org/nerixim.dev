@@ -1,9 +1,12 @@
 import { Github } from "lucide-react"
-import Link from "next/link"
+import { useTranslations } from "next-intl"
 import { Separator } from "@/components/ui/separator"
+import { Link } from "@/i18n/navigation"
 import { siteConfig } from "@/lib/site-config"
 
 export function SiteFooter() {
+  const t = useTranslations("footer")
+
   return (
     <footer>
       <Separator />
@@ -16,10 +19,10 @@ export function SiteFooter() {
             href="/privacy"
             className="text-muted-foreground text-sm transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
           >
-            Privacy
+            {t("privacy")}
           </Link>
         </div>
-        <Link
+        <a
           href={siteConfig.links.github}
           target="_blank"
           rel="noopener noreferrer"
@@ -27,7 +30,7 @@ export function SiteFooter() {
           aria-label="GitHub"
         >
           <Github className="size-4" aria-hidden="true" />
-        </Link>
+        </a>
       </div>
     </footer>
   )

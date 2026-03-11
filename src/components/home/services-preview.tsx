@@ -1,30 +1,27 @@
 import { Code2, Languages, Sparkles } from "lucide-react"
-import Link from "next/link"
+import { useTranslations } from "next-intl"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Link } from "@/i18n/navigation"
 
-const services = [
-  {
-    title: "Software Development",
-    description: "Web apps, mobile apps, APIs. TypeScript, React, Next.js.",
-    icon: Code2,
-  },
-  {
-    title: "AI Integration",
-    description: "AI automation, workflow optimization, intelligent tooling.",
-    icon: Sparkles,
-  },
-  {
-    title: "Localization",
-    description: "EN/JP/RU translation and cultural adaptation for software.",
-    icon: Languages,
-  },
-] as const
+const serviceKeys = [
+  { key: "development" as const, icon: Code2 },
+  { key: "ai" as const, icon: Sparkles },
+  { key: "localization" as const, icon: Languages },
+]
 
 export function ServicesPreview() {
+  const t = useTranslations("home.services")
+
+  const services = serviceKeys.map(({ key, icon }) => ({
+    title: t(`${key}.title`),
+    description: t(`${key}.description`),
+    icon,
+  }))
+
   return (
     <section className="py-16 md:py-24">
       <div className="mx-auto max-w-5xl px-4">
-        <h2 className="mb-8 text-balance font-heading font-semibold text-2xl tracking-tight">What I do</h2>
+        <h2 className="mb-8 text-balance font-heading font-semibold text-2xl tracking-tight">{t("heading")}</h2>
         <div className="grid gap-6 md:grid-cols-3">
           {services.map((service) => (
             <Link key={service.title} href="/services" className="group">

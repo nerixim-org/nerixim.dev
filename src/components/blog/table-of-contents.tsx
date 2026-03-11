@@ -1,6 +1,7 @@
 "use client"
 
 import { ChevronDown } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { useState } from "react"
 import { cn } from "@/lib/utils"
 
@@ -12,13 +13,14 @@ type Heading = {
 
 export function TableOfContents({ headings }: { headings: Heading[] }) {
   const [isOpen, setIsOpen] = useState(false)
+  const t = useTranslations("blog")
 
   if (headings.length === 0) {
     return null
   }
 
   return (
-    <nav aria-label="Table of contents" className="mb-10">
+    <nav aria-label={t("tableOfContents")} className="mb-10">
       {/* Mobile: collapsible */}
       <div className="lg:hidden">
         <button
@@ -26,7 +28,7 @@ export function TableOfContents({ headings }: { headings: Heading[] }) {
           onClick={() => setIsOpen(!isOpen)}
           className="flex w-full items-center justify-between rounded-lg border border-border bg-muted/50 px-4 py-3 font-medium text-sm"
         >
-          Table of Contents
+          {t("tableOfContents")}
           <ChevronDown className={cn("size-4 transition-transform", isOpen && "rotate-180")} />
         </button>
         {isOpen && <HeadingList headings={headings} className="mt-2 px-4" />}
@@ -34,7 +36,7 @@ export function TableOfContents({ headings }: { headings: Heading[] }) {
 
       {/* Desktop: always visible */}
       <div className="hidden rounded-lg border border-border bg-muted/30 p-5 lg:block">
-        <p className="mb-3 font-medium text-muted-foreground text-sm">Table of Contents</p>
+        <p className="mb-3 font-medium text-muted-foreground text-sm">{t("tableOfContents")}</p>
         <HeadingList headings={headings} />
       </div>
     </nav>

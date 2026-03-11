@@ -1,17 +1,15 @@
-import { Calendar, Clock } from "lucide-react"
-import Link from "next/link"
-import { Badge } from "@/components/ui/badge"
-import type { Post } from "@/lib/blog"
+"use client"
 
-function formatDate(dateString: string): string {
-  return new Date(dateString).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  })
-}
+import { Calendar, Clock } from "lucide-react"
+import { useTranslations } from "next-intl"
+import { Badge } from "@/components/ui/badge"
+import { Link } from "@/i18n/navigation"
+import type { Post } from "@/lib/blog"
+import { formatDate } from "@/lib/utils"
 
 export function PostCard({ post }: { post: Post }) {
+  const t = useTranslations("blog")
+
   return (
     <article className="group rounded-lg border border-border bg-card p-5 transition-colors hover:bg-muted/50">
       <Link href={`/blog/${post.slug}`} className="block">
@@ -19,12 +17,12 @@ export function PostCard({ post }: { post: Post }) {
 
         <div className="mt-2 flex items-center gap-3 text-muted-foreground text-xs">
           <span className="flex items-center gap-1">
-            <Calendar className="size-3" />
+            <Calendar aria-hidden="true" className="size-3" />
             <time dateTime={post.date}>{formatDate(post.date)}</time>
           </span>
           <span className="flex items-center gap-1">
-            <Clock className="size-3" />
-            {post.readingTime}
+            <Clock aria-hidden="true" className="size-3" />
+            {t("readingTime", { time: post.readingTime })}
           </span>
         </div>
 

@@ -132,6 +132,7 @@ html.dark {
   }
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-body), "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
   }
 }
 

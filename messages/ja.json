@@ -1,0 +1,238 @@
+{
+  "metadata": {
+    "title": {
+      "default": "nerixim — 日本を拠点に活動するソフトウェア開発者",
+      "template": "%s | nerixim"
+    },
+    "description": "日本を拠点に、言語や国境をまたぐプロダクトづくりに取り組むフルスタック開発者。Web開発、AI導入支援、ローカライズに対応しています。"
+  },
+  "nav": {
+    "about": "プロフィール",
+    "services": "サービス",
+    "projects": "プロジェクト",
+    "blog": "ブログ",
+    "contact": "お問い合わせ",
+    "openMenu": "メニューを開く"
+  },
+  "footer": {
+    "privacy": "プライバシー"
+  },
+  "themeToggle": {
+    "label": "テーマを切り替える"
+  },
+  "languageSwitcher": {
+    "label": "言語を切り替える",
+    "en": "English",
+    "ja": "日本語"
+  },
+  "notFound": {
+    "title": "404",
+    "description": "ページが見つかりません。",
+    "goHome": "トップに戻る"
+  },
+  "home": {
+    "hero": {
+      "title": "言語や国境をまたいで、ソフトウェアをつくる。",
+      "description": "日本を拠点に活動するフルスタック開発者。英語・日本語・ロシア語でのプロダクトづくりを支援しています。",
+      "seeMyWork": "実績を見る",
+      "getInTouch": "お問い合わせ"
+    },
+    "services": {
+      "heading": "できること",
+      "development": {
+        "title": "ソフトウェア開発",
+        "description": "Webアプリ、モバイルアプリ、APIの設計・開発。TypeScript、React、Next.jsが中心です。"
+      },
+      "ai": {
+        "title": "AI導入支援",
+        "description": "AIによる自動化、業務フローの改善、実務で使えるツール導入。"
+      },
+      "localization": {
+        "title": "ローカライズ",
+        "description": "英語・日本語・ロシア語への翻訳と、文化面まで踏まえた調整。"
+      }
+    },
+    "recentPosts": {
+      "heading": "最近書いたもの",
+      "allPosts": "記事一覧"
+    },
+    "cta": {
+      "heading": "プロジェクトの相談があれば、お気軽にご連絡ください。",
+      "description": "現在、フリーランスの仕事やコラボレーションのご相談を受け付けています。",
+      "getInTouch": "お問い合わせ"
+    }
+  },
+  "about": {
+    "metadata": {
+      "title": "プロフィール — 開発者・言語好き・ものづくり",
+      "description": "日本を拠点に活動するソフトウェア開発者。英語・日本語・ロシア語で仕事をしながら、言語や文化をまたぐプロダクトをつくっています。"
+    },
+    "name": "ニキータ",
+    "tagline": "ソフトウェア開発者。言語が好きで、ものづくりが仕事です。",
+    "story": {
+      "p1": "日本を拠点に活動しているソフトウェア開発者です。ロシアで生まれ育ち、大学では外国語を学びました。文化や言語への関心と、人が国境を越えてどう伝え合うのかという興味から、日本に来ました。",
+      "p2": "開発はフルスタックでやっています。Web は TypeScript、React、Next.js、iOS は SwiftUI、クロスプラットフォームは React Native が中心です。Webアプリ、モバイルアプリ、API の開発に加えて、AIツールの導入や連携も手がけています。",
+      "p3": "自分の仕事の強みは、技術だけでなく言語にもあることです。ロシア語・英語・日本語で仕事ができるので、ただ訳すだけではなく、その市場で自然に使える形まで落とし込めます。",
+      "p4_pre": "今はフリーランスとして働きながら、自分のプロダクトもつくっています。日本でのフリーランス生活や税金のこと、その過程で学んだことは",
+      "p4_link": "ブログ",
+      "p4_post": "で書いています。",
+      "p5_pre": "言語や文化の違いをまたいで進めたいプロジェクトがあれば、",
+      "p5_link": "ぜひご相談ください",
+      "p5_post": "。"
+    },
+    "tech": {
+      "heading": "技術"
+    },
+    "languages": {
+      "heading": "言語",
+      "russian": "ロシア語",
+      "russianLevel": "ネイティブ",
+      "english": "英語",
+      "englishLevel": "堪能",
+      "japanese": "日本語",
+      "japaneseLevel": "堪能"
+    }
+  },
+  "services": {
+    "metadata": {
+      "title": "サービス — 開発、AI、ローカライゼーション",
+      "description": "日本を拠点に、スタートアップや代理店向けにWeb・モバイル開発、AI導入支援、英語・日本語・ロシア語でのローカライズを提供しています。"
+    },
+    "heading": "サービス",
+    "description": "スタートアップや代理店、企業のソフトウェア開発と改善を支援しています。",
+    "whoThisIsFor": "こんな方へ: {who}",
+    "development": {
+      "title": "ソフトウェア開発",
+      "items": [
+        "Webアプリケーション開発（React / Next.js）",
+        "モバイルアプリ開発（React Native / SwiftUI）",
+        "API・バックエンドの構築",
+        "データベース設計・インフラ構築"
+      ],
+      "who": "信頼して任せられる開発パートナーを探しているスタートアップ、代理店、中小企業。"
+    },
+    "ai": {
+      "title": "AI導入支援・コンサルティング",
+      "items": [
+        "AIを使った業務フローの自動化",
+        "既存プロダクトへのLLM統合",
+        "AIツールの選定と活用設計",
+        "用途に合わせたAIエージェント開発"
+      ],
+      "who": "AIを机上の話ではなく、実務に落とし込みたい企業。"
+    },
+    "localization": {
+      "title": "ローカライズ・多言語対応",
+      "items": [
+        "英語・日本語・ロシア語でのソフトウェアローカライズ",
+        "翻訳だけで終わらせない文化面の調整",
+        "i18nアーキテクチャの設計・実装",
+        "多言語UXの設計支援"
+      ],
+      "who": "日本市場やロシア語圏への展開を目指すプロダクト。"
+    },
+    "cta": {
+      "heading": "興味があれば、プロジェクトについて聞かせてください。",
+      "getInTouch": "お問い合わせ",
+      "readBlog": "日本での仕事や生活について読む"
+    }
+  },
+  "projects": {
+    "metadata": {
+      "title": "プロジェクト — これまでの開発実績",
+      "description": "語学学習アプリ、開発者向けツール、クライアントワークなど、これまで手がけてきたソフトウェアプロジェクト。TypeScript、React、Next.js、Swift などを使っています。"
+    },
+    "heading": "プロジェクト",
+    "description": "開発中のものと、これまでにつくってきたもの。",
+    "status": {
+      "live": "公開中",
+      "inProgress": "開発中",
+      "planned": "計画中"
+    },
+    "items": {
+      "pechka": {
+        "title": "Pechka",
+        "description": "間隔反復と大量インプットを軸にした語学学習アプリ。"
+      },
+      "nerixim": {
+        "title": "nerixim.dev",
+        "description": "このサイト。仕事、文章、ツールをまとめた拠点です。"
+      },
+      "freelance": {
+        "title": "フリーランス開発",
+        "description": "日本国内外のクライアント向けに手がけたWeb・モバイル案件。"
+      }
+    }
+  },
+  "contact": {
+    "metadata": {
+      "title": "お問い合わせ — プロジェクトのご相談",
+      "description": "プロジェクトやコラボレーションのご相談はこちらから。ソフトウェア開発、AI導入支援、ローカライズ、コンサルティングなどに対応しています。"
+    },
+    "heading": "お問い合わせ",
+    "description": "開発のご相談やコラボレーションのご連絡はこちらからどうぞ。",
+    "form": {
+      "name": "お名前",
+      "namePlaceholder": "お名前…",
+      "email": "メールアドレス",
+      "emailPlaceholder": "you@example.com…",
+      "message": "メッセージ",
+      "messagePlaceholder": "プロジェクトの内容やご相談内容をお聞かせください…",
+      "send": "メッセージを送る",
+      "sending": "送信中…",
+      "success": "送信しました",
+      "successDetail": "内容を確認のうえ、折り返しご連絡します。",
+      "sendAnother": "別のメッセージを送る"
+    }
+  },
+  "blog": {
+    "metadata": {
+      "title": "ブログ",
+      "description": "ソフトウェア開発、日本でのフリーランス、AI、多言語でのものづくりについて書いています。"
+    },
+    "heading": "ブログ",
+    "description": "日本でのフリーランス、プロダクト開発、多言語での仕事について書いています。",
+    "noPosts": "まだ記事はありません。",
+    "readingTime": "{time}",
+    "updated": "更新日 {date}",
+    "share": "共有",
+    "shareOnX": "Xで共有",
+    "shareOnReddit": "Redditで共有",
+    "copyLink": "リンクをコピー",
+    "linkCopied": "リンクをコピーしました",
+    "relatedPosts": "関連記事",
+    "tableOfContents": "目次"
+  },
+  "privacy": {
+    "metadata": {
+      "title": "プライバシーポリシー — 情報の取り扱いについて",
+      "description": "nerixim.dev における情報の取り扱いについて。お問い合わせフォームで取得する内容、アナリティクスの仕組み、利用している外部サービスをまとめています。"
+    },
+    "heading": "プライバシーポリシー",
+    "intro": "このサイトはニキータが運営する個人ポートフォリオです。ここでは、データをどのように扱っているかを簡単に説明します。",
+    "dataCollected": {
+      "heading": "収集するデータ",
+      "content": "お問い合わせフォームでは、<strong>お名前</strong>、<strong>メールアドレス</strong>、<strong>メッセージ</strong>をお預かりします。本サイトが直接収集する情報はそれだけです。"
+    },
+    "dataUsed": {
+      "heading": "データの利用方法",
+      "content": "フォームから送信された内容は、確認と返信のために非公開の通知チャネルへ届けられます。データをデータベースに保存したり、販売したり、お問い合わせ対応以外の目的で利用したりすることはありません。"
+    },
+    "analytics": {
+      "heading": "アナリティクス",
+      "content": "本サイトでは<vercelAnalytics>Vercel Analytics</vercelAnalytics>と<speedInsights>Vercel Speed Insights</speedInsights>を使用しています。いずれもプライバシーに配慮しており、Cookieを使用せず、ページビューやパフォーマンス指標などの匿名化された集計データのみを収集します。"
+    },
+    "cookies": {
+      "heading": "Cookie とローカルストレージ",
+      "content": "本サイトではCookieは設定していません。クライアント側で使っている保存領域は、ライト / ダークモードの設定を記憶するための<code>localStorage</code>のみです。"
+    },
+    "thirdParty": {
+      "heading": "外部サービス",
+      "content": "本サイトは<vercel>Vercel</vercel>でホスティングされています。お問い合わせフォームでは、スパム対策に<cloudflare>Cloudflare Turnstile</cloudflare>、送信内容の非公開な通知先として<slack>Slack</slack>を利用しています。いずれのサービスも、通常の運用の一環として限定的な技術データ（IPアドレスなど）を処理する場合があります。"
+    },
+    "contactSection": {
+      "heading": "お問い合わせ",
+      "content": "本ポリシーについて不明点があれば、<contactForm>お問い合わせフォーム</contactForm>からご連絡ください。"
+    }
+  }
+}

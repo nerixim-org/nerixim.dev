@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/nk/ghq/github.com/nerixim/nerixim.dev/src/app/\\\\[locale\\\\] -type f -name \"layout.tsx\" -o -name \"opengraph-image.tsx\" | head -10)",
+      "Bash(ls /Users/nk/ghq/github.com/nerixim/nerixim.dev/src/app/[locale]/)",
+      "Bash(ls /Users/nk/ghq/github.com/nerixim/nerixim.dev/src/app/\\\\[locale\\\\]/\\\\\\(site\\\\\\)/)"
+    ]
+  }
+}

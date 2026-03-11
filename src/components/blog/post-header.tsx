@@ -1,6 +1,10 @@
+"use client"
+
 import { Calendar, Clock, RefreshCw } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { Badge } from "@/components/ui/badge"
 import type { PostFrontmatter } from "@/lib/blog"
+import { formatDate } from "@/lib/utils"
 
 type PostHeaderProps = {
   title: string
@@ -10,32 +14,26 @@ type PostHeaderProps = {
   updated?: string
 }
 
-function formatDate(dateString: string): string {
-  return new Date(dateString).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  })
-}
-
 export function PostHeader({ title, date, readingTime, tags, updated }: PostHeaderProps) {
+  const t = useTranslations("blog")
+
   return (
     <header className="mb-10 border-border border-b pb-8">
       <h1 className="font-bold font-heading text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl">{title}</h1>
 
       <div className="mt-4 flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
         <span className="flex items-center gap-1.5">
-          <Calendar className="size-4" />
-          <time dateTime={date}>{formatDate(date)}</time>
+          <Calendar aria-hidden="true" className="size-4" />
+          <time dateTime={date}>{formatDate(date, "long")}</time>
         </span>
         <span className="flex items-center gap-1.5">
-          <Clock className="size-4" />
-          {readingTime}
+          <Clock aria-hidden="true" className="size-4" />
+          {t("readingTime", { time: readingTime })}
         </span>
         {updated && (
           <span className="flex items-center gap-1.5">
-            <RefreshCw className="size-3.5" />
-            Updated {formatDate(updated)}
+            <RefreshCw aria-hidden="true" className="size-3.5" />
+            {t("updated", { date: formatDate(updated, "long") })}
           </span>
         )}
       </div>

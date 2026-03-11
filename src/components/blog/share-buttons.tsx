@@ -1,6 +1,7 @@
 "use client"
 
 import { Check, Copy, Share2 } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { useState } from "react"
 
 type ShareButtonsProps = {
@@ -10,13 +11,14 @@ type ShareButtonsProps = {
 
 export function ShareButtons({ url, title }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false)
+  const t = useTranslations("blog")
 
   const encodedUrl = encodeURIComponent(url)
   const encodedTitle = encodeURIComponent(title)
 
   const shareLinks = [
     {
-      label: "Share on X",
+      label: t("shareOnX"),
       href: `https://x.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`,
       icon: (
         <svg className="size-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -25,7 +27,7 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
       ),
     },
     {
-      label: "Share on Reddit",
+      label: t("shareOnReddit"),
       href: `https://reddit.com/submit?url=${encodedUrl}&title=${encodedTitle}`,
       icon: (
         <svg className="size-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -45,7 +47,7 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
     <div className="flex items-center gap-3">
       <span className="flex items-center gap-1.5 text-muted-foreground text-sm">
         <Share2 className="size-4" />
-        Share
+        {t("share")}
       </span>
       {shareLinks.map((link) => (
         <a
@@ -63,7 +65,7 @@ export function ShareButtons({ url, title }: ShareButtonsProps) {
         type="button"
         onClick={copyLink}
         className="rounded-md p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
-        aria-label={copied ? "Link copied" : "Copy link"}
+        aria-label={copied ? t("linkCopied") : t("copyLink")}
       >
         {copied ? <Check className="size-4 text-green-600" /> : <Copy className="size-4" />}
       </button>

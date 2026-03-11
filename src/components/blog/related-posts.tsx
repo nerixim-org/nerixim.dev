@@ -1,3 +1,6 @@
+"use client"
+
+import { useTranslations } from "next-intl"
 import type { Post } from "@/lib/blog"
 import { PostCard } from "./post-card"
 
@@ -6,13 +9,15 @@ type RelatedPostsProps = {
 }
 
 export function RelatedPosts({ posts }: RelatedPostsProps) {
+  const t = useTranslations("blog")
+
   if (posts.length === 0) {
     return null
   }
 
   return (
     <section className="mt-16 border-border border-t pt-10">
-      <h2 className="mb-6 font-semibold text-xl">Related posts</h2>
+      <h2 className="mb-6 font-semibold text-xl">{t("relatedPosts")}</h2>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <PostCard key={post.slug} post={post} />

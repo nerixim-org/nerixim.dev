@@ -1,0 +1,238 @@
+{
+  "metadata": {
+    "title": {
+      "default": "nerixim — Software Developer Based in Japan",
+      "template": "%s | nerixim"
+    },
+    "description": "Full-stack developer based in Japan, building software across languages and borders. Web development, AI integration, and localization."
+  },
+  "nav": {
+    "about": "About",
+    "services": "Services",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact",
+    "openMenu": "Open menu"
+  },
+  "footer": {
+    "privacy": "Privacy"
+  },
+  "themeToggle": {
+    "label": "Toggle theme"
+  },
+  "languageSwitcher": {
+    "label": "Language",
+    "en": "English",
+    "ja": "日本語"
+  },
+  "notFound": {
+    "title": "404",
+    "description": "This page doesn't exist.",
+    "goHome": "Go home"
+  },
+  "home": {
+    "hero": {
+      "title": "Building software across languages and borders.",
+      "description": "Full-stack developer based in Japan. I ship products in English, Japanese, and Russian.",
+      "seeMyWork": "See My Work",
+      "getInTouch": "Get in Touch"
+    },
+    "services": {
+      "heading": "What I do",
+      "development": {
+        "title": "Software Development",
+        "description": "Web apps, mobile apps, APIs. TypeScript, React, Next.js."
+      },
+      "ai": {
+        "title": "AI Integration",
+        "description": "AI automation, workflow optimization, intelligent tooling."
+      },
+      "localization": {
+        "title": "Localization",
+        "description": "EN/JP/RU translation and cultural adaptation for software."
+      }
+    },
+    "recentPosts": {
+      "heading": "Recent writing",
+      "allPosts": "All posts"
+    },
+    "cta": {
+      "heading": "Have a project? Let's talk.",
+      "description": "I'm currently available for freelance work and collaborations.",
+      "getInTouch": "Get in Touch"
+    }
+  },
+  "about": {
+    "metadata": {
+      "title": "About — Developer, Language Enthusiast, Builder",
+      "description": "Software developer based in Japan. Trilingual in English, Japanese, and Russian. Building products that work across languages, cultures, and borders."
+    },
+    "name": "Nikita",
+    "tagline": "Software developer, language enthusiast, builder of things.",
+    "story": {
+      "p1": "I'm a software developer based in Japan. I was born in Russia, studied foreign languages in university, and eventually made my way here — drawn by the culture, the language, and an interest in how people communicate across borders.",
+      "p2": "I work across the full stack — TypeScript, React, Next.js for the web, SwiftUI for iOS, React Native for cross-platform. I build web applications, mobile apps, and APIs. I also work with AI tools and integrations, helping businesses adopt them practically.",
+      "p3": "What makes my work a bit different is the language side. I'm fluent in Russian, English, and Japanese, which means I can build software that actually works across these markets — not just translated, but culturally adapted.",
+      "p4_pre": "I'm currently freelancing and building my own products. I also ",
+      "p4_link": "write about",
+      "p4_post": " freelancing in Japan, taxes, and the things I learn along the way.",
+      "p5_pre": "If you have a project that could use someone who bridges cultures and code, I'd like to ",
+      "p5_link": "hear about it",
+      "p5_post": "."
+    },
+    "tech": {
+      "heading": "Tech"
+    },
+    "languages": {
+      "heading": "Languages",
+      "russian": "Russian",
+      "russianLevel": "Native",
+      "english": "English",
+      "englishLevel": "Fluent",
+      "japanese": "Japanese",
+      "japaneseLevel": "Fluent"
+    }
+  },
+  "services": {
+    "metadata": {
+      "title": "Services — Development, AI, and Localization",
+      "description": "Full-stack web and mobile development, AI integration, and bilingual EN/JP/RU localization for startups and agencies based in Japan."
+    },
+    "heading": "Services",
+    "description": "I help startups, agencies, and businesses build and improve their software.",
+    "whoThisIsFor": "Who this is for: {who}",
+    "development": {
+      "title": "Software Development",
+      "items": [
+        "Web applications (React, Next.js)",
+        "Mobile apps (React Native, SwiftUI)",
+        "APIs and backend services",
+        "Database design and infrastructure"
+      ],
+      "who": "Startups, SMBs, and agencies needing reliable development capacity."
+    },
+    "ai": {
+      "title": "AI Integration & Consulting",
+      "items": [
+        "AI-powered workflow automation",
+        "LLM integration into existing products",
+        "AI tool evaluation and strategy",
+        "Custom AI agent development"
+      ],
+      "who": "Businesses looking to adopt AI tools practically, not theoretically."
+    },
+    "localization": {
+      "title": "Localization & Cross-Cultural Software",
+      "items": [
+        "EN/JP/RU software localization",
+        "Cultural adaptation (not just translation)",
+        "i18n architecture and implementation",
+        "Bilingual UX consulting"
+      ],
+      "who": "Products expanding into Japan or Russian-speaking markets."
+    },
+    "cta": {
+      "heading": "Interested? Let's talk about your project.",
+      "getInTouch": "Get in Touch",
+      "readBlog": "Read about my experience in Japan"
+    }
+  },
+  "projects": {
+    "metadata": {
+      "title": "Projects — Things I Am Building and Have Built",
+      "description": "A collection of software projects including language learning apps, developer tools, and client work. Built with TypeScript, React, Next.js, Swift, and more."
+    },
+    "heading": "Projects",
+    "description": "Things I'm building and have built.",
+    "status": {
+      "live": "Live",
+      "inProgress": "In Progress",
+      "planned": "Planned"
+    },
+    "items": {
+      "pechka": {
+        "title": "Pechka",
+        "description": "A language learning app built around spaced repetition and immersive input."
+      },
+      "nerixim": {
+        "title": "nerixim.dev",
+        "description": "This site. A hub for my work, writing, and tools."
+      },
+      "freelance": {
+        "title": "Freelance Development",
+        "description": "Web and mobile projects for clients in Japan and globally."
+      }
+    }
+  },
+  "contact": {
+    "metadata": {
+      "title": "Contact — Get in Touch About Your Project",
+      "description": "Have a project in mind or want to discuss a collaboration? Reach out about software development, AI integration, localization, or consulting work."
+    },
+    "heading": "Get in Touch",
+    "description": "Have a project in mind? Want to discuss a collaboration? Send me a message.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name…",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com…",
+      "message": "Message",
+      "messagePlaceholder": "Tell me about your project…",
+      "send": "Send Message",
+      "sending": "Sending…",
+      "success": "Message sent!",
+      "successDetail": "I'll get back to you soon.",
+      "sendAnother": "Send another message"
+    }
+  },
+  "blog": {
+    "metadata": {
+      "title": "Blog",
+      "description": "Articles on software development, freelancing as a developer in Japan, building products across languages, and working with AI."
+    },
+    "heading": "Blog",
+    "description": "Writing about freelancing in Japan, building products, and working across languages.",
+    "noPosts": "No posts yet.",
+    "readingTime": "{time}",
+    "updated": "Updated {date}",
+    "share": "Share",
+    "shareOnX": "Share on X",
+    "shareOnReddit": "Share on Reddit",
+    "copyLink": "Copy link",
+    "linkCopied": "Link copied",
+    "relatedPosts": "Related posts",
+    "tableOfContents": "Table of Contents"
+  },
+  "privacy": {
+    "metadata": {
+      "title": "Privacy Policy — How Your Information Is Handled",
+      "description": "How nerixim.dev handles your information. What the contact form collects, how analytics work, and which third-party services are used."
+    },
+    "heading": "Privacy Policy",
+    "intro": "This site is a personal portfolio operated by Nikita. Here is a straightforward summary of how your data is handled.",
+    "dataCollected": {
+      "heading": "What data is collected",
+      "content": "The contact form collects your <strong>name</strong>, <strong>email address</strong>, and <strong>message</strong>. Nothing else is collected directly by this site."
+    },
+    "dataUsed": {
+      "heading": "How data is used",
+      "content": "When you submit the contact form, your message is delivered to a private notification channel so I can review it and reply. The data is not stored in a database, sold, or used for any purpose beyond handling your inquiry."
+    },
+    "analytics": {
+      "heading": "Analytics",
+      "content": "This site uses <vercelAnalytics>Vercel Analytics</vercelAnalytics> and <speedInsights>Vercel Speed Insights</speedInsights>. Both are privacy-friendly — they do not use cookies and only collect aggregated, anonymized data such as page views and performance metrics."
+    },
+    "cookies": {
+      "heading": "Cookies & local storage",
+      "content": "This site does not set any cookies. The only client-side storage used is <code>localStorage</code> to remember your theme preference (light or dark mode)."
+    },
+    "thirdParty": {
+      "heading": "Third-party services",
+      "content": "The site is hosted on <vercel>Vercel</vercel>. The contact form uses <cloudflare>Cloudflare Turnstile</cloudflare> for spam protection and <slack>Slack</slack> for private delivery of form submissions. These services may process limited technical data (such as IP addresses) as part of normal operation."
+    },
+    "contactSection": {
+      "heading": "Contact",
+      "content": "If you have questions about this policy, feel free to reach out via the <contactForm>contact form</contactForm>."
+    }
+  }
+}
