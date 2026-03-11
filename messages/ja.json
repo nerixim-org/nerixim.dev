@@ -182,7 +182,18 @@
       "sending": "送信中…",
       "success": "送信しました",
       "successDetail": "内容を確認のうえ、折り返しご連絡します。",
-      "sendAnother": "別のメッセージを送る"
+      "sendAnother": "別のメッセージを送る",
+      "errors": {
+        "nameTooShort": "お名前は2文字以上で入力してください。",
+        "nameTooLong": "お名前が長すぎます。",
+        "invalidEmail": "有効なメールアドレスを入力してください。",
+        "emailTooLong": "メールアドレスが長すぎます。",
+        "messageTooShort": "メッセージは10文字以上で入力してください。",
+        "messageTooLong": "メッセージが長すぎます。",
+        "spamVerificationFailed": "スパム対策の確認に失敗しました。もう一度お試しください。",
+        "notConfigured": "現在、お問い合わせフォームは利用できません。時間をおいてもう一度お試しください。",
+        "sendFailed": "メッセージの送信に失敗しました。もう一度お試しください。"
+      }
     }
   },
   "blog": {

@@ -182,7 +182,18 @@
       "sending": "Sending…",
       "success": "Message sent!",
       "successDetail": "I'll get back to you soon.",
-      "sendAnother": "Send another message"
+      "sendAnother": "Send another message",
+      "errors": {
+        "nameTooShort": "Name must be at least 2 characters.",
+        "nameTooLong": "Name is too long.",
+        "invalidEmail": "Enter a valid email address.",
+        "emailTooLong": "Email is too long.",
+        "messageTooShort": "Message must be at least 10 characters.",
+        "messageTooLong": "Message is too long.",
+        "spamVerificationFailed": "Spam verification failed. Please try again.",
+        "notConfigured": "The contact form is not configured right now. Please try again later.",
+        "sendFailed": "Failed to send your message. Please try again."
+      }
     }
   },
   "blog": {

@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 import { Link } from "@/i18n/navigation"
 import type { Locale } from "@/i18n/routing"
+import { buildPageMetadata } from "@/i18n/urls"
 
 type Props = {
   params: Promise<{ locale: Locale }>
@@ -12,10 +13,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: "privacy.metadata" })
 
-  return {
-    title: t("title"),
-    description: t("description"),
-  }
+  return buildPageMetadata(locale, "/privacy", t("title"), t("description"))
 }
 
 function PrivacyContent() {

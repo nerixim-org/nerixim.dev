@@ -7,6 +7,7 @@ import { RelatedPosts } from "@/components/blog/related-posts"
 import { ShareButtons } from "@/components/blog/share-buttons"
 import { TableOfContents } from "@/components/blog/table-of-contents"
 import type { Locale } from "@/i18n/routing"
+import { buildPageMetadata, getLocalizedUrl } from "@/i18n/urls"
 import { extractHeadings, getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/blog"
 import { siteConfig } from "@/lib/site-config"
 
@@ -20,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
+  const { locale, slug } = await params
   let post: Awaited<ReturnType<typeof getPostBySlug>>
   try {
     post = await getPostBySlug(slug)
@@ -28,19 +29,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return {}
   }
 
+  const baseMetadata = buildPageMetadata(locale, `/blog/${slug}`, post.title, post.description)
+
   return {
-    title: post.title,
-    description: post.description,
+    ...baseMetadata,
     openGraph: {
+      ...baseMetadata.openGraph,
       title: post.title,
       description: post.description,
       type: "article",
       publishedTime: post.date,
       ...(post.updated && { modifiedTime: post.updated }),
-      url: `${siteConfig.url}/blog/${slug}`,
+      url: getLocalizedUrl(locale, `/blog/${slug}`),
       tags: post.tags,
     },
     twitter: {
+      ...baseMetadata.twitter,
       card: "summary_large_image",
       title: post.title,
       description: post.description,
@@ -65,7 +69,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   const headings = extractHeadings(post.content)
   const relatedPosts = await getRelatedPosts(post.slug, post.tags)
-  const postUrl = `${siteConfig.url}/blog/${slug}`
+  const postUrl = getLocalizedUrl(locale, `/blog/${slug}`)
 
   const jsonLd = {
     "@context": "https://schema.org",

@@ -1,7 +1,7 @@
 "use client"
 
 import { Turnstile } from "@marsidev/react-turnstile"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { useActionState, useRef, useState } from "react"
 import { type ContactFormState, submitContactForm } from "@/app/[locale]/(site)/contact/actions"
 import { Button } from "@/components/ui/button"
@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
 export function ContactForm() {
+  const locale = useLocale()
   const [state, formAction, isPending] = useActionState<ContactFormState, FormData>(submitContactForm, {
     success: false,
   })
@@ -18,7 +19,10 @@ export function ContactForm() {
 
   if (state.success && !dismissed) {
     return (
-      <div className="rounded-lg border border-green-200 bg-green-50 px-6 py-8 text-center dark:border-green-900 dark:bg-green-950">
+      <div
+        aria-live="polite"
+        className="rounded-lg border border-green-200 bg-green-50 px-6 py-8 text-center dark:border-green-900 dark:bg-green-950"
+      >
         <p className="font-medium text-green-900 dark:text-green-100">{t("success")}</p>
         <p className="mt-1 text-green-700 text-sm dark:text-green-300">{t("successDetail")}</p>
         <button
@@ -34,6 +38,7 @@ export function ContactForm() {
 
   return (
     <form ref={formRef} action={formAction} className="space-y-6">
+      <input type="hidden" name="locale" value={locale} />
       <div>
         <label htmlFor="name" className="font-medium text-sm">
           {t("name")}

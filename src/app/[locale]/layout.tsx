@@ -7,6 +7,7 @@ import { NextIntlClientProvider } from "next-intl"
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server"
 import type { Locale } from "@/i18n/routing"
 import { routing } from "@/i18n/routing"
+import { getOpenGraphLocale } from "@/i18n/urls"
 import { Providers } from "../providers"
 import "../globals.css"
 
@@ -42,17 +43,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       template: t("title.template"),
     },
     description: t("description"),
-    alternates: {
-      canonical: "/",
-      languages: {
-        en: "/",
-        ja: "/ja",
-      },
-    },
     openGraph: {
       type: "website",
-      locale: locale === "ja" ? "ja_JP" : "en_US",
-      url: "https://nerixim.dev",
+      locale: getOpenGraphLocale(locale),
       siteName: "nerixim",
       title: t("title.default"),
       description: t("description"),

@@ -1,13 +1,14 @@
 "use client"
 
 import { Calendar, Clock } from "lucide-react"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { Badge } from "@/components/ui/badge"
 import { Link } from "@/i18n/navigation"
 import type { Post } from "@/lib/blog"
 import { formatDate } from "@/lib/utils"
 
 export function PostCard({ post }: { post: Post }) {
+  const locale = useLocale()
   const t = useTranslations("blog")
 
   return (
@@ -18,7 +19,7 @@ export function PostCard({ post }: { post: Post }) {
         <div className="mt-2 flex items-center gap-3 text-muted-foreground text-xs">
           <span className="flex items-center gap-1">
             <Calendar aria-hidden="true" className="size-3" />
-            <time dateTime={post.date}>{formatDate(post.date)}</time>
+            <time dateTime={post.date}>{formatDate(post.date, "short", locale)}</time>
           </span>
           <span className="flex items-center gap-1">
             <Clock aria-hidden="true" className="size-3" />

@@ -60,12 +60,16 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     )
   }
 
-  const blogPages: MetadataRoute.Sitemap = posts.map((post) => ({
-    url: `${siteConfig.url}/blog/${post.slug}`,
-    lastModified: new Date(post.updated ?? post.date),
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }))
+  const localizedBlogPages: MetadataRoute.Sitemap = locales.flatMap((locale) => {
+    const prefix = locale === "en" ? "" : `/${locale}`
 
-  return [...staticPages, ...blogPages]
+    return posts.map((post) => ({
+      url: `${siteConfig.url}${prefix}/blog/${post.slug}`,
+      lastModified: new Date(post.updated ?? post.date),
+      changeFrequency: "monthly",
+      priority: locale === "en" ? 0.7 : 0.6,
+    }))
+  })
+
+  return [...staticPages, ...localizedBlogPages]
 }

@@ -1,12 +1,30 @@
 "use server"
 
 import { z } from "zod"
+import { type Locale, routing } from "@/i18n/routing"
+import enMessages from "../../../../../messages/en.json"
+import jaMessages from "../../../../../messages/ja.json"
 
-const contactSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters").max(100, "Name is too long"),
-  email: z.email("Invalid email address").max(254, "Email is too long"),
-  message: z.string().min(10, "Message must be at least 10 characters").max(5000, "Message is too long"),
-})
+const contactFormMessages = {
+  en: enMessages.contact.form,
+  ja: jaMessages.contact.form,
+} as const
+
+function isLocale(value: string | null): value is Locale {
+  return value !== null && routing.locales.includes(value as Locale)
+}
+
+function getContactMessages(locale: Locale) {
+  return contactFormMessages[locale]
+}
+
+function createContactSchema(messages: ReturnType<typeof getContactMessages>) {
+  return z.object({
+    name: z.string().min(2, messages.errors.nameTooShort).max(100, messages.errors.nameTooLong),
+    email: z.email(messages.errors.invalidEmail).max(254, messages.errors.emailTooLong),
+    message: z.string().min(10, messages.errors.messageTooShort).max(5000, messages.errors.messageTooLong),
+  })
+}
 
 export type ContactFormState = {
   success: boolean
@@ -32,18 +50,22 @@ async function verifyTurnstile(token: string): Promise<boolean> {
 }
 
 export async function submitContactForm(_prevState: ContactFormState, formData: FormData): Promise<ContactFormState> {
+  const localeValue = formData.get("locale") as string | null
+  const locale = isLocale(localeValue) ? localeValue : routing.defaultLocale
+  const messages = getContactMessages(locale)
   const rawValues = {
     name: (formData.get("name") as string) ?? "",
     email: (formData.get("email") as string) ?? "",
     message: (formData.get("message") as string) ?? "",
   }
+  const contactSchema = createContactSchema(messages)
 
   const turnstileToken = formData.get("cf-turnstile-response") as string
   if (process.env.TURNSTILE_SECRET_KEY) {
     if (!turnstileToken) {
       return {
         success: false,
-        error: "Spam verification failed. Please try again.",
+        error: messages.errors.spamVerificationFailed,
         values: rawValues,
       }
     }
@@ -52,7 +74,7 @@ export async function submitContactForm(_prevState: ContactFormState, formData: 
     if (!verified) {
       return {
         success: false,
-        error: "Spam verification failed. Please try again.",
+        error: messages.errors.spamVerificationFailed,
         values: rawValues,
       }
     }
@@ -73,7 +95,7 @@ export async function submitContactForm(_prevState: ContactFormState, formData: 
     console.error("SLACK_WEBHOOK_URL is not set")
     return {
       success: false,
-      error: "Contact form is not configured. Please try again later.",
+      error: messages.errors.notConfigured,
       values: rawValues,
     }
   }
@@ -119,7 +141,7 @@ export async function submitContactForm(_prevState: ContactFormState, formData: 
     console.error("Failed to send message", error)
     return {
       success: false,
-      error: "Failed to send message. Please try again.",
+      error: messages.errors.sendFailed,
       values: rawValues,
     }
   }

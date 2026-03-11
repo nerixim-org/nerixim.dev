@@ -5,6 +5,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server"
 import { Button } from "@/components/ui/button"
 import { Link } from "@/i18n/navigation"
 import type { Locale } from "@/i18n/routing"
+import { buildPageMetadata } from "@/i18n/urls"
 import { siteConfig } from "@/lib/site-config"
 
 type Props = {
@@ -15,10 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: "services.metadata" })
 
-  return {
-    title: t("title"),
-    description: t("description"),
-  }
+  return buildPageMetadata(locale, "/services", t("title"), t("description"))
 }
 
 const serviceKeys = [

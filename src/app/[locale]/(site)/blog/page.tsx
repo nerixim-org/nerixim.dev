@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 import { PostCard } from "@/components/blog/post-card"
 import type { Locale } from "@/i18n/routing"
+import { buildPageMetadata, getLocalizedUrl } from "@/i18n/urls"
 import { getAllPosts } from "@/lib/blog"
 import { siteConfig } from "@/lib/site-config"
 
@@ -13,10 +14,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
   const t = await getTranslations({ locale, namespace: "blog.metadata" })
 
-  return {
-    title: t("title"),
-    description: t("description"),
-  }
+  return buildPageMetadata(locale, "/blog", t("title"), t("description"))
 }
 
 export default async function BlogPage({ params }: Props) {
@@ -31,7 +29,7 @@ export default async function BlogPage({ params }: Props) {
     "@type": "Blog",
     name: "nerixim blog",
     description: t("metadata.description"),
-    url: `${siteConfig.url}/blog`,
+    url: getLocalizedUrl(locale, "/blog"),
     author: {
       "@type": "Person",
       name: siteConfig.author,
@@ -43,7 +41,7 @@ export default async function BlogPage({ params }: Props) {
       description: post.description,
       datePublished: post.date,
       ...(post.updated && { dateModified: post.updated }),
-      url: `${siteConfig.url}/blog/${post.slug}`,
+      url: getLocalizedUrl(locale, `/blog/${post.slug}`),
       author: {
         "@type": "Person",
         name: siteConfig.author,

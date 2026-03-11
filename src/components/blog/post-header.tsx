@@ -1,7 +1,7 @@
 "use client"
 
 import { Calendar, Clock, RefreshCw } from "lucide-react"
-import { useTranslations } from "next-intl"
+import { useLocale, useTranslations } from "next-intl"
 import { Badge } from "@/components/ui/badge"
 import type { PostFrontmatter } from "@/lib/blog"
 import { formatDate } from "@/lib/utils"
@@ -15,6 +15,7 @@ type PostHeaderProps = {
 }
 
 export function PostHeader({ title, date, readingTime, tags, updated }: PostHeaderProps) {
+  const locale = useLocale()
   const t = useTranslations("blog")
 
   return (
@@ -24,7 +25,7 @@ export function PostHeader({ title, date, readingTime, tags, updated }: PostHead
       <div className="mt-4 flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
         <span className="flex items-center gap-1.5">
           <Calendar aria-hidden="true" className="size-4" />
-          <time dateTime={date}>{formatDate(date, "long")}</time>
+          <time dateTime={date}>{formatDate(date, "long", locale)}</time>
         </span>
         <span className="flex items-center gap-1.5">
           <Clock aria-hidden="true" className="size-4" />
@@ -33,7 +34,7 @@ export function PostHeader({ title, date, readingTime, tags, updated }: PostHead
         {updated && (
           <span className="flex items-center gap-1.5">
             <RefreshCw aria-hidden="true" className="size-3.5" />
-            {t("updated", { date: formatDate(updated, "long") })}
+            {t("updated", { date: formatDate(updated, "long", locale) })}
           </span>
         )}
       </div>
