@@ -15,7 +15,10 @@
     "openMenu": "Open menu"
   },
   "footer": {
-    "privacy": "Privacy"
+    "lab": "Lab",
+    "privacy": "Privacy",
+    "eggPrompt": "lab signal detected",
+    "eggStatus": "Opening side channel..."
   },
   "themeToggle": {
     "label": "Toggle theme"
@@ -163,6 +166,32 @@
       "freelance": {
         "title": "Freelance Development",
         "description": "Web and mobile projects for clients in Japan and globally."
+      }
+    }
+  },
+  "lab": {
+    "metadata": {
+      "title": "Lab - Motion, CSS, Graphics, and Side Paths",
+      "description": "A curated annex of experiments: motion studies, interactive cards, shader backgrounds, and other playful web work."
+    },
+    "eyebrow": "Curated annex",
+    "title": "Lab",
+    "description": "A side room for web things that are too playful for the front page but still worth shipping.",
+    "statsLabel": "live studies",
+    "note": "Small experiments, real code, no browser-hostile tricks.",
+    "open": "Open study",
+    "items": {
+      "variantA": {
+        "title": "Paper Signal",
+        "description": "A restrained flip-card study with tactile tilt and a polished contact-card structure."
+      },
+      "variantB": {
+        "title": "Constellation Field",
+        "description": "The card drifts inside a responsive star-map canvas with soft motion and depth."
+      },
+      "variantC": {
+        "title": "Topographic Drift",
+        "description": "A shader-backed card scene with contour lines, floating particles, and a colder atmosphere."
       }
     }
   },

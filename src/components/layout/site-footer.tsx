@@ -1,5 +1,6 @@
 import { Github } from "lucide-react"
 import { useTranslations } from "next-intl"
+import { FooterLabTrigger } from "@/components/layout/footer-lab-trigger"
 import { Link } from "@/i18n/navigation"
 import { siteConfig } from "@/lib/site-config"
 
@@ -13,9 +14,14 @@ export function SiteFooter() {
       </div>
       <div className="section-shell flex flex-wrap items-center gap-x-4 gap-y-2 py-8 sm:justify-between sm:py-10">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-          <p className="text-muted-foreground text-sm">
-            &copy; {new Date().getFullYear()} {siteConfig.name}
-          </p>
+          <FooterLabTrigger brand={siteConfig.name} prompt={t("eggPrompt")} status={t("eggStatus")} />
+          <p className="text-muted-foreground text-sm">&copy; {new Date().getFullYear()}</p>
+          <Link
+            href="/lab"
+            className="text-muted-foreground text-sm transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
+          >
+            {t("lab")}
+          </Link>
           <Link
             href="/privacy"
             className="text-muted-foreground text-sm transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"

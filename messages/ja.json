@@ -15,7 +15,10 @@
     "openMenu": "メニューを開く"
   },
   "footer": {
-    "privacy": "プライバシー"
+    "lab": "Lab",
+    "privacy": "プライバシー",
+    "eggPrompt": "lab signal detected",
+    "eggStatus": "別ルートを開いています..."
   },
   "themeToggle": {
     "label": "テーマを切り替える"
@@ -163,6 +166,32 @@
       "freelance": {
         "title": "フリーランス開発",
         "description": "日本国内外のクライアント向けに手がけたWeb・モバイル案件。"
+      }
+    }
+  },
+  "lab": {
+    "metadata": {
+      "title": "Lab - モーション、CSS、グラフィックスの別室",
+      "description": "モーション、インタラクティブカード、シェーダー背景などをまとめた、遊び心のある実験のための別室です。"
+    },
+    "eyebrow": "別室",
+    "title": "Lab",
+    "description": "トップページには少し遊びすぎるけれど、ちゃんと形にする価値がある Web の実験を置くための別室です。",
+    "statsLabel": "公開中のスタディ",
+    "note": "小さな実験、実コード、ブラウザの挙動を壊すような仕掛けはなし。",
+    "open": "開く",
+    "items": {
+      "variantA": {
+        "title": "Paper Signal",
+        "description": "触感のあるチルトと、整った連絡先カードの構成を組み合わせた、抑制の効いたフリップカードのスタディ。"
+      },
+      "variantB": {
+        "title": "Constellation Field",
+        "description": "やわらかな動きと奥行きのある星図キャンバスの中を、カードが静かに漂います。"
+      },
+      "variantC": {
+        "title": "Topographic Drift",
+        "description": "等高線のようなシェーダー背景と浮遊する粒子で、少し冷たい空気感をつくったカードシーン。"
       }
     }
   },

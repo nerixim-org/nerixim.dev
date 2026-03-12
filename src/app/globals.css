@@ -209,6 +209,14 @@ html.dark {
       transparent 72%
     );
   }
+
+  .lab-spin-slow {
+    animation: lab-spin 18s linear infinite;
+  }
+
+  .lab-spin-reverse {
+    animation: lab-spin-reverse 24s linear infinite;
+  }
 }
 
 @keyframes fade-in-up {
@@ -237,10 +245,32 @@ html.dark {
   }
 }
 
+@keyframes lab-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes lab-spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .animate-fade-in-up,
   .gradient-rule-animated,
-  .surface-panel-interactive {
+  .surface-panel-interactive,
+  .lab-spin-slow,
+  .lab-spin-reverse {
     animation: none;
     transition-duration: 0ms;
   }

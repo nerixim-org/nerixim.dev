@@ -38,6 +38,10 @@ export const cardContent = {
 
 export type CardLocale = keyof typeof cardContent
 
+export function resolveCardLocale(locale: string): CardLocale {
+  return locale === "ja" ? "ja" : "en"
+}
+
 export function generateVCard(locale: CardLocale): string {
   const c = cardContent[locale]
   const name = locale === "ja" ? `${c.name} (${(c as typeof cardContent.ja).nameRomaji})` : c.name
