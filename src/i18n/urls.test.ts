@@ -1,5 +1,6 @@
 import { describe, expect, it } from "bun:test"
-import { getLocalizedAlternates, getLocalizedPath, getLocalizedUrl } from "./urls"
+import { routing } from "./routing"
+import { getLocalizedAlternates, getLocalizedPath, getLocalizedUrl, getOpenGraphLocale } from "./urls"
 
 describe("getLocalizedPath", () => {
   it("keeps the default locale unprefixed", () => {
@@ -22,13 +23,30 @@ describe("getLocalizedUrl", () => {
 
 describe("getLocalizedAlternates", () => {
   it("returns canonical and language alternates for a pathname", () => {
-    expect(getLocalizedAlternates("ja", "/about")).toEqual({
-      canonical: "/ja/about",
+    expect(getLocalizedAlternates("ru" as never, "/about")).toEqual({
+      canonical: "/ru/about",
       languages: {
         en: "/about",
         ja: "/ja/about",
+        ru: "/ru/about",
+        uk: "/uk/about",
         "x-default": "/about",
       },
     })
+  })
+})
+
+describe("routing", () => {
+  it("registers all supported locales", () => {
+    expect(routing.locales).toEqual(["en", "ja", "ru", "uk"])
+  })
+})
+
+describe("getOpenGraphLocale", () => {
+  it("maps each locale to its Open Graph code", () => {
+    expect(getOpenGraphLocale("en")).toBe("en_US")
+    expect(getOpenGraphLocale("ja")).toBe("ja_JP")
+    expect(getOpenGraphLocale("ru" as never)).toBe("ru_RU")
+    expect(getOpenGraphLocale("uk" as never)).toBe("uk_UA")
   })
 })

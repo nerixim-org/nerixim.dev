@@ -2,7 +2,7 @@ import fs from "node:fs"
 import path from "node:path"
 
 const baseLocale = "en" as const
-const locales = ["en", "ja"] as const
+const locales = ["en", "ja", "ru", "uk"] as const
 
 type JsonValue = string | number | boolean | null | JsonValue[] | { [key: string]: JsonValue }
 type JsonObject = { [key: string]: JsonValue }
@@ -11,6 +11,8 @@ const enMessages = readMessages(baseLocale)
 const localeMessages = {
   en: enMessages,
   ja: readMessages("ja"),
+  ru: readMessages("ru"),
+  uk: readMessages("uk"),
 } satisfies Record<(typeof locales)[number], typeof enMessages>
 
 function readMessages(locale: (typeof locales)[number]): JsonObject {

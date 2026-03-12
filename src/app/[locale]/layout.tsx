@@ -1,7 +1,6 @@
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import type { Metadata } from "next"
-import { DM_Sans, Source_Serif_4 } from "next/font/google"
 import { notFound } from "next/navigation"
 import { NextIntlClientProvider } from "next-intl"
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server"
@@ -11,18 +10,6 @@ import { routing } from "@/i18n/routing"
 import { getOpenGraphLocale } from "@/i18n/urls"
 import { Providers } from "../providers"
 import "../globals.css"
-
-const sourceSerif = Source_Serif_4({
-  variable: "--font-heading",
-  subsets: ["latin"],
-  display: "swap",
-})
-
-const dmSans = DM_Sans({
-  variable: "--font-body",
-  subsets: ["latin"],
-  display: "swap",
-})
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }))
@@ -75,7 +62,18 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages()
 
   return (
-    <html lang={locale} className={`${sourceSerif.variable} ${dmSans.variable}`} suppressHydrationWarning>
+    <html
+      lang={locale}
+      suppressHydrationWarning
+      style={
+        {
+          "--font-heading":
+            '"Georgia", "Times New Roman", "Source Serif 4", "Hiragino Mincho ProN", "Yu Mincho", "MS PMincho", serif',
+          "--font-body":
+            '"Segoe UI", "Verdana", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif',
+        } as React.CSSProperties
+      }
+    >
       <head>
         <meta name="theme-color" content="#faf9f7" media="(prefers-color-scheme: light)" />
         <meta name="theme-color" content="#1f2028" media="(prefers-color-scheme: dark)" />

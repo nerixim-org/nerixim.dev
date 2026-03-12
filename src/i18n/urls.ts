@@ -38,8 +38,15 @@ export function getLocalizedAlternates(locale: Locale, pathname: string): NonNul
   }
 }
 
-export function getOpenGraphLocale(locale: Locale): "en_US" | "ja_JP" {
-  return locale === "ja" ? "ja_JP" : "en_US"
+const openGraphLocaleMap: Record<Locale, "en_US" | "ja_JP" | "ru_RU" | "uk_UA"> = {
+  en: "en_US",
+  ja: "ja_JP",
+  ru: "ru_RU",
+  uk: "uk_UA",
+}
+
+export function getOpenGraphLocale(locale: Locale): (typeof openGraphLocaleMap)[Locale] {
+  return openGraphLocaleMap[locale]
 }
 
 export function buildPageMetadata(locale: Locale, pathname: string, title: string, description: string): Metadata {

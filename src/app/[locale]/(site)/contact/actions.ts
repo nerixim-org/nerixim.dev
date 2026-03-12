@@ -4,10 +4,14 @@ import { z } from "zod"
 import { type Locale, routing } from "@/i18n/routing"
 import enMessages from "../../../../../messages/en.json"
 import jaMessages from "../../../../../messages/ja.json"
+import ruMessages from "../../../../../messages/ru.json"
+import ukMessages from "../../../../../messages/uk.json"
 
 const contactFormMessages = {
   en: enMessages.contact.form,
   ja: jaMessages.contact.form,
+  ru: ruMessages.contact.form,
+  uk: ukMessages.contact.form,
 } as const
 
 function isLocale(value: string | null): value is Locale {

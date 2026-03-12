@@ -2,35 +2,72 @@
 
 import { Globe } from "lucide-react"
 import { useLocale, useTranslations } from "next-intl"
+import { useState } from "react"
 import { Button } from "@/components/ui/button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import { usePathname, useRouter } from "@/i18n/navigation"
 import { type Locale, routing } from "@/i18n/routing"
 
 export function LanguageSwitcher() {
   const t = useTranslations("languageSwitcher")
-  const locale = useLocale()
+  const locale = useLocale() as Locale
   const router = useRouter()
   const pathname = usePathname()
+  const [open, setOpen] = useState(false)
 
-  const targetLocale: Locale = locale === "en" ? "ja" : "en"
   const localeCookieName =
     typeof routing.localeCookie === "object" && routing.localeCookie ? routing.localeCookie.name : "NEXT_LOCALE"
 
-  function switchLocale() {
-    if (targetLocale === routing.defaultLocale) {
+  function switchLocale(nextLocale: Locale) {
+    if (nextLocale === locale) {
+      return
+    }
+
+    if (nextLocale === routing.defaultLocale) {
       // biome-ignore lint/suspicious/noDocumentCookie: Cookie Store API support is still uneven, and this needs to work broadly.
-      document.cookie = `${localeCookieName}=${targetLocale}; path=/; max-age=31536000; SameSite=Lax`
+      document.cookie = `${localeCookieName}=${nextLocale}; path=/; max-age=31536000; SameSite=Lax`
       window.location.assign(`${pathname}${window.location.search}${window.location.hash}`)
       return
     }
 
-    router.replace(pathname, { locale: targetLocale })
+    router.replace(pathname, { locale: nextLocale })
   }
 
   return (
-    <Button variant="ghost" size="icon" onClick={switchLocale} aria-label={t("label")}>
-      <Globe className="size-4" aria-hidden="true" />
-      <span className="sr-only">{t(targetLocale)}</span>
-    </Button>
+    <DropdownMenu open={open} onOpenChange={setOpen}>
+      <DropdownMenuTrigger asChild>
+        <Button
+          variant="ghost"
+          size="icon"
+          aria-label={t("label")}
+          className="group data-[state=open]:bg-accent/70 data-[state=open]:text-foreground"
+        >
+          <Globe
+            className="size-4 transition-transform duration-200 ease-[var(--ease-standard)] group-data-[state=open]:rotate-12 group-data-[state=open]:scale-110 motion-reduce:transition-none"
+            aria-hidden="true"
+          />
+          <span className="sr-only">{t(locale)}</span>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent align="end" className="w-44">
+        <DropdownMenuLabel>{t("label")}</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuRadioGroup value={locale} onValueChange={(nextLocale) => switchLocale(nextLocale as Locale)}>
+          {routing.locales.map((entry) => (
+            <DropdownMenuRadioItem key={entry} value={entry}>
+              {t(entry)}
+            </DropdownMenuRadioItem>
+          ))}
+        </DropdownMenuRadioGroup>
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }

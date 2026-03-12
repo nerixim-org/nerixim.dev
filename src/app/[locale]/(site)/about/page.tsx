@@ -46,7 +46,7 @@ function AboutContent() {
     url: siteConfig.url,
     sameAs: [siteConfig.links.github],
     jobTitle: "Software Developer",
-    knowsLanguage: ["en", "ja", "ru"],
+    knowsLanguage: ["en", "ja", "ru", "uk"],
     worksFor: {
       "@type": "Organization",
       name: "Freelance",

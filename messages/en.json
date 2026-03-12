@@ -23,7 +23,9 @@
   "languageSwitcher": {
     "label": "Language",
     "en": "English",
-    "ja": "日本語"
+    "ja": "日本語",
+    "ru": "Русский",
+    "uk": "Українська"
   },
   "notFound": {
     "title": "404",

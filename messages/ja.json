@@ -23,7 +23,9 @@
   "languageSwitcher": {
     "label": "言語を切り替える",
     "en": "English",
-    "ja": "日本語"
+    "ja": "日本語",
+    "ru": "Русский",
+    "uk": "Українська"
   },
   "notFound": {
     "title": "404",

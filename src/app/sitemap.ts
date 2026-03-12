@@ -11,8 +11,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = []
 
   for (const locale of locales) {
-    const prefix = locale === "en" ? "" : `/${locale}`
-    const isDefaultLocale = locale === "en"
+    const prefix = locale === routing.defaultLocale ? "" : `/${locale}`
+    const isDefaultLocale = locale === routing.defaultLocale
 
     staticPages.push(
       {
@@ -61,13 +61,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }
 
   const localizedBlogPages: MetadataRoute.Sitemap = locales.flatMap((locale) => {
-    const prefix = locale === "en" ? "" : `/${locale}`
+    const prefix = locale === routing.defaultLocale ? "" : `/${locale}`
 
     return posts.map((post) => ({
       url: `${siteConfig.url}${prefix}/blog/${post.slug}`,
       lastModified: new Date(post.updated ?? post.date),
       changeFrequency: "monthly",
-      priority: locale === "en" ? 0.7 : 0.6,
+      priority: locale === routing.defaultLocale ? 0.7 : 0.6,
     }))
   })
 
