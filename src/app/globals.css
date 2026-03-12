@@ -55,6 +55,8 @@
 
 html {
   color-scheme: light;
+  /* Reserve classic scrollbar width so centered chrome stays aligned across short and long pages. */
+  scrollbar-gutter: stable;
 }
 
 html.dark {
