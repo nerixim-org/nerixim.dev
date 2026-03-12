@@ -1,6 +1,7 @@
 import { Code2, Languages, Sparkles } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
+import { HapticButtonLink } from "@/components/ui/haptic-button-link"
 import { Link } from "@/i18n/navigation"
 
 const capabilityKeys = [
@@ -27,6 +28,10 @@ export function Hero() {
       />
       <div className="section-shell relative">
         <div className="surface-panel relative overflow-hidden px-6 py-8 sm:px-10 sm:py-12 lg:px-14 lg:py-16">
+          <div
+            className="surface-panel-atmospheric pointer-events-none absolute inset-0 rounded-[inherit]"
+            aria-hidden="true"
+          />
           <div
             className="gradient-rule gradient-rule-animated absolute inset-x-0 top-0 h-px opacity-90"
             aria-hidden="true"
@@ -65,9 +70,9 @@ export function Hero() {
               className="mt-8 flex animate-fade-in-up flex-col gap-3 sm:flex-row"
               style={{ animationDelay: "240ms" }}
             >
-              <Button size="lg" asChild>
-                <Link href="/contact">{t("getInTouch")}</Link>
-              </Button>
+              <HapticButtonLink size="lg" href="/contact">
+                {t("getInTouch")}
+              </HapticButtonLink>
               <Button size="lg" variant="outline" asChild>
                 <Link href="/projects">{t("seeMyWork")}</Link>
               </Button>

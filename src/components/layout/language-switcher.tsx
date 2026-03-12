@@ -13,6 +13,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useOptionalHaptics } from "@/hooks/use-optional-haptics"
 import { usePathname, useRouter } from "@/i18n/navigation"
 import { type Locale, routing } from "@/i18n/routing"
 
@@ -21,6 +22,7 @@ export function LanguageSwitcher() {
   const locale = useLocale() as Locale
   const router = useRouter()
   const pathname = usePathname()
+  const pulse = useOptionalHaptics()
   const [open, setOpen] = useState(false)
 
   const localeCookieName =
@@ -30,6 +32,8 @@ export function LanguageSwitcher() {
     if (nextLocale === locale) {
       return
     }
+
+    pulse(8)
 
     if (nextLocale === routing.defaultLocale) {
       // biome-ignore lint/suspicious/noDocumentCookie: Cookie Store API support is still uneven, and this needs to work broadly.
@@ -48,7 +52,8 @@ export function LanguageSwitcher() {
           variant="ghost"
           size="icon"
           aria-label={t("label")}
-          className="group data-[state=open]:bg-accent/70 data-[state=open]:text-foreground"
+          className="group size-11 rounded-full data-[state=open]:bg-accent/70 data-[state=open]:text-foreground"
+          onClick={() => pulse(6)}
         >
           <Globe
             className="size-4 transition-transform duration-200 ease-[var(--ease-standard)] group-data-[state=open]:rotate-12 group-data-[state=open]:scale-110 motion-reduce:transition-none"

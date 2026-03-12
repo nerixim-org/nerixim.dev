@@ -19,7 +19,7 @@ export function ServicesPreview() {
   }))
 
   return (
-    <section className="py-14 md:py-24">
+    <section className="scroll-reveal py-14 md:py-24">
       <div className="section-shell">
         <h2 className="max-w-2xl text-balance font-heading font-semibold text-2xl tracking-tight md:text-3xl">
           {t("heading")}
@@ -29,15 +29,17 @@ export function ServicesPreview() {
             <Link
               key={service.title}
               href="/services"
-              className="group block animate-fade-in-up"
+              className="interactive-card-link group/card animate-fade-in-up"
               style={{ animationDelay: `${index * 90 + 80}ms` }}
             >
               <Card className="surface-panel-interactive h-full gap-0 py-0">
                 <CardHeader className="gap-3 px-5 pt-5 pb-3 sm:px-6 sm:pt-6">
-                  <div className="icon-tile">
+                  <div className="icon-tile transition-transform duration-[var(--duration-standard)] ease-[var(--ease-standard)] group-hover/card:scale-105 motion-reduce:transform-none">
                     <service.icon className="size-5" aria-hidden="true" />
                   </div>
-                  <CardTitle className="font-heading text-lg leading-snug">{service.title}</CardTitle>
+                  <CardTitle className="font-heading text-lg leading-snug transition-colors duration-[var(--duration-standard)] ease-[var(--ease-standard)] group-hover/card:text-foreground">
+                    {service.title}
+                  </CardTitle>
                 </CardHeader>
                 <CardContent className="px-5 pt-0 pb-5 sm:px-6 sm:pb-6">
                   <p className="text-muted-foreground text-sm leading-relaxed">{service.description}</p>

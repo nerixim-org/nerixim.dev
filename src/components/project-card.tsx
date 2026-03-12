@@ -23,7 +23,9 @@ export function ProjectCard({ title, description, tags, href, status, statusLabe
     <Card className={cn("h-full border-border/80 bg-card/90", href ? "surface-panel-interactive" : "surface-panel")}>
       <CardHeader>
         <div className="flex items-center justify-between">
-          <CardTitle className="text-balance font-heading font-semibold text-lg">{title}</CardTitle>
+          <CardTitle className="text-balance font-heading font-semibold text-lg transition-colors duration-[var(--duration-standard)] ease-[var(--ease-standard)] group-hover/project:text-primary">
+            {title}
+          </CardTitle>
           <Badge variant={variantMap[status]}>{statusLabel}</Badge>
         </div>
       </CardHeader>
@@ -45,7 +47,7 @@ export function ProjectCard({ title, description, tags, href, status, statusLabe
     return (
       <Link
         href={href}
-        className="group block h-full"
+        className="interactive-card-link group/project h-full"
         {...(isExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       >
         {card}

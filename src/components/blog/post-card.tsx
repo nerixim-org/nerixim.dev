@@ -12,9 +12,11 @@ export function PostCard({ post }: { post: Post }) {
   const t = useTranslations("blog")
 
   return (
-    <article className="group h-full rounded-[1.5rem] border border-border/80 bg-card/80 p-5 shadow-surface transition-[transform,box-shadow,border-color,background-color] duration-200 hover:-translate-y-0.5 hover:border-foreground/10 hover:shadow-surface-hover">
-      <Link href={`/blog/${post.slug}`} className="block h-full">
-        <h3 className="font-heading font-semibold text-lg leading-snug group-hover:text-primary">{post.title}</h3>
+    <Link href={`/blog/${post.slug}`} className="interactive-card-link group/post h-full">
+      <article className="surface-panel-interactive h-full rounded-[1.5rem] bg-card/80 p-5">
+        <h3 className="font-heading font-semibold text-lg leading-snug transition-colors duration-[var(--duration-standard)] ease-[var(--ease-standard)] group-hover/post:text-primary">
+          {post.title}
+        </h3>
 
         <div className="mt-2 flex items-center gap-3 text-muted-foreground text-xs">
           <span className="flex items-center gap-1">
@@ -28,17 +30,17 @@ export function PostCard({ post }: { post: Post }) {
         </div>
 
         <p className="mt-2 line-clamp-2 text-muted-foreground text-sm">{post.description}</p>
-      </Link>
 
-      {post.tags.length > 0 && (
-        <div className="mt-3 flex flex-wrap gap-1.5">
-          {post.tags.map((tag) => (
-            <Badge key={tag} variant="secondary" className="bg-primary/5 text-foreground text-xs">
-              {tag}
-            </Badge>
-          ))}
-        </div>
-      )}
-    </article>
+        {post.tags.length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {post.tags.map((tag) => (
+              <Badge key={tag} variant="secondary" className="bg-primary/5 text-foreground text-xs">
+                {tag}
+              </Badge>
+            ))}
+          </div>
+        )}
+      </article>
+    </Link>
   )
 }
