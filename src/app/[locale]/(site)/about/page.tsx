@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { Link } from "@/i18n/navigation"
 import type { Locale } from "@/i18n/routing"
 import { buildPageMetadata } from "@/i18n/urls"
+import { getPersonDisplayName, siteConfig } from "@/lib/site-config"
 
 type Props = {
   params: Promise<{ locale: Locale }>
@@ -29,9 +30,9 @@ const skills = [
   "AI/LLM Integration",
 ]
 
-function AboutContent() {
+function AboutContent({ locale }: { locale: Locale }) {
   const t = useTranslations("about")
-  const siteConfig = { author: "Nikita", url: "https://nerixim.dev", links: { github: "https://github.com/nerixim" } }
+  const personName = getPersonDisplayName(locale)
 
   const languages = [
     { name: t("languages.russian"), level: t("languages.russianLevel") },
@@ -42,7 +43,8 @@ function AboutContent() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Person",
-    name: siteConfig.author,
+    name: personName,
+    ...(personName !== siteConfig.personNameCanonical ? { alternateName: siteConfig.personNameCanonical } : {}),
     url: siteConfig.url,
     sameAs: [siteConfig.links.github],
     jobTitle: "Software Developer",
@@ -125,5 +127,5 @@ export default async function AboutPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
 
-  return <AboutContent />
+  return <AboutContent locale={locale} />
 }

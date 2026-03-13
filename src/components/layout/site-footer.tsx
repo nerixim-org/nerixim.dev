@@ -14,7 +14,7 @@ export function SiteFooter() {
       </div>
       <div className="section-shell flex flex-wrap items-center gap-x-4 gap-y-2 py-8 sm:justify-between sm:py-10">
         <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-          <FooterLabTrigger brand={siteConfig.name} prompt={t("eggPrompt")} status={t("eggStatus")} />
+          <FooterLabTrigger brand={siteConfig.brandName} prompt={t("eggPrompt")} status={t("eggStatus")} />
           <p className="text-muted-foreground text-sm">&copy; {new Date().getFullYear()}</p>
           <Link
             href="/lab"

@@ -1,6 +1,8 @@
+import { getPersonDisplayName, siteConfig } from "./site-config"
+
 export const cardContent = {
   en: {
-    name: "Nikita",
+    name: siteConfig.personNameCanonical,
     title: "Freelance Software Engineer",
     location: "Japan",
     website: "nerixim.dev",
@@ -17,8 +19,8 @@ export const cardContent = {
     languages: ["English", "Japanese", "Russian"],
   },
   ja: {
-    name: "ニキータ",
-    nameRomaji: "Nikita",
+    name: getPersonDisplayName("ja"),
+    nameRomaji: siteConfig.personNameCanonical,
     title: "フリーランス ソフトウェアエンジニア",
     location: "日本",
     website: "nerixim.dev",

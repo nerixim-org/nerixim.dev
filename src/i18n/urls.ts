@@ -58,7 +58,7 @@ export function buildPageMetadata(locale: Locale, pathname: string, title: strin
       type: "website",
       locale: getOpenGraphLocale(locale),
       url: getLocalizedUrl(locale, pathname),
-      siteName: siteConfig.name,
+      siteName: siteConfig.brandName,
       title,
       description,
     },

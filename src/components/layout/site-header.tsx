@@ -55,7 +55,7 @@ export function SiteHeader() {
           href="/"
           className="interactive-control -ml-3 rounded-full px-3 py-1.5 font-heading font-semibold text-lg tracking-tight hover:bg-background/80 focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2 motion-reduce:transform-none"
         >
-          {siteConfig.name}
+          {siteConfig.brandName}
         </Link>
 
         <div className="flex items-center gap-1">

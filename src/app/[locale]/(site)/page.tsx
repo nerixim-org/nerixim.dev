@@ -6,6 +6,7 @@ import { RecentPosts } from "@/components/home/recent-posts"
 import { ServicesPreview } from "@/components/home/services-preview"
 import type { Locale } from "@/i18n/routing"
 import { getLocalizedAlternates, getLocalizedUrl, getOpenGraphLocale } from "@/i18n/urls"
+import { siteConfig } from "@/lib/site-config"
 
 type Props = {
   params: Promise<{ locale: Locale }>
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       locale: getOpenGraphLocale(locale),
       url: getLocalizedUrl(locale, "/"),
-      siteName: "nerixim",
+      siteName: siteConfig.brandName,
       title,
       description,
     },

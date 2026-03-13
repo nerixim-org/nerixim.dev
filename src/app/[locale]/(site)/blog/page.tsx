@@ -4,7 +4,7 @@ import { PostCard } from "@/components/blog/post-card"
 import type { Locale } from "@/i18n/routing"
 import { buildPageMetadata, getLocalizedUrl } from "@/i18n/urls"
 import { getAllPosts } from "@/lib/blog"
-import { siteConfig } from "@/lib/site-config"
+import { getPersonDisplayName, siteConfig } from "@/lib/site-config"
 
 type Props = {
   params: Promise<{ locale: Locale }>
@@ -23,6 +23,7 @@ export default async function BlogPage({ params }: Props) {
 
   const t = await getTranslations({ locale, namespace: "blog" })
   const posts = await getAllPosts()
+  const personName = getPersonDisplayName(locale)
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -32,7 +33,8 @@ export default async function BlogPage({ params }: Props) {
     url: getLocalizedUrl(locale, "/blog"),
     author: {
       "@type": "Person",
-      name: siteConfig.author,
+      name: personName,
+      ...(personName !== siteConfig.personNameCanonical ? { alternateName: siteConfig.personNameCanonical } : {}),
       url: siteConfig.url,
     },
     blogPost: posts.map((post) => ({
@@ -44,7 +46,8 @@ export default async function BlogPage({ params }: Props) {
       url: getLocalizedUrl(locale, `/blog/${post.slug}`),
       author: {
         "@type": "Person",
-        name: siteConfig.author,
+        name: personName,
+        ...(personName !== siteConfig.personNameCanonical ? { alternateName: siteConfig.personNameCanonical } : {}),
       },
     })),
   }

@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Link } from "@/i18n/navigation"
 import type { Locale } from "@/i18n/routing"
 import { buildPageMetadata } from "@/i18n/urls"
-import { siteConfig } from "@/lib/site-config"
+import { getPersonDisplayName, siteConfig } from "@/lib/site-config"
 
 type Props = {
   params: Promise<{ locale: Locale }>
@@ -25,8 +25,9 @@ const serviceKeys = [
   { key: "localization" as const, icon: Languages },
 ]
 
-function ServicesContent() {
+function ServicesContent({ locale }: { locale: Locale }) {
   const t = useTranslations("services")
+  const personName = getPersonDisplayName(locale)
 
   const services = serviceKeys.map(({ key, icon }) => ({
     icon,
@@ -46,7 +47,8 @@ function ServicesContent() {
         name: service.title,
         provider: {
           "@type": "Person",
-          name: siteConfig.author,
+          name: personName,
+          ...(personName !== siteConfig.personNameCanonical ? { alternateName: siteConfig.personNameCanonical } : {}),
           url: siteConfig.url,
         },
       },
@@ -105,5 +107,5 @@ export default async function ServicesPage({ params }: Props) {
   const { locale } = await params
   setRequestLocale(locale)
 
-  return <ServicesContent />
+  return <ServicesContent locale={locale} />
 }

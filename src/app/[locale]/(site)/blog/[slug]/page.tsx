@@ -9,7 +9,7 @@ import { TableOfContents } from "@/components/blog/table-of-contents"
 import type { Locale } from "@/i18n/routing"
 import { buildPageMetadata, getLocalizedUrl } from "@/i18n/urls"
 import { extractHeadings, getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/blog"
-import { siteConfig } from "@/lib/site-config"
+import { getPersonDisplayName, siteConfig } from "@/lib/site-config"
 
 type Props = {
   params: Promise<{ locale: Locale; slug: string }>
@@ -70,6 +70,7 @@ export default async function BlogPostPage({ params }: Props) {
   const headings = extractHeadings(post.content)
   const relatedPosts = await getRelatedPosts(post.slug, post.tags)
   const postUrl = getLocalizedUrl(locale, `/blog/${slug}`)
+  const personName = getPersonDisplayName(locale)
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -81,12 +82,14 @@ export default async function BlogPostPage({ params }: Props) {
     url: postUrl,
     author: {
       "@type": "Person",
-      name: siteConfig.author,
+      name: personName,
+      ...(personName !== siteConfig.personNameCanonical ? { alternateName: siteConfig.personNameCanonical } : {}),
       url: siteConfig.url,
     },
     publisher: {
       "@type": "Person",
-      name: siteConfig.author,
+      name: personName,
+      ...(personName !== siteConfig.personNameCanonical ? { alternateName: siteConfig.personNameCanonical } : {}),
       url: siteConfig.url,
     },
     keywords: post.tags,

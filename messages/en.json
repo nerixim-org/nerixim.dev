@@ -73,7 +73,7 @@
       "description": "Software developer based in Japan. Trilingual in English, Japanese, and Russian. Building products that work across languages, cultures, and borders."
     },
     "name": "Nikita",
-    "tagline": "Software developer, language enthusiast, builder of things.",
+    "tagline": "Software developer building products across languages and borders.",
     "story": {
       "p1": "I'm a software developer based in Japan. I was born in Russia, studied foreign languages in university, and eventually made my way here — drawn by the culture, the language, and an interest in how people communicate across borders.",
       "p2": "I work across the full stack — TypeScript, React, Next.js for the web, SwiftUI for iOS, React Native for cross-platform. I build web applications, mobile apps, and APIs. I also work with AI tools and integrations, helping businesses adopt them practically.",
@@ -101,10 +101,10 @@
   "services": {
     "metadata": {
       "title": "Services — Development, AI, and Localization",
-      "description": "Full-stack web and mobile development, AI integration, and bilingual EN/JP/RU localization for startups and agencies based in Japan."
+      "description": "Full-stack web and mobile development, AI integration, and English/Japanese/Russian localization for startups and agencies based in Japan."
     },
     "heading": "Services",
-    "description": "I help teams ship software, AI workflows, and localized product experiences across English, Japanese, and Russian markets.",
+    "description": "I help teams ship software, AI workflows, and localized product experiences for English, Japanese, and Russian-speaking users.",
     "whoThisIsFor": "Who this is for: {who}",
     "development": {
       "title": "Software Development",
@@ -127,12 +127,12 @@
       "who": "Businesses looking to adopt AI tools practically, not theoretically."
     },
     "localization": {
-      "title": "Localization & Cross-Cultural Software",
+      "title": "Localization & International Product Support",
       "items": [
-        "EN/JP/RU software localization",
-        "Cultural adaptation (not just translation)",
+        "English, Japanese, and Russian software localization",
+        "Cultural adaptation beyond literal translation",
         "i18n architecture and implementation",
-        "Bilingual UX consulting"
+        "Multilingual UX consulting"
       ],
       "who": "Products expanding into Japan or Russian-speaking markets."
     },
@@ -251,7 +251,7 @@
       "description": "How nerixim.dev handles your information. What the contact form collects, how analytics work, and which third-party services are used."
     },
     "heading": "Privacy Policy",
-    "intro": "This site is a personal portfolio operated by Nikita. Here is a straightforward summary of how your data is handled.",
+    "intro": "This site, nerixim.dev, is a personal portfolio operated by Nikita. Here's a straightforward summary of how your data is handled.",
     "dataCollected": {
       "heading": "What data is collected",
       "content": "The contact form collects your <strong>name</strong>, <strong>email address</strong>, and <strong>message</strong>. Nothing else is collected directly by this site."

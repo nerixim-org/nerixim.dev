@@ -16,7 +16,7 @@ export function MobileNav({ open, onOpenChange, navItems }: MobileNavProps) {
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent side="right" className="w-72">
         <SheetHeader>
-          <SheetTitle className="font-heading text-lg">{siteConfig.name}</SheetTitle>
+          <SheetTitle className="font-heading text-lg">{siteConfig.brandName}</SheetTitle>
         </SheetHeader>
         <nav className="flex flex-col gap-1 px-4">
           {navItems.map((item) => (

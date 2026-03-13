@@ -8,6 +8,7 @@ import { ConsoleSignature } from "@/components/layout/console-signature"
 import type { Locale } from "@/i18n/routing"
 import { routing } from "@/i18n/routing"
 import { getOpenGraphLocale } from "@/i18n/urls"
+import { siteConfig } from "@/lib/site-config"
 import { Providers } from "../providers"
 import "../globals.css"
 
@@ -34,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     openGraph: {
       type: "website",
       locale: getOpenGraphLocale(locale),
-      siteName: "nerixim",
+      siteName: siteConfig.brandName,
       title: t("title.default"),
       description: t("description"),
     },

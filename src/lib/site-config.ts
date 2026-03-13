@@ -1,9 +1,19 @@
+import type { Locale } from "@/i18n/routing"
+
+const personDisplayNameByLocale = {
+  en: "Nikita",
+  ja: "ニキータ",
+  ru: "Никита",
+  uk: "Нікіта",
+} satisfies Record<Locale, string>
+
 export const siteConfig = {
-  name: "nerixim",
+  brandName: "nerixim",
   title: "Nikita — Software Developer",
   description: "Full-stack developer building software across languages and borders. Based in Japan.",
   url: "https://nerixim.dev",
-  author: "Nikita",
+  personNameCanonical: "Nikita",
+  personDisplayNameByLocale,
   links: {
     github: "https://github.com/nerixim",
   },
@@ -15,3 +25,7 @@ export const siteConfig = {
     { title: "Contact", href: "/contact" },
   ],
 } as const
+
+export function getPersonDisplayName(locale: Locale): string {
+  return siteConfig.personDisplayNameByLocale[locale]
+}
