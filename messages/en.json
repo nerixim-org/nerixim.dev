@@ -37,56 +37,56 @@
   },
   "home": {
     "hero": {
-      "title": "Software for teams working across languages and markets.",
-      "description": "Based in Japan, I help teams ship products in English, Japanese, and Russian across web, mobile, AI, and localization work.",
-      "seeMyWork": "See Selected Work",
-      "getInTouch": "Discuss Your Project"
+      "title": "Freelance senior full-stack engineer.",
+      "description": "Nine years building web applications and AI pipelines for startups. I work in English, Japanese, and Russian.",
+      "seeMyWork": "Selected work",
+      "getInTouch": "Get in touch"
     },
     "services": {
       "heading": "What I do",
       "development": {
-        "title": "Software Development",
-        "description": "Web apps, mobile apps, APIs. TypeScript, React, Next.js."
+        "title": "Product engineering",
+        "description": "End-to-end web and mobile development. I usually work with TypeScript, React, Ruby on Rails, and AWS."
       },
       "ai": {
-        "title": "AI Integration",
-        "description": "AI automation, workflow optimization, intelligent tooling."
+        "title": "AI systems",
+        "description": "LLM pipelines that hold up in production. I build eval harnesses, hallucination observability, and workflow automation."
       },
       "localization": {
-        "title": "Localization",
-        "description": "EN/JP/RU translation and cultural adaptation for software."
+        "title": "Cross-border products",
+        "description": "Technical i18n and Japan-market execution for multilingual software."
       }
     },
     "recentPosts": {
-      "heading": "Recent writing",
+      "heading": "Writing",
       "allPosts": "All posts"
     },
     "cta": {
-      "heading": "Need development, AI integration, or localization support?",
-      "description": "I work with teams in Japan and abroad on products that need both technical depth and language awareness.",
-      "getInTouch": "Discuss Your Project"
+      "heading": "Available for freelance work.",
+      "description": "I handle product development, infrastructure setup, cross-border execution, and architecture advisory.",
+      "getInTouch": "Contact me"
     }
   },
   "about": {
     "metadata": {
-      "title": "About — Developer, Language Enthusiast, Builder",
-      "description": "Software developer based in Japan. Trilingual in English, Japanese, and Russian. Building products that work across languages, cultures, and borders."
+      "title": "About — Nikita, Freelance Software Engineer",
+      "description": "Tokyo-based freelance software engineer with 9 years of experience. Trilingual in English, Japanese, and Russian."
     },
     "name": "Nikita",
-    "tagline": "Software developer building products across languages and borders.",
+    "tagline": "Freelance software engineer in Tokyo.",
     "story": {
-      "p1": "I'm a software developer based in Japan. I was born in Russia, studied foreign languages in university, and eventually made my way here — drawn by the culture, the language, and an interest in how people communicate across borders.",
-      "p2": "I work across the full stack — TypeScript, React, Next.js for the web, SwiftUI for iOS, React Native for cross-platform. I build web applications, mobile apps, and APIs. I also work with AI tools and integrations, helping businesses adopt them practically.",
-      "p3": "What makes my work a bit different is the language side. I'm fluent in Russian, English, and Japanese, which means I can build software that actually works across these markets — not just translated, but culturally adapted.",
-      "p4_pre": "I'm currently freelancing and building my own products. I also ",
+      "p1": "I'm a software engineer based in Tokyo. I grew up in Russia, studied foreign languages in Kobe, and built my career with Japanese product teams.",
+      "p2": "Nine years across web, backend, and infrastructure. Mostly TypeScript and Ruby on Rails. For data, I rely on PostgreSQL and GraphQL. I also manage AWS infrastructure and build mobile apps using React Native or SwiftUI.",
+      "p3": "My work falls into two categories: building version one of a product, or modernizing older systems. Modernization usually means Rails-to-Next.js migrations or splitting monoliths. I also build LLM pipelines that survive production. This includes evaluation harnesses, hallucination observability, LLM-judge testing, and autonomous CI bots.",
+      "p4_pre": "I currently freelance. One of my main projects is architecting a healthcare AI SaaS. Outside of client work, I build a Japanese-first Korean reading app powered by an LLM content pipeline, and ",
       "p4_link": "write about",
-      "p4_post": " freelancing in Japan, taxes, and the things I learn along the way.",
-      "p5_pre": "If you have a project that could use someone who bridges cultures and code, I'd like to ",
-      "p5_link": "hear about it",
+      "p4_post": " freelancing in Japan, the tax system, and building with AI.",
+      "p5_pre": "If you need an engineer who handles infrastructure, backend systems, and frontend product decisions, I'd like to ",
+      "p5_link": "hear from you",
       "p5_post": "."
     },
     "tech": {
-      "heading": "Tech"
+      "heading": "Capabilities"
     },
     "languages": {
       "heading": "Languages",
