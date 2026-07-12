@@ -45,3 +45,8 @@ squirrel.toml
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Third-party prose used as local style anchors — never publish
+scripts/copy-pipeline/exemplars/*/[0-9]*.md
+# LLM pipeline outputs (regenerable)
+scripts/copy-pipeline/outputs/
