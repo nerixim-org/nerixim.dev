@@ -6,6 +6,7 @@
     "check:messages": "bun scripts/check-messages.ts",
     "copy:pipeline": "bun scripts/copy-pipeline/run.ts",
     "copy:apply": "bun scripts/copy-pipeline/apply.ts",
+    "copy:review": "bun scripts/copy-pipeline/review.ts",
     "dev": "next dev --port 4100",
     "build": "next build",
     "start": "next start",
