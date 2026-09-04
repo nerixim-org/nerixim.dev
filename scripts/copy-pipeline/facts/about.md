@@ -16,11 +16,11 @@ REVIEW ME — the pipeline may only make claims listed here. Edit before first r
 - Recent focus: AI systems that survive production — LLM pipelines with eval harnesses, hallucination-rate observability, LLM-judge testing, autonomous CI/code-quality bots
 - Has led teams' adoption of AI coding tools (8-person team, measurably faster delivery)
 
-## Now
+## Now (updated 2026-09-05 from `_ground-truth.md`)
 
-- Freelancing (multiple clients incl. a healthcare AI SaaS he architects and leads)
-- Building own products: Japanese-first Korean reading app + LLM content pipeline
-- Writes about freelancing in Japan, the invoice/tax system, building with AI
+- Freelancing with several clients at once: one engagement where implementation is delegated to coding agents and he does review and design meetings (fixed monthly fee), one 準委任 engagement three days a week on site, and a long-running product client at ~10h/month. The healthcare AI SaaS engagement (2024-07 → 2026-08) is paused — say "led" (past tense) or "until recently", never "currently leads".
+- Building own product: Kanyomi, a Japanese-first Korean reading app — documentation, content pipeline and landing page exist; no app yet, so 開発中 / "in progress", never "shipped".
+- Writes about freelancing in Japan, the invoice/tax system, building with AI (two drafts unpublished, one article on LLM reliability published)
 
 ## Personality (use sparingly, only where the variant benefits)
 
