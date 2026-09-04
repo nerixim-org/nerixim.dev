@@ -18,10 +18,14 @@ function resolveModel(model: string): LanguageModel {
   return google(model)
 }
 
+// COPY_GEMINI_MODEL overrides the three Gemini stages (e.g. gemini-3.8-flash when the
+// Pro preview times out at 5 minutes per draft call, as it did on 2026-09-05).
+const GEMINI_MODEL = process.env.COPY_GEMINI_MODEL ?? "gemini-3.1-pro-preview"
+
 export const MODELS = {
-  draft: "gemini-3.1-pro-preview",
-  critique: "gemini-3.1-pro-preview",
-  revise: "gemini-3.1-pro-preview",
+  draft: GEMINI_MODEL,
+  critique: GEMINI_MODEL,
+  revise: GEMINI_MODEL,
   // Cross-model judge on purpose — a different provider grading the output
   // avoids self-preference (same reasoning as the content pipeline's judge).
   judge: "openrouter/openai/gpt-5.5",
