@@ -149,25 +149,12 @@ Read it and ask:
 - does it sound like a translation of a better English sentence?
 - are there any phrases that feel “marketing-ish” rather than personal?
 
-## Practical Routine For This Repo
+## Practical Routine For This Repo (2026-09-05)
 
-1. Generate a copy brief from the current `messages/en.json` and `messages/ja.json`
-2. Paste the brief into your LLM of choice
-3. Rewrite one namespace at a time: `home`, `about`, `services`, `contact`
-4. Apply the updated Japanese copy
-5. Run `bun run check:messages`
-6. Read the Japanese aloud once before shipping
+1. Check the fact sheet for the namespace: `scripts/copy-pipeline/facts/<ns>.md` (home, about, services exist). The pipeline may only claim what is in it.
+2. Run the pipeline for one namespace: `bun run copy:pipeline <ns> --lang ja` → `scripts/copy-pipeline/outputs/ja/<ns>.md` (3 variants, lint, critique, judge vs. exemplars and vs. current copy).
+3. Read the winner aloud (Pass 4 above). Compare its register with `scripts/copy-pipeline/exemplars/ja/phrasebank.md` — 13 verbatim sentences by Japanese freelance engineers, each matched against the page's raw text on 2026-09-05.
+4. Apply: `bun run copy:apply <ns> --lang ja --variant <n>`, then `bun run check:messages`.
+5. Ship through the normal route (push to `main`; Vercel deploys).
 
-## Command
-
-Use the helper script to generate an LLM-ready brief:
-
-```bash
-bun run copy:ja:brief
-```
-
-Or limit it to a few namespaces:
-
-```bash
-bun scripts/build-ja-copy-brief.ts about services
-```
+References: the 9 source pages are listed in `exemplars/ja/candidates.md` (re-verified live 2026-09-05) and loaded into the NotebookLM notebook 「nerixim.dev 日本語コピー参照 2026-09」 for questions like "how do these authors state scope of work". Any quote taken from the notebook goes through `verify-claim` before it is used; the notebook paraphrased 1 of 15 quotes on the first ask. `portfolios.md` at the repo root is the earlier AI-drafted note and is superseded (see `candidates.md`). The old `copy:ja:brief` script no longer exists.
