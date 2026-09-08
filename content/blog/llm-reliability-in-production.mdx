@@ -1,0 +1,65 @@
+---
+title: "Keeping LLM features honest in production"
+description: "Notes on the reliability layer around a production LLM feature: fixed-case evaluation, LLM-as-judge grading, hallucination observability, and letting coding agents do real CI work without letting them mark their own homework."
+date: "2026-08-20"
+tags: ["llm", "evals", "ai-agents", "production"]
+published: true
+---
+
+Most of the difficulty in shipping an LLM feature is not getting it to work. It is knowing whether it still works next week.
+
+A normal regression suite tells you a function returned 4. A generation pipeline gives you a different paragraph every run, and the interesting failures are the ones that read perfectly well and happen to be wrong. On a healthcare SaaS where the output is a care document a professional signs their name to, "reads well and is wrong" is the only failure mode that matters.
+
+This is a description of the reliability layer I built around that. No client details, and no code — just the parts that turned out to be load-bearing.
+
+## Fixed case sets before anything else
+
+The first useful thing was not a model change. It was deciding what to measure against.
+
+Evaluating on whatever data happens to be around produces numbers that move for reasons you cannot attribute. A prompt change looks like a 6% improvement, and you cannot tell whether that is the prompt or the sample. So the case set is fixed and stratified across the dimensions that actually vary in production: document type, input length, how sparse the source record is, and which edge conditions the domain throws.
+
+Fixed means run-over-run comparable. That is the whole point. Once two runs are comparable, a prompt change becomes an experiment instead of a vibe.
+
+## LLM-as-judge, with a second opinion
+
+Human grading does not scale to every run, and exact-match scoring is meaningless for prose. So a model grades the output against the source record and a rubric.
+
+The obvious objection is that you are now trusting a model to evaluate a model. Two things made this tolerable:
+
+**Pairwise comparison instead of absolute scores.** Asking a judge "is A or B better here" is a much easier question than "rate this 1-10", and it is the question you actually have when deciding whether to ship a prompt change. Absolute scores drift between runs in ways pairwise preferences do not.
+
+**A judge from a different model family.** Grading with a second, stronger judge and checking whether the two agree gives you a cheap read on whether the grading itself is stable. When judges disagree, that case usually deserves a human look. Judge agreement became a signal I watched alongside the scores.
+
+## Make the runs resumable
+
+An eval run over a real case set is slow and touches a paid API. Mid-run failures are routine.
+
+The first version held results in memory and wrote them at the end, which meant a failure forty minutes in threw away forty minutes of completed, already-paid-for grading. Writing each case's result as it completes fixed that, and had a second effect I did not anticipate: once runs are resumable and incremental, you stop babysitting them. Prompt A/B comparisons can run unattended, and the cost of asking a question drops far enough that you start asking more of them.
+
+Cheap experiments change what you are willing to investigate.
+
+## Hallucination rate as an observable
+
+Scores tell you quality moved. They do not tell you why.
+
+The thing that made root-causing tractable was correlating structured generation logs with trace metadata from the tracing layer, so a bad output leads back to the exact inputs, prompt version, and intermediate steps that produced it. Hallucination rate then stops being a number in a report and becomes a metric you can slice: by document type, by prompt version, by how sparse the source record was.
+
+Most regressions turned out to be concentrated in a specific slice rather than spread evenly. You only see that if the observability is per-generation rather than aggregate.
+
+## Letting agents do CI work
+
+Separately from the product, coding agents do a meaningful share of the delivery work: triaging code-quality debt, running simplification passes, picking up backlog items, drafting the PR.
+
+Two constraints make this something other than a novelty.
+
+**Agents cannot approve their own changes.** A review agent that can sign off on work authored by an agent is a loop that produces motion and no review. The guard against self-approval is not a nice-to-have; without it the whole arrangement quietly stops meaning anything.
+
+**Machine-checkable gates around every agent output.** Type checking, linting, and tests run on agent work the same as on mine. The agent is fast at producing plausible code, and plausible is exactly the failure mode the gates catch.
+
+What I keep for myself: architecture, review, and release. The agent is good at the part between a well-specified problem and a passing test suite, and that is a large part, but specifying the problem and deciding whether the result should ship are still the job.
+
+## What this does not solve
+
+The eval harness measures what the rubric asks about. A failure mode nobody thought to encode is invisible to it, and a rubric drifts out of date as the product changes. Judge agreement catches some grading instability but not a shared blind spot between judges.
+
+The honest summary is that this catches regressions in known failure modes quickly and cheaply, and does nothing for unknown ones. New failure modes still arrive through users and through reading output by hand. The harness is what stops you from re-shipping a bug you already found.
