@@ -78,7 +78,7 @@
       "p1": "I'm a software engineer based in Tokyo. I grew up in Russia, studied foreign languages in Kobe, and built my career with Japanese product teams.",
       "p2": "Nine years across web, backend, and infrastructure. Mostly TypeScript and Ruby on Rails. For data, I rely on PostgreSQL and GraphQL. I also manage AWS infrastructure and build mobile apps using React Native or SwiftUI.",
       "p3": "My work falls into two categories: building version one of a product, or modernizing older systems. Modernization usually means Rails-to-Next.js migrations or splitting monoliths. I also build LLM pipelines that survive production. This includes evaluation harnesses, hallucination observability, LLM-judge testing, and autonomous CI bots.",
-      "p4_pre": "I currently freelance. One of my main projects is architecting a healthcare AI SaaS. Outside of client work, I build a Japanese-first Korean reading app powered by an LLM content pipeline, and ",
+      "p4_pre": "I currently freelance. Most of my client work now is architecture and review, with the implementation delegated to coding agents. Outside of client work, I build a Japanese-first Korean reading app powered by an LLM content pipeline, and ",
       "p4_link": "write about",
       "p4_post": " freelancing in Japan, the tax system, and building with AI.",
       "p5_pre": "If you need an engineer who handles infrastructure, backend systems, and frontend product decisions, I'd like to ",

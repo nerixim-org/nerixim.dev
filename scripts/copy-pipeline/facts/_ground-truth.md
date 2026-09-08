@@ -42,8 +42,9 @@ Freelance since 2021-02 (Cambia). Full-time freelance/contract since 2022-03. Th
 ## Claims that need care
 
 - "8人規模のチームへのAIコーディングツール導入" — Algomatic, 2025. True, but it was a 3-month contract; do not imply it is ongoing.
-- "いまは医療系AIのSaaS開発をリードしながら" (about p4) and "現在は医療系SaaSのAI開発を主に担当" (home ai) — **stale**: Troika is paused. Current shape: review-and-meetings role for a fixed-fee client + a 3-days-on-site 準委任 + Cambia.
+- ~~"いまは医療系AIのSaaS開発をリードしながら" (about p4) and "現在は医療系SaaSのAI開発を主に担当" (home ai)~~ — **fixed 2026-09-08** on the editorial branch (never went live; the deployed site is still the old English-only `main`). Both now describe the current shape — architecture and review, implementation delegated to coding agents — without naming a client. EN about p4 had the same claim and was fixed too. RU/UK about p4 were already generic.
 - "日本人向けの韓国語リーディングアプリを作っています" — acceptable as 開発中 only if it is clear there is no app yet.
-- Projects page "Pechka: 日本語話者向けの韓国語リーディングアプリ" (uncommitted WIP) — wrong product: Pechka is the Russian app; the Korean one is Kanyomi.
+- ~~Projects page "Pechka: 日本語話者向けの韓国語リーディングアプリ" (uncommitted WIP)~~ — **fixed 2026-09-08**: the entry is now Kanyomi (linked to kanyomi.app, verified 200) and Pechka is off the page.
+- RU/UK said "медицинские / медичні документи" where EN says "regulated care documents" — **fixed 2026-09-08** to "документы по уходу" / "документи догляду". JA said 「公的書類」 (implies government-issued) and is now 「介護の定型書類」.
 - Any client name: only in the private CV, never on the site.
 - Tax/invoice article: every rule and number must be checked against 国税庁 pages (`meta/5-workflow/sources-index.md` has the pages). Known 2026 facts: 2割特例 ends with the 2026年分 (individuals); 3割特例 for 2027–2028 (individuals with base-period sales ≤ ¥10M); the owner himself is over the ¥10M base-period threshold.
