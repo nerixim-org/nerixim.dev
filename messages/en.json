@@ -152,20 +152,29 @@
     "status": {
       "live": "Live",
       "inProgress": "In Progress",
-      "planned": "Planned"
+      "planned": "Planned",
+      "past": "Past work"
     },
     "items": {
-      "pechka": {
-        "title": "Pechka",
-        "description": "A language learning app built around spaced repetition and immersive input."
+      "healthcareAi": {
+        "title": "Healthcare AI Platform",
+        "description": "Client platform generating regulated care documents with LLMs. I built the generation pipeline and the reliability layer around it: an LLM-as-judge evaluation harness on a stratified fixed case set, hallucination-rate observability wired to tracing, and resumable eval runs for unattended prompt A/B testing."
+      },
+      "agentOps": {
+        "title": "Agent-Driven Delivery",
+        "description": "An automation layer where coding agents do real delivery work: CI bots for code-quality triage and backlog pickup, guarded so review agents cannot approve their own changes, plus a Slack agent that triages Sentry alerts with cross-repo code and issue search."
+      },
+      "kanyomi": {
+        "title": "Kanyomi",
+        "description": "A Korean reading app for Japanese speakers: short pieces at your level, explained through Japanese \u2014 particles as \u306f/\u3092, Sino-Korean words through their kanji cognates, endings through \u3067\u3059\u30fb\u307e\u3059. The landing page is live and an LLM pipeline drafts, glosses, level-tags and QA-checks the stories; the app itself is still being built."
       },
       "nerixim": {
         "title": "nerixim.dev",
-        "description": "This site. A hub for my work, writing, and tools."
+        "description": "This site. A hub for my work, writing, and tools. Next.js App Router, four locales, statically rendered."
       },
       "freelance": {
         "title": "Freelance Development",
-        "description": "Web and mobile projects for clients in Japan and globally."
+        "description": "Web, mobile, and infrastructure work for teams in Japan and abroad — zero-to-one product builds, Rails-to-Next.js modernization, and AWS infrastructure as code."
       }
     }
   },

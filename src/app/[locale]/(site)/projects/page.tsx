@@ -21,10 +21,25 @@ function ProjectsContent() {
 
   const projects = [
     {
-      title: t("items.pechka.title"),
-      description: t("items.pechka.description"),
+      title: t("items.healthcareAi.title"),
+      description: t("items.healthcareAi.description"),
+      status: "past" as const,
+      tags: ["TypeScript", "Next.js", "LLM", "Evals", "AWS"],
+      statusLabel: t("status.past"),
+    },
+    {
+      title: t("items.agentOps.title"),
+      description: t("items.agentOps.description"),
+      status: "live" as const,
+      tags: ["Claude Code", "GitHub Actions", "MCP", "TypeScript"],
+      statusLabel: t("status.live"),
+    },
+    {
+      title: t("items.kanyomi.title"),
+      description: t("items.kanyomi.description"),
       status: "in-progress" as const,
-      tags: ["Swift", "SwiftUI", "iOS"],
+      tags: ["Next.js", "Supabase", "LLM pipeline", "SwiftUI"],
+      href: "https://kanyomi.app",
       statusLabel: t("status.inProgress"),
     },
     {
@@ -39,7 +54,7 @@ function ProjectsContent() {
       title: t("items.freelance.title"),
       description: t("items.freelance.description"),
       status: "live" as const,
-      tags: ["React", "TypeScript", "Node.js"],
+      tags: ["React", "TypeScript", "Ruby on Rails", "Terraform"],
       statusLabel: t("status.live"),
     },
   ]

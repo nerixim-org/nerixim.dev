@@ -8,7 +8,7 @@ interface ProjectCardProps {
   description: string
   tags: string[]
   href?: string
-  status: "live" | "in-progress" | "planned"
+  status: "live" | "in-progress" | "planned" | "past"
   statusLabel: string
 }
 
@@ -17,6 +17,7 @@ export function ProjectCard({ title, description, tags, href, status, statusLabe
     live: "default" as const,
     "in-progress": "secondary" as const,
     planned: "outline" as const,
+    past: "outline" as const,
   }
 
   const card = (
