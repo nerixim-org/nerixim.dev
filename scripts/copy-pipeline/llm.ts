@@ -41,6 +41,7 @@ export type LlmPrompt = {
 }
 
 const DEFAULT_TIMEOUT_MS = 5 * 60 * 1000
+const MAX_OUTPUT_TOKENS = 16_000
 const MAX_ATTEMPTS = 4
 
 async function withRetry<T>(prompt: LlmPrompt, run: () => Promise<T>): Promise<T> {
@@ -72,6 +73,10 @@ export async function runLlmObject<T>(prompt: LlmPrompt, schema: ZodType<T>, sch
       prompt: prompt.user,
       output: Output.object({ schema, name: schemaName }),
       maxRetries: 0,
+      // Without a cap the OpenAI route asks for its 65k maximum up front and
+      // OpenRouter refuses when the balance cannot cover it (402, 2026-09-22).
+      // A namespace's three variants plus a verdict fit in a fraction of this.
+      maxOutputTokens: MAX_OUTPUT_TOKENS,
       abortSignal: AbortSignal.timeout(DEFAULT_TIMEOUT_MS),
     }),
   )
