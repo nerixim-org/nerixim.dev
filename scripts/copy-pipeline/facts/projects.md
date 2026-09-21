@@ -1,6 +1,6 @@
 # Fact sheet: projects
 
-REVIEW ME — the pipeline may only make claims listed here. Drafted 2026-09-05 from `_ground-truth.md`; statuses are the point of this page, so get them right.
+REVIEW ME — the pipeline may only make claims listed here. Drafted 2026-09-05 from `_ground-truth.md`, product statuses refreshed 2026-09-22; statuses are the point of this page, so get them right.
 
 ## Page intent
 
@@ -17,15 +17,20 @@ REVIEW ME — the pipeline may only make claims listed here. Drafted 2026-09-05 
 - CI agents that triage code-quality debt and pick up backlog items and open reviewable PRs; a guard that prevents review agents from approving their own changes; a Slack agent that investigates Sentry alerts across repositories.
 - Same client as above; do not name it.
 
-### Kanyomi (カンヨミ) — status: 開発中 (landing page live since 2026-09-08; **no app yet**)
-- Korean reading app for Japanese speakers: level-matched stories with Japanese-native support (particles mapped to は/を, 漢字語 cognates, 語尾/敬語 mapped to です・ます).
-- Content pipeline generates and QA-checks stories with LLMs; 21 stories drafted, none approved yet.
-- kanyomi.app returns 200 (verified 2026-09-08, redirects to www.kanyomi.app). The waitlist form is wired to Supabase and works. The app itself is not out; the iOS code has not moved since 2026-05.
+### Kanyomi (カンヨミ) — status: 公開中 (web, since 2026-09-16; iOS app not out)
+- Korean reading for Japanese speakers, web-first: three short stories a week within TOPIK I (1級・2級) vocabulary and grammar, with Japanese explanations only where a reader would stumble. 29 stories live at kanyomi.app/yomimono (sitemap, 2026-09-22).
+- Also live: 学習資料 library at /contents (58 articles: TOPIK-from-zero, terms, grammar, words), 今日の1問 at /kyou, a level check at /level, three converters under /tools (名前のハングル表記, 韓国の年齢, 数詞).
+- An LLM pipeline drafts, glosses, level-tags and QA-checks every story; two judges gate publication.
+- Do not claim: paid archive (Stripe registration is not done), subscriber or reader numbers, the iOS app (no Swift code since 2026-05).
 
-### Pechka — status: unpublished (codebase complete, never submitted to the App Store)
-- Russian-learning app for Japanese speakers (spaced repetition + extensive reading). It is NOT the Korean app.
-- Either describe it as 未公開 / 開発を一時停止 or leave it off the page. Never 公開中.
-- **Left off the page (2026-09-08).** A draft had put Kanyomi's description under the Pechka name; the entry is now Kanyomi and Pechka is not listed.
+### pechka.app (ペチカ) — status: 公開中 (since 2026-09-21)
+- Russian grammar library for Japanese speakers, keyed to the ТРКИ levels: 48 articles across A1 and A2 (sitemap, 2026-09-22), each with an optional 日本語・英語とくらべると note.
+- Static site on the same pipeline, gates and deploy as Kanyomi (Cloudflare). No app, no accounts, no pricing.
+- The old Pechka iOS codebase (spaced repetition + reading) is unrelated to this site and stays off the page.
+
+### storyling.app — status: 公開中 (since 2026-09-21)
+- Italian grammar library for Japanese speakers, keyed to the CILS levels: 24 articles across A1 and A2 (sitemap, 2026-09-22), same format as pechka.app.
+- Do not describe it as the 2025 StoryLing app; that LP is gone.
 
 ### nerixim.dev — status: 公開中
 - This site. Next.js App Router, four languages (ja/en/ru/uk), statically generated.
@@ -37,5 +42,5 @@ REVIEW ME — the pipeline may only make claims listed here. Drafted 2026-09-05 
 ## Do not claim
 
 - User numbers, downloads, revenue, launch dates, "coming soon" dates.
-- That Pechka or Kanyomi can be downloaded.
+- That Kanyomi, pechka.app or storyling.app can be downloaded as apps, or that any of them has paying users.
 - Client names.

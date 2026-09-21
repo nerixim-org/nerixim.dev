@@ -1,4 +1,4 @@
-# Ground truth about the owner's real work (2026-09-05)
+# Ground truth about the owner's real work (2026-09-05, products refreshed 2026-09-22)
 
 NOT FOR PUBLICATION. This is the checklist every page, fact sheet and article is compared against. Sources: `automation/cv-generator/private/resume.md` and `resume-ja.md` (career timeline), `meta/2-income/*` and the 2026-09 contracts (current engagements), the repos themselves (product status), the owner's own statements on 2026-09-05. Items marked OWNER are the owner's word only.
 
@@ -33,11 +33,12 @@ Freelance since 2021-02 (Cambia). Full-time freelance/contract since 2022-03. Th
 - **Troika bot fleet / LLM reliability layer**: real, production, at CareFran (paused). Anonymised case study allowed (NDA judged OK 2026-07-12). Article `llm-reliability-in-production.mdx` describes this.
 - **hub** (automation/hub): personal Mastra-based job-discovery pipeline, 11 source adapters, dashboard. Runs locally/Hetzner. Not a product.
 - **Pechka / MiniLexer**: Russian-for-Japanese language app codebase (repo `minilexer`), feature-complete per 2026-07 survey, **never published to the App Store** (OWNER 2026-09-05: "I don't have Pechka app published yet, though I want to"). Do not describe it as an available app or as a Korean app.
-- **Kanyomi** (korean-reader-ios): Japanese-first Korean reading app. Documentation, ADRs, content pipeline and 21 stories exist; **no Swift code since 2026-05, no app**. Domain kanyomi.app registered 2026-07-18; LP (storyling-lp `main`, 11 commits) **not deployed** — storyling.app still serves the 2025 StoryLing LP. Describe as "building" / 開発中, never 公開中.
-- **StoryLing**: 2025 project; its LP is what is live at storyling.app. Superseded by Kanyomi.
+- **Kanyomi** (monorepo `nerixim/kanyomi`): Japanese-first Korean reading, web-first since 2026-09-16. Live at kanyomi.app (2026-09-22): 29 stories, /contents library (58 articles), /kyou, /level, three /tools converters. Weekly cadence 週3本. Paid archive (¥480/月) is not live — Stripe registration pending. iOS app: no Swift code since 2026-05. 公開中 for the web; never claim the app or paying users.
+- **pechka.app**: Russian grammar library for Japanese speakers (ТРКИ levels, 48 A1/A2 articles), live since 2026-09-21 from the kanyomi monorepo on Cloudflare. Unrelated to the old Pechka/MiniLexer iOS codebase.
+- **storyling.app**: Italian grammar library for Japanese speakers (CILS levels, 24 A1/A2 articles), live since 2026-09-21. The 2025 StoryLing LP is gone.
 - **sglypper**: Telegram/LINE meme-and-persona bot, live on Hetzner.
 - **nagashima-proto**: two-day museum site prototype (2026-07), deployed behind Basic auth, outcome unknown.
-- **nerixim.dev**: this site. Live version = old `main`; editorial refresh unpushed.
+- **nerixim.dev**: this site. Four-locale editorial version live since 2026-09-08.
 
 ## Claims that need care
 
