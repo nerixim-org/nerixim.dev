@@ -1,143 +1,37 @@
-import { ImageResponse } from "next/og"
-import { getPostBySlug } from "@/lib/blog"
+import { type Locale, routing } from "@/i18n/routing"
+import { getAllPosts, getPostBySlug } from "@/lib/blog"
+import { OG_SIZE, renderOgCard, siblingsFor } from "@/lib/og-card"
 
 export const alt = "Blog post"
-export const size = { width: 1200, height: 630 }
+export const size = OG_SIZE
 export const contentType = "image/png"
 
+export async function generateStaticParams() {
+  const posts = await getAllPosts()
+  return routing.locales.flatMap((locale) => posts.map((post) => ({ locale, slug: post.slug })))
+}
+
 type Props = {
-  params: Promise<{ slug: string }>
+  params: Promise<{ locale: Locale; slug: string }>
 }
 
 export default async function PostOgImage({ params }: Props) {
-  const { slug } = await params
+  const { locale, slug } = await params
+  const siblings = await siblingsFor(locale, ["nav", "blog"])
+  const kicker = siblings[0]?.label ?? "Blog"
 
   let title = "nerixim.dev"
-  let date = ""
-
+  let description: string | undefined
   try {
     const post = await getPostBySlug(slug)
     title = post.title
-    date = post.date
-  } catch {
-    return new ImageResponse(
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          width: "100%",
-          height: "100%",
-          backgroundColor: "#1f2028",
-          color: "#f0ede8",
-          fontSize: "48px",
-        }}
-      >
-        nerixim.dev
-      </div>,
-      { ...size },
-    )
-  }
+    description = post.date
+      ? new Date(post.date).toLocaleDateString(
+          locale === "ja" ? "ja-JP" : locale === "ru" ? "ru-RU" : locale === "uk" ? "uk-UA" : "en-US",
+          { year: "numeric", month: "long", day: "numeric" },
+        )
+      : undefined
+  } catch {}
 
-  const formattedDate = date
-    ? new Date(date).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "long",
-        day: "numeric",
-      })
-    : ""
-
-  return new ImageResponse(
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        width: "100%",
-        height: "100%",
-        backgroundColor: "#1f2028",
-        padding: "80px",
-      }}
-    >
-      {/* Top accent line */}
-      <div
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          height: "4px",
-          background: "linear-gradient(90deg, #9ba0c0, #6b6f8e)",
-        }}
-      />
-
-      {/* Title */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "24px",
-        }}
-      >
-        <div
-          style={{
-            fontSize: "52px",
-            fontWeight: 700,
-            color: "#f0ede8",
-            lineHeight: 1.2,
-            maxWidth: "900px",
-          }}
-        >
-          {title}
-        </div>
-        {formattedDate && (
-          <div
-            style={{
-              fontSize: "24px",
-              color: "#9b9aaf",
-              lineHeight: 1.5,
-            }}
-          >
-            {formattedDate}
-          </div>
-        )}
-      </div>
-
-      {/* Branding */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "16px",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            width: "48px",
-            height: "48px",
-            borderRadius: "50%",
-            backgroundColor: "#9ba0c0",
-            color: "#1f2028",
-            fontSize: "24px",
-            fontWeight: 700,
-          }}
-        >
-          N
-        </div>
-        <span
-          style={{
-            fontSize: "24px",
-            color: "#9ba0c0",
-            letterSpacing: "0.05em",
-          }}
-        >
-          nerixim.dev
-        </span>
-      </div>
-    </div>,
-    { ...size },
-  )
+  return renderOgCard({ locale, kicker, title, description, siblings })
 }
