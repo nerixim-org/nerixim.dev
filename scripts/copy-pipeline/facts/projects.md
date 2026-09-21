@@ -20,7 +20,7 @@ REVIEW ME — the pipeline may only make claims listed here. Drafted 2026-09-05 
 ### Kanyomi (カンヨミ) — status: 公開中 (web, since 2026-09-16; iOS app not out)
 - Korean reading for Japanese speakers, web-first: three short stories a week within TOPIK I (1級・2級) vocabulary and grammar, with Japanese explanations only where a reader would stumble. 29 stories live at kanyomi.app/yomimono (sitemap, 2026-09-22).
 - Also live: 学習資料 library at /contents (58 articles: TOPIK-from-zero, terms, grammar, words), 今日の1問 at /kyou, a level check at /level, three converters under /tools (名前のハングル表記, 韓国の年齢, 数詞).
-- An LLM pipeline drafts, glosses, level-tags and QA-checks every story; two judges gate publication.
+- An LLM pipeline drafts, glosses, level-tags and QA-checks every story; two LLM judges (not people) gate publication. Do not write that humans review the stories.
 - Do not claim: paid archive (Stripe registration is not done), subscriber or reader numbers, the iOS app (no Swift code since 2026-05).
 
 ### pechka.app (ペチカ) — status: 公開中 (since 2026-09-21)
