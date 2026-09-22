@@ -166,7 +166,15 @@
       },
       "kanyomi": {
         "title": "Kanyomi",
-        "description": "A Korean reading app for Japanese speakers: short pieces at your level, explained through Japanese \u2014 particles as \u306f/\u3092, Sino-Korean words through their kanji cognates, endings through \u3067\u3059\u30fb\u307e\u3059. The landing page is live and an LLM pipeline drafts, glosses, level-tags and QA-checks the stories; the app itself is still being built."
+        "description": "Korean reading for Japanese speakers: three short stories a week at TOPIK I level, glossed through Japanese, plus a grammar and vocabulary library, a level check and three small converters (Hangul names, Korean age, numerals). An LLM pipeline drafts and QA-checks every story; the iOS app is still to come."
+      },
+      "pechka": {
+        "title": "pechka.app",
+        "description": "A Russian grammar library for Japanese speakers, keyed to the ТРКИ levels: 48 short articles across A1 and A2, with notes on where Japanese and English differ. A static site on the same pipeline and gates as Kanyomi."
+      },
+      "storyling": {
+        "title": "storyling.app",
+        "description": "An Italian grammar library for Japanese speakers, keyed to the CILS levels: 24 articles across A1 and A2, in the same format as pechka.app."
       },
       "nerixim": {
         "title": "nerixim.dev",
