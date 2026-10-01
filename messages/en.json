@@ -164,6 +164,10 @@
         "title": "Agent-Driven Delivery",
         "description": "An automation layer where coding agents do real delivery work: CI bots for code-quality triage and backlog pickup, guarded so review agents cannot approve their own changes, plus a Slack agent that triages Sentry alerts with cross-repo code and issue search."
       },
+      "sglypper": {
+        "title": "sglypper",
+        "description": "A Telegram and LINE bot that reads a group chat's history, learns the group's voice with a Markov chain and an LLM, and answers in character. A side project running for one group."
+      },
       "kanyomi": {
         "title": "Kanyomi",
         "description": "Korean reading for Japanese speakers: three short stories a week at TOPIK I level, glossed through Japanese, plus a grammar and vocabulary library, a level check and three small converters (Hangul names, Korean age, numerals). An LLM pipeline drafts and QA-checks every story; the iOS app is still to come."

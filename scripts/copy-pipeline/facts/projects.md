@@ -17,6 +17,10 @@ REVIEW ME — the pipeline may only make claims listed here. Drafted 2026-09-05 
 - CI agents that triage code-quality debt and pick up backlog items and open reviewable PRs; a guard that prevents review agents from approving their own changes; a Slack agent that investigates Sentry alerts across repositories.
 - Same client as above; do not name it.
 
+### sglypper — status: 公開中 (side project, private repo, no link)
+- A Telegram and LINE bot that imports a group chat's history, learns the group's voice with a Markov chain plus an LLM (Gemini), and replies in character. Runs for one group.
+- Do not claim: revenue, user numbers, that it is a product.
+
 ### Kanyomi (カンヨミ) — status: 公開中 (web, since 2026-09-16; iOS app not out)
 - Korean reading for Japanese speakers, web-first: three short stories a week within TOPIK I (1級・2級) vocabulary and grammar, with Japanese explanations only where a reader would stumble. 29 stories live at kanyomi.app/yomimono (sitemap, 2026-09-22).
 - Also live: 学習資料 library at /contents (58 articles: TOPIK-from-zero, terms, grammar, words), 今日の1問 at /kyou, a level check at /level, three converters under /tools (名前のハングル表記, 韓国の年齢, 数詞).

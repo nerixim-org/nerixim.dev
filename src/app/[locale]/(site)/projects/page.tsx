@@ -35,6 +35,13 @@ function ProjectsContent() {
       statusLabel: t("status.live"),
     },
     {
+      title: t("items.sglypper.title"),
+      description: t("items.sglypper.description"),
+      status: "live" as const,
+      tags: ["Telegram", "LINE", "Gemini", "SQLite"],
+      statusLabel: t("status.live"),
+    },
+    {
       title: t("items.kanyomi.title"),
       description: t("items.kanyomi.description"),
       status: "live" as const,
