@@ -148,7 +148,7 @@
   "projects": {
     "metadata": {
       "title": "Projects — Things I Am Building and Have Built",
-      "description": "A collection of software projects including language learning apps, developer tools, and client work. Built with TypeScript, React, Next.js, Swift, and more."
+      "description": "Language-learning sites for Japanese speakers, agent-driven engineering and client work. Mostly TypeScript and Next.js."
     },
     "heading": "Projects",
     "description": "Things I'm building and have built.",
@@ -167,9 +167,21 @@
         "title": "Agent-Driven Delivery",
         "description": "An automation layer where coding agents do real delivery work: CI bots for code-quality triage and backlog pickup, guarded so review agents cannot approve their own changes, plus a Slack agent that triages Sentry alerts with cross-repo code and issue search."
       },
+      "sglypper": {
+        "title": "sglypper",
+        "description": "A Telegram and LINE bot that reads a group chat's history, learns the group's voice with a Markov chain and an LLM, and answers in character. A side project running for one group."
+      },
       "kanyomi": {
         "title": "Kanyomi",
-        "description": "A Korean reading app for Japanese speakers: short pieces at your level, explained through Japanese \u2014 particles as \u306f/\u3092, Sino-Korean words through their kanji cognates, endings through \u3067\u3059\u30fb\u307e\u3059. The landing page is live and an LLM pipeline drafts, glosses, level-tags and QA-checks the stories; the app itself is still being built."
+        "description": "Korean reading for Japanese speakers: three short stories a week at TOPIK I level, glossed through Japanese. Around the stories sit a grammar and vocabulary library, practice drills, TOPIK I mock exams and small tools such as a conjugation lookup. An LLM pipeline drafts and QA-checks every story."
+      },
+      "pechka": {
+        "title": "pechka.app",
+        "description": "Russian for Japanese speakers, keyed to the ТРКИ levels: a grammar library with notes on where Japanese and English differ, short graded stories, and drills on forms and stress. Built on the same pipeline and gates as Kanyomi."
+      },
+      "storyling": {
+        "title": "storyling.app",
+        "description": "Italian for Japanese speakers, keyed to the CILS levels: a grammar library in the same format as pechka.app, with drills and a level check."
       },
       "nerixim": {
         "title": "nerixim.dev",
