@@ -114,7 +114,8 @@
         "APIs and backend services",
         "Database design and infrastructure"
       ],
-      "who": "Startups, SMBs, and agencies needing reliable development capacity."
+      "who": "Startups, SMBs, and agencies needing reliable development capacity.",
+      "price": "Pricing on request."
     },
     "ai": {
       "title": "AI Integration & Consulting",
@@ -124,7 +125,8 @@
         "AI tool evaluation and strategy",
         "Custom AI agent development"
       ],
-      "who": "Businesses looking to adopt AI tools practically, not theoretically."
+      "who": "Businesses looking to adopt AI tools practically, not theoretically.",
+      "price": "Pricing on request."
     },
     "localization": {
       "title": "Localization & International Product Support",
@@ -134,7 +136,8 @@
         "i18n architecture and implementation",
         "Multilingual UX consulting"
       ],
-      "who": "Products expanding into Japan or Russian-speaking markets."
+      "who": "Products expanding into Japan or Russian-speaking markets.",
+      "price": "Pricing on request."
     },
     "cta": {
       "heading": "Interested? Let's talk about your project.",

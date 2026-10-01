@@ -1,4 +1,4 @@
-import { Code2, Languages, Sparkles } from "lucide-react"
+import { Code2, Languages, type LucideIcon, Rocket, Sparkles } from "lucide-react"
 import type { Metadata } from "next"
 import { useTranslations } from "next-intl"
 import { getTranslations, setRequestLocale } from "next-intl/server"
@@ -19,21 +19,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return buildPageMetadata(locale, "/services", t("title"), t("description"))
 }
 
-const serviceKeys = [
-  { key: "development" as const, icon: Code2 },
-  { key: "ai" as const, icon: Sparkles },
-  { key: "localization" as const, icon: Languages },
+const serviceKeys: { key: "development" | "ai" | "localization"; icon: LucideIcon; iconJa?: LucideIcon }[] = [
+  { key: "development", icon: Code2 },
+  { key: "ai", icon: Sparkles },
+  { key: "localization", icon: Languages, iconJa: Rocket },
 ]
 
 function ServicesContent({ locale }: { locale: Locale }) {
   const t = useTranslations("services")
   const personName = getPersonDisplayName(locale)
 
-  const services = serviceKeys.map(({ key, icon }) => ({
-    icon,
+  const services = serviceKeys.map(({ key, icon, iconJa }) => ({
+    icon: locale === "ja" && iconJa ? iconJa : icon,
     title: t(`${key}.title`),
     items: t.raw(`${key}.items`) as string[],
     who: t(`${key}.who`),
+    price: t(`${key}.price`),
   }))
 
   const jsonLd = {
@@ -82,6 +83,7 @@ function ServicesContent({ locale }: { locale: Locale }) {
                   </li>
                 ))}
               </ul>
+              <p className="mt-5 text-muted-foreground text-sm">{service.price}</p>
             </section>
           )
         })}
