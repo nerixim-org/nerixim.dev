@@ -145,7 +145,7 @@
   "projects": {
     "metadata": {
       "title": "Projects — Things I Am Building and Have Built",
-      "description": "A collection of software projects including language learning apps, developer tools, and client work. Built with TypeScript, React, Next.js, Swift, and more."
+      "description": "Language-learning sites for Japanese speakers, agent-driven engineering and client work. Mostly TypeScript and Next.js."
     },
     "heading": "Projects",
     "description": "Things I'm building and have built.",
@@ -170,15 +170,15 @@
       },
       "kanyomi": {
         "title": "Kanyomi",
-        "description": "Korean reading for Japanese speakers: three short stories a week at TOPIK I level, glossed through Japanese, plus a grammar and vocabulary library, a level check and three small converters (Hangul names, Korean age, numerals). An LLM pipeline drafts and QA-checks every story; the iOS app is still to come."
+        "description": "Korean reading for Japanese speakers: three short stories a week at TOPIK I level, glossed through Japanese. Around the stories sit a grammar and vocabulary library, practice drills, TOPIK I mock exams and small tools such as a conjugation lookup. An LLM pipeline drafts and QA-checks every story."
       },
       "pechka": {
         "title": "pechka.app",
-        "description": "A Russian grammar library for Japanese speakers, keyed to the ТРКИ levels: 48 short articles across A1 and A2, with notes on where Japanese and English differ. A static site on the same pipeline and gates as Kanyomi."
+        "description": "Russian for Japanese speakers, keyed to the ТРКИ levels: a grammar library with notes on where Japanese and English differ, short graded stories, and drills on forms and stress. Built on the same pipeline and gates as Kanyomi."
       },
       "storyling": {
         "title": "storyling.app",
-        "description": "An Italian grammar library for Japanese speakers, keyed to the CILS levels: 24 articles across A1 and A2, in the same format as pechka.app."
+        "description": "Italian for Japanese speakers, keyed to the CILS levels: a grammar library in the same format as pechka.app, with drills and a level check."
       },
       "nerixim": {
         "title": "nerixim.dev",

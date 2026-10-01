@@ -1,6 +1,6 @@
 # Fact sheet: projects
 
-REVIEW ME — the pipeline may only make claims listed here. Drafted 2026-09-05 from `_ground-truth.md`, product statuses refreshed 2026-09-22; statuses are the point of this page, so get them right.
+REVIEW ME — the pipeline may only make claims listed here. Drafted 2026-09-05 from `_ground-truth.md`, product statuses refreshed 2026-10-01; statuses are the point of this page, so get them right.
 
 ## Page intent
 
@@ -21,19 +21,22 @@ REVIEW ME — the pipeline may only make claims listed here. Drafted 2026-09-05 
 - A Telegram and LINE bot that imports a group chat's history, learns the group's voice with a Markov chain plus an LLM (Gemini), and replies in character. Runs for one group.
 - Do not claim: revenue, user numbers, that it is a product.
 
-### Kanyomi (カンヨミ) — status: 公開中 (web, since 2026-09-16; iOS app not out)
-- Korean reading for Japanese speakers, web-first: three short stories a week within TOPIK I (1級・2級) vocabulary and grammar, with Japanese explanations only where a reader would stumble. 29 stories live at kanyomi.app/yomimono (sitemap, 2026-09-22).
-- Also live: 学習資料 library at /contents (58 articles: TOPIK-from-zero, terms, grammar, words), 今日の1問 at /kyou, a level check at /level, three converters under /tools (名前のハングル表記, 韓国の年齢, 数詞).
+### Kanyomi (カンヨミ) — status: 公開中 (web, since 2026-09-16)
+- Korean reading for Japanese speakers, web-first: three short stories a week within TOPIK I (1級・2級) vocabulary and grammar, with Japanese explanations only where a reader would stumble.
+- Also live (sitemap, 2026-10-01): the 学習コンテンツ library at /contents (TOPIK-from-zero, terms, grammar, words), drills under /drill (穴埋め問題, 活用練習, listening, numbers, time), TOPIK I 模試 at /mogi, 今日の1問 at /kyou, a level check at /level, small tools under /tools (活用を調べる, 名前のハングル表記, 韓国の年齢, 数詞 and others), study-method essays at /blog.
+- Counts on 2026-10-01, for reference only: 34 stories, 111 library articles, 15 tools, 6 drills, 2 mock exams. The library doubled within nine days of 2026-09-22, so page copy carries no counts.
 - An LLM pipeline drafts, glosses, level-tags and QA-checks every story; two LLM judges (not people) gate publication. Do not write that humans review the stories.
-- Do not claim: paid archive (Stripe registration is not done), subscriber or reader numbers, the iOS app (no Swift code since 2026-05).
+- Do not claim: the paid archive (live-mode checkout is not switched on as of 2026-10-01), subscriber or reader numbers, an iOS app (no Swift code since 2026-05; the product is the web reader, so the page does not mention an app).
 
 ### pechka.app (ペチカ) — status: 公開中 (since 2026-09-21)
-- Russian grammar library for Japanese speakers, keyed to the ТРКИ levels: 48 articles across A1 and A2 (sitemap, 2026-09-22), each with an optional 日本語・英語とくらべると note.
+- Russian for Japanese speakers, keyed to the ТРКИ levels: a grammar library (one item per article, each with an optional 日本語・英語とくらべると note), short graded stories at /yomimono written within A1・A2, drills (cloze, forms, numerals, stress), three small tools (cursive, patronymics, proverbs) and level-crosswalk pages (ТРКИ, 露検).
+- Counts on 2026-10-01, for reference only: 98 grammar articles, 30 stories, 4 drills, 3 tools. Page copy carries no counts.
 - Static site on the same pipeline, gates and deploy as Kanyomi (Cloudflare). No app, no accounts, no pricing.
 - The old Pechka iOS codebase (spaced repetition + reading) is unrelated to this site and stays off the page.
 
 ### storyling.app — status: 公開中 (since 2026-09-21)
-- Italian grammar library for Japanese speakers, keyed to the CILS levels: 24 articles across A1 and A2 (sitemap, 2026-09-22), same format as pechka.app.
+- Italian for Japanese speakers, keyed to the CILS levels: a grammar library in the same format as pechka.app, drills (cloze, forms, accent, numbers, time), a level check keyed to 伊検 5級–3級, two small tools (conjugation, proverbs).
+- Counts on 2026-10-01, for reference only: 93 grammar articles, 5 drills, 2 tools. Page copy carries no counts.
 - Do not describe it as the 2025 StoryLing app; that LP is gone.
 
 ### nerixim.dev — status: 公開中
