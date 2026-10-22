@@ -1,8 +1,13 @@
 import createMDX from "@next/mdx"
 import type { NextConfig } from "next"
 import createNextIntlPlugin from "next-intl/plugin"
+import { contentSecurityPolicy } from "./src/lib/csp"
 
 const securityHeaders = [
+  {
+    key: "Content-Security-Policy",
+    value: contentSecurityPolicy({ dev: process.env.NODE_ENV === "development" }),
+  },
   { key: "X-Frame-Options", value: "DENY" },
   { key: "X-Content-Type-Options", value: "nosniff" },
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
