@@ -1,6 +1,7 @@
 "use client"
 
-import { ArrowRight, Github, Globe, MapPin } from "lucide-react"
+import { ArrowRight, Globe, MapPin } from "lucide-react"
+import { GithubIcon } from "@/components/github-icon"
 import { cardContent } from "@/lib/card-config"
 import { QRCodeSVG } from "./qr-code"
 
@@ -32,7 +33,7 @@ export function CardFaceEN({ compact }: { compact?: boolean }) {
             href={c.githubUrl}
             className="flex items-center gap-2 text-foreground transition-colors hover:text-primary"
           >
-            <Github className="h-3.5 w-3.5 shrink-0" />
+            <GithubIcon className="h-3.5 w-3.5 shrink-0" />
             <span>{c.github}</span>
           </a>
           <a
@@ -84,7 +85,7 @@ export function CardFaceJA({ compact }: { compact?: boolean }) {
             href={c.githubUrl}
             className="flex items-center gap-2 text-foreground transition-colors hover:text-primary"
           >
-            <Github className="h-3.5 w-3.5 shrink-0" />
+            <GithubIcon className="h-3.5 w-3.5 shrink-0" />
             <span>{c.github}</span>
           </a>
           <a

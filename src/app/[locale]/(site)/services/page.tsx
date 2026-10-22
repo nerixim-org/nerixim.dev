@@ -49,7 +49,7 @@ function ServicesContent({ locale }: { locale: Locale }) {
         provider: {
           "@type": "Person",
           name: personName,
-          ...(personName !== siteConfig.personNameCanonical ? { alternateName: siteConfig.personNameCanonical } : {}),
+          ...(personName === siteConfig.personNameCanonical ? {} : { alternateName: siteConfig.personNameCanonical }),
           url: siteConfig.url,
         },
       },

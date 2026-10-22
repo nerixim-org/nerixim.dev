@@ -44,7 +44,7 @@ function AboutContent({ locale }: { locale: Locale }) {
     "@context": "https://schema.org",
     "@type": "Person",
     name: personName,
-    ...(personName !== siteConfig.personNameCanonical ? { alternateName: siteConfig.personNameCanonical } : {}),
+    ...(personName === siteConfig.personNameCanonical ? {} : { alternateName: siteConfig.personNameCanonical }),
     url: siteConfig.url,
     sameAs: [siteConfig.links.github],
     jobTitle: "Software Developer",

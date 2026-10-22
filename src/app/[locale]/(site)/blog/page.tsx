@@ -34,7 +34,7 @@ export default async function BlogPage({ params }: Props) {
     author: {
       "@type": "Person",
       name: personName,
-      ...(personName !== siteConfig.personNameCanonical ? { alternateName: siteConfig.personNameCanonical } : {}),
+      ...(personName === siteConfig.personNameCanonical ? {} : { alternateName: siteConfig.personNameCanonical }),
       url: siteConfig.url,
     },
     blogPost: posts.map((post) => ({
@@ -47,7 +47,7 @@ export default async function BlogPage({ params }: Props) {
       author: {
         "@type": "Person",
         name: personName,
-        ...(personName !== siteConfig.personNameCanonical ? { alternateName: siteConfig.personNameCanonical } : {}),
+        ...(personName === siteConfig.personNameCanonical ? {} : { alternateName: siteConfig.personNameCanonical }),
       },
     })),
   }
