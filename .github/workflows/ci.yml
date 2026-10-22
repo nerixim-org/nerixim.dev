@@ -1,4 +1,4 @@
-# Lint, compile, tests and a production build on every pull request and push to main.
+# Lint, compile, tests, a production build and the dependency audit on every pull request and push to main.
 # Vercel's Git integration still builds and deploys on its own; this check does not gate it.
 # GitHub-hosted on purpose: the repository is public, so the minutes are free, and GitHub
 # advises against self-hosted runners on public repositories.
@@ -43,3 +43,6 @@ jobs:
         run: bun test
       - name: build
         run: bun run build
+      # Fails on high or critical advisories only; moderate and low are listed, not blocking.
+      - name: dependency audit
+        run: bun audit --audit-level=high
