@@ -157,4 +157,4 @@ Read it and ask:
 4. Apply: `bun run copy:apply <ns> --lang ja --variant <n>`, then `bun run check:messages`.
 5. Ship through the normal route (push to `main`; Vercel deploys).
 
-References: the 9 source pages are listed in `exemplars/ja/candidates.md` (re-verified live 2026-09-05) and loaded into the NotebookLM notebook 「nerixim.dev 日本語コピー参照 2026-09」 for questions like "how do these authors state scope of work". Any quote taken from the notebook goes through `verify-claim` before it is used; the notebook paraphrased 1 of 15 quotes on the first ask. `portfolios.md` at the repo root is the earlier AI-drafted note and is superseded (see `candidates.md`). The old `copy:ja:brief` script no longer exists.
+References: the 9 source pages are listed in `exemplars/ja/candidates.md` (re-verified live 2026-09-05) and loaded into the NotebookLM notebook 「nerixim.dev 日本語コピー参照 2026-09」 for questions like "how do these authors state scope of work". Any quote taken from the notebook goes through `verify-claim` before it is used; the notebook paraphrased 1 of 15 quotes on the first ask. The old `copy:ja:brief` script no longer exists.

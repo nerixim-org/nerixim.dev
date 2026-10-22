@@ -1,6 +1,6 @@
 # 日本語ボイスルール
 
-docs/copy/ja-copy-workflow.md の要約 + portfolios.md の調査結果に基づく。
+docs/copy/ja-copy-workflow.md の要約に基づく。
 
 ## 文体
 

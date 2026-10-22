@@ -2,8 +2,8 @@
 
 Researched 2026-07-12. All URLs fetched and verified live; quotes are copied
 verbatim from the fetched page (1–2 sentences each — no full-page copies here
-for copyright reasons). `../../portfolios.md` (the earlier AI-drafted research
-note) turned out to be mostly unusable on verification — `craftz.dog` is
+for copyright reasons). An earlier AI-drafted research note turned out to be
+mostly unusable on verification — `craftz.dog` is
 English-language, `narumi.dev` and `miyasho88.com` no longer resolve,
 `katsuma.tv` has no prose (pure resume table), and the `note.com/izumin5210`
 profile has no visible bio text. None of those are included below; this list
