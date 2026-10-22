@@ -1,0 +1,22 @@
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+  # bun.lock is a text lockfile; the bun ecosystem updates it, the npm one does not.
+  - package-ecosystem: bun
+    directory: /
+    schedule:
+      interval: weekly
+    # A dependency joins the first group that matches it. Next moves in a PR of its own
+    # so a framework change is read and previewed apart from the weekly batch.
+    groups:
+      next:
+        patterns:
+          - next
+          - "@next/*"
+          - next-intl
+      npm-weekly:
+        patterns:
+          - "*"

@@ -50,3 +50,6 @@ next-env.d.ts
 scripts/copy-pipeline/exemplars/*/[0-9]*.md
 # LLM pipeline outputs (regenerable)
 scripts/copy-pipeline/outputs/
+
+# per-machine Claude Code settings
+.claude/settings.local.json
