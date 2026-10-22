@@ -1,5 +1,5 @@
-import { Github } from "lucide-react"
 import { useTranslations } from "next-intl"
+import { GithubIcon } from "@/components/github-icon"
 import { FooterLabTrigger } from "@/components/layout/footer-lab-trigger"
 import { Link } from "@/i18n/navigation"
 import { siteConfig } from "@/lib/site-config"
@@ -36,7 +36,7 @@ export function SiteFooter() {
           className="text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring focus-visible:outline-offset-2"
           aria-label="GitHub"
         >
-          <Github className="size-4" aria-hidden="true" />
+          <GithubIcon className="size-4" aria-hidden="true" />
         </a>
       </div>
     </footer>
