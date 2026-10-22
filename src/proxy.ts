@@ -10,11 +10,11 @@ function isDefaultLocalePath(pathname: string) {
   return pathname === "/en" || pathname.startsWith("/en/")
 }
 
-// biome-ignore lint/style/noDefaultExport: Next.js middleware entrypoints are default exports.
-export default function middleware(request: NextRequest) {
+// biome-ignore lint/style/noDefaultExport: Next.js proxy entrypoints are default exports.
+export default function proxy(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
-  // Next.js 16 re-invokes middleware for the internal `/en/...` rewrite target
+  // Next.js 16 re-invokes the proxy for the internal `/en/...` rewrite target
   // created by `localePrefix: "as-needed"`. We tag only that internal rewrite
   // so direct `/en/...` requests still normalize back to the unprefixed URL.
   if (isDefaultLocalePath(pathname) && request.headers.get(INTERNAL_LOCALE_REWRITE_HEADER) === "1") {
