@@ -20,3 +20,7 @@ updates:
       npm-weekly:
         patterns:
           - "*"
+    ignore:
+      # The types follow the runtime (engines.node 24.x), not the newest Node.
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
