@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.4.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
   "root": true,
   "files": {
     "includes": [
@@ -80,7 +80,7 @@
         "noNamespaceImport": "error",
         "noImgElement": "off"
       },
-      "recommended": true,
+      "preset": "recommended",
       "style": {
         "noDefaultExport": "error",
         "noNamespace": "error",
@@ -98,10 +98,7 @@
         "useFilenamingConvention": {
           "level": "warn",
           "options": {
-            "filenameCases": [
-              "kebab-case",
-              "PascalCase"
-            ],
+            "filenameCases": ["kebab-case", "PascalCase"],
             "requireAscii": true
           }
         },
@@ -112,24 +109,14 @@
           "options": {
             "conventions": [
               {
-                "formats": [
-                  "camelCase",
-                  "snake_case",
-                  "PascalCase",
-                  "CONSTANT_CASE"
-                ],
+                "formats": ["camelCase", "snake_case", "PascalCase", "CONSTANT_CASE"],
                 "selector": {
                   "kind": "objectLiteralProperty",
                   "scope": "any"
                 }
               },
               {
-                "formats": [
-                  "camelCase",
-                  "snake_case",
-                  "PascalCase",
-                  "CONSTANT_CASE"
-                ],
+                "formats": ["camelCase", "snake_case", "PascalCase", "CONSTANT_CASE"],
                 "selector": {
                   "kind": "typeMember",
                   "scope": "any"
@@ -172,9 +159,7 @@
   },
   "overrides": [
     {
-      "includes": [
-        "**/src/**/*.tsx"
-      ],
+      "includes": ["**/src/**/*.tsx"],
       "linter": {
         "rules": {
           "correctness": {
@@ -185,9 +170,7 @@
       }
     },
     {
-      "includes": [
-        "**/src/app/**/*.ts*"
-      ],
+      "includes": ["**/src/app/**/*.ts*"],
       "linter": {
         "rules": {
           "style": {
@@ -197,9 +180,7 @@
       }
     },
     {
-      "includes": [
-        "*.config.ts"
-      ],
+      "includes": ["*.config.ts"],
       "linter": {
         "rules": {
           "style": {
@@ -209,9 +190,7 @@
       }
     },
     {
-      "includes": [
-        "**/src/app/actions/**/*.ts"
-      ],
+      "includes": ["**/src/app/actions/**/*.ts"],
       "linter": {
         "rules": {
           "suspicious": {

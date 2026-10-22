@@ -83,13 +83,13 @@ export default async function BlogPostPage({ params }: Props) {
     author: {
       "@type": "Person",
       name: personName,
-      ...(personName !== siteConfig.personNameCanonical ? { alternateName: siteConfig.personNameCanonical } : {}),
+      ...(personName === siteConfig.personNameCanonical ? {} : { alternateName: siteConfig.personNameCanonical }),
       url: siteConfig.url,
     },
     publisher: {
       "@type": "Person",
       name: personName,
-      ...(personName !== siteConfig.personNameCanonical ? { alternateName: siteConfig.personNameCanonical } : {}),
+      ...(personName === siteConfig.personNameCanonical ? {} : { alternateName: siteConfig.personNameCanonical }),
       url: siteConfig.url,
     },
     keywords: post.tags,
