@@ -1,0 +1,70 @@
+{
+ "r5-q07": {
+  "source": "(2024A, FE, Subject-A, Q22)",
+  "stem": "Which of the following is a property on a database that guarantees a result where a transaction either fully completes update processing or is revoked as if no processing took place at all?",
+  "choices": {
+   "a": "Atomicity",
+   "b": "Consistency",
+   "c": "Durability",
+   "d": "Isolation"
+  },
+  "key": "a",
+  "map": {
+   "a": "イ",
+   "b": "ア",
+   "c": "ウ",
+   "d": "エ"
+  }
+ },
+ "r5-q12": {
+  "source": "(2024A, FE, Subject-A, Q39)",
+  "stem": "Scrum is an agile development method. In Scrum, which of the following is an event where each member of the development team talks in turn about topics such as “things I did yesterday,” “things I will do today,” and “obstacles,” and all members share the status of a project?",
+  "choices": {
+   "a": "Daily Scrum",
+   "b": "Retrospective",
+   "c": "Sprint planning",
+   "d": "Sprint review"
+  },
+  "key": "a",
+  "map": {
+   "a": "ウ",
+   "b": "エ",
+   "c": "ア",
+   "d": "イ"
+  }
+ },
+ "r6-q08": {
+  "source": "(2024A, FE, Subject-A, Q23)",
+  "stem": "Which of the following is an appropriate description of a device that connects LANs?",
+  "choices": {
+   "a": "A bridge relays frames based on IP addresses.",
+   "b": "A gateway converts the protocols of only the first through third levels in the OSI basic reference model.",
+   "c": "A repeater extends the transmission distance by amplifying signals between segments of the same type.",
+   "d": "A router relays frames based on MAC addresses."
+  },
+  "key": "c",
+  "map": {
+   "a": "イ",
+   "b": "ア",
+   "c": "ウ",
+   "d": "エ"
+  }
+ },
+ "r6-q11": {
+  "source": "(2023A, FE, Morning, Q46)",
+  "stem": "The integration test for software composed of modules arranged in a hierarchical structure is performed from a high-level module. In such a case, which of the following is a test module that is used as a substitute for a low-level module?",
+  "choices": {
+   "a": "Driver",
+   "b": "Emulator",
+   "c": "Simulator",
+   "d": "Stub"
+  },
+  "key": "d",
+  "map": {
+   "a": "エ",
+   "b": "ア",
+   "c": "イ",
+   "d": "ウ"
+  }
+ }
+}

@@ -66,6 +66,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     )
   }
 
+  staticPages.push({
+    url: `${siteConfig.url}/fe`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.7,
+  })
+
   const localizedBlogPages: MetadataRoute.Sitemap = locales.flatMap((locale) => {
     const prefix = locale === routing.defaultLocale ? "" : `/${locale}`
 

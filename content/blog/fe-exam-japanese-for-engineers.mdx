@@ -1,0 +1,47 @@
+---
+title: "Reading the Japanese FE exam as an engineer"
+description: "The Fundamental IT Engineer exam can open the engineer visa without a degree, and Japan offers it only in Japanese. How its sentences are built, with 20 real questions you can read through English."
+date: "2026-10-06"
+tags: ["japan", "visa", "japanese", "career"]
+published: false
+---
+
+The Fundamental Information Technology Engineer exam (基本情報技術者試験, usually shortened to FE) is on the list of exams that Japan's Ministry of Justice accepts for the engineer visa. Japan runs it only in Japanese. If you can read code and read a little Japanese, most of the difficulty is the exam's sentences, not the IT. I put 20 real questions on a [page](/fe) where every word taps open a reading and an English gloss, and this post explains the patterns those questions repeat.
+
+This is not legal advice. Check the visa rules with the Immigration Services Agency before you plan around any exam.
+
+## Why this exam comes up
+
+The Ministry of Justice publishes a notice (法務省告示) that lists the information-processing exams referred to in the engineer visa standard. Under the exams run by the Minister of Economy, Trade and Industry, item ten reads [「（１０） 基本情報技術者試験」](https://www.moj.go.jp/isa/policies/bill/nyukan_hourei_h09.html). The same notice lists the equivalent exams of other Asian countries, which is why the exam is also held in English elsewhere.
+
+What passing changes is described by [TokyoDev](https://www.tokyodev.com/articles/no-degree-take-the-it-exam-that-can-get-you-a-japanese-engineer-visa), where an engineer without a degree writes that the exam "makes it possible to get an Engineer visa without needing 10 years of experience or a university degree." The same article is the source for "Japan only offers it in Japanese." I rely on it for nothing else here.
+
+## What Subject A looks like
+
+IPA, the agency that runs the exam, says the real Subject A (科目A) has 60 questions, and publishes 20 of them each year as 公開問題 (published questions) with an answer sheet. Every question is multiple choice with four options labelled ア, イ, ウ, エ instead of A to D.
+
+The topics split three ways: technology (databases, networks, security, development methods), management (project and service management, audits), and strategy (business, marketing, law). Subject B is a separate part with pseudo-code. The page covers Subject A only.
+
+## How exam Japanese is built
+
+The questions come from a narrow stock of sentence shapes. Once you can see them, a question stops being a wall of text.
+
+**The closing formula tells you what is being asked.** The question ends in one of a few frames: 〜はどれか ("which is...?"), 〜を何と呼ぶか ("what is it called?"), 〜に該当するものはどれか ("which one falls under...?"), 〜として，適切なものはどれか ("which is appropriate as...?"). When the closing is 何と呼ぶか, the choices are four names and you are matching a definition to a term. 多相性 (polymorphism) is asked that way. When it is に該当する, as in 暗号の危殆化に該当するものはどれか, each choice is a scenario and you decide which one counts.
+
+**Katakana terms drop the final long vowel.** In these questions you meet プロダクトオーナ, スクラムマスタ, ルータ, リピータ and ドライバ, where everyday writing usually keeps the ー at the end. The words are the ones you know. Read them with the missing vowel put back.
+
+**Terms come in families that share a suffix.** The four ACID properties each end in 性: 原子性 (atomicity), 一貫性 (consistency), 耐久性 (durability), 独立性 (isolation). The four industrial property rights end in 権: 特許権, 実用新案権, 意匠権, 商標権. Analysis methods end in 分析: 3C分析, ABC分析, コンジョイント分析, マーケットバスケット分析. A new term with a familiar suffix tells you its category before you know its meaning.
+
+**Choices often differ by one swapped word.** In the question on LAN devices, one choice says a bridge relays frames by IP address and another says a router relays them by MAC address. The wrong choices are the right ones with two terms exchanged. Read the choices against each other and find the changed word first, then check it against what you know. The two-factor authentication question works the same way: every choice is a pair, and the answer is the only pair that mixes two different kinds of proof.
+
+**The same word means different things by context.** 障害 is a failure in operations, but in the Scrum question it is the thing "getting in your way" in the daily stand-up, so the English is blocker or impediment. 運用 is operations, 移行 is transition or migration, 監査 is audit. The page gives each of these a gloss that fits its sentence and not a dictionary list.
+
+**Legal and contract questions use formal connectives.** The copyright question about a delivered diagram has 譲渡する旨の記述 ("a statement to the effect that rights are transferred"), 締結された契約 ("the contract that was concluded") and 当たって ("upon"). They read as bureaucratic Japanese. The logic underneath is plain: copyright was transferred, moral rights of the author were not, so only one action is blocked.
+
+## The page
+
+[The page](/fe) has 20 of IPA's published Subject A questions from the 2023 to 2026 papers, eleven on technology (two of them on Scrum), four on management and five on strategy. Each has the Japanese text as IPA published it, tap-to-read glosses with hiragana readings, the IT term pairs, the key from IPA's official answer sheet, and a short explanation in English. For four of them, ITPEC has published the same question in English, and I show that wording too, unmodified and with its source.
+
+Two limits. The English translations, glosses and explanations are mine and are marked as such. The glosses are machine-drafted and have not yet been reviewed by a human, so some will be wrong. The page links to a contact form for reports.
+
+IPA allows reuse of its published questions without permission or fee if the source is named and edits are stated, which is why every question carries its source line. The page is not affiliated with IPA or ITPEC.
