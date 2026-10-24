@@ -1,0 +1,90 @@
+---
+title: "What form gates caught in LLM-written learner articles"
+description: "I replayed the grammar and stress checks over the first committed draft of 317 LLM-written Korean, Russian and Italian articles. They found six real errors. Here is what that number covers, and what it does not."
+date: "2026-10-06"
+tags: ["llm", "content", "evals", "quality"]
+published: false
+---
+
+The form gates found six real errors in 317 first drafts. All six were Russian stress marks. Every other hit was a wrong form I had put in on purpose, or a false positive.
+
+The mistakes that cost me time were in explanations, glosses and facts, which the gates do not read. An independent model review of 87 later drafts reported 168 explanation errors, which is more than every form hit in the three languages put together.
+
+I would still build the gates. They catch one narrow class of error cheaply and keep it from coming back. They say nothing about whether the content is right.
+
+## What I ran
+
+I write three learner sites with LLM drafts: Korean for Japanese speakers (112 articles), Russian (107) and Italian (98). Each article is Japanese prose around target-language examples, tables and a short quiz. The form gates are:
+
+- **Stress and spelling.** Every Russian stress-marked word and every Italian word is looked up in a Wiktionary-derived dictionary dump. A mismatch or a missing word fails.
+- **Grammar.** Russian uses pymorphy3 and natasha (case after a preposition, agreement, numeral and noun). Italian uses spaCy (article before the noun, auxiliary choice, preposition plus article written apart). Korean uses Kiwi, checking particles by final consonant, vowel harmony and a rejoin test on every conjugated form.
+- **Style lint.** A deterministic Japanese wording check. It is a different kind of gate, and I only touch it at the end.
+
+I could not get counts from CI history. Of 167 failed workflow runs in the kanyomi repository, 121 started no steps. The one I opened on 2026-09-26 carries GitHub's spending-limit annotation, and the 2026-09-21 and 09-22 reds were the same limit. Of the remaining 46, two failed the style test and one failed a spelling test. None failed a form gate, because the form gates run locally before a PR opens and are not in CI.
+
+So I replayed them. For each article I took the first committed version, ran the current gates over it, and ran them again over the version on main. The caveat: some first commits had already passed an earlier, weaker check, and the grammar gates did not exist yet when most of them were written. The count is "what the gate would have said about the first draft", not "what it stopped at the time".
+
+## The counts
+
+- **Russian stress** (107 articles, 1,463 distinct spellings): 6 mismatches, all real.
+- **Russian grammar** (107 articles, 7,684 phrases): 1 finding, a deliberate wrong form.
+- **Italian spelling and verb tables** (98 articles, 1,588 spellings, 205 table rows): 7 words not found and 5 row problems, none real. The words are deliberate misspellings, stems and endings; the rows are false positives.
+- **Italian grammar** (98 articles, 1,849 phrases): 7 findings in 3 files, all deliberate wrong forms.
+- **Korean grammar** (111 articles, 6,932 phrases): 7 findings in 4 files, all deliberate wrong forms.
+
+The Korean gate read 111 of the 112 files in the directory. On current main the grammar gates report 0 (Russian), 0 (Korean) and 4 (Italian) findings. Two of the Italian four are deliberate wrong forms not yet marked; two are false positives (`i lungo` as a letter name, and the letters `a` `i` `u` read as a preposition and an article). Stress reports one, an ending shown alone as a quiz choice.
+
+## Examples, one per type
+
+**A real stress error.** The adjective table had `си́ний | си́н==ие== каранда́ши`. The dictionary has the plural of карандаш stressed on the last syllable: карандаши́. The same run flagged слова́рях (should be словаря́х) and тру́днее (трудне́е). Three more were in quiz choices (зо́нту, хо́лодный, хо́лодная). The comparative error had already been reported by a Gemini review on 2026-09-21, before the stress gate existed. The gate is the cheaper way to find it again.
+
+**A deliberate wrong form.** `нет сестра́` is flagged in an article on есть and нет, where it is shown as the mistake. Korean `지하철으로` is flagged in the particle article for the same reason. Italian `ha andato`, `lo animale` and `buon idea` follow the pattern. This is why the gates skip anything wrapped in `~~form~~`: a wrong form the article itself calls wrong is not a finding.
+
+**A false positive.** The Italian verb-table check reports five rows in the pluperfect article as differing from the dictionary. The cells are `era cominciato`-style forms, and the gate reads the table in present-tense mode. This stays red on main. I have not confirmed the cause beyond the missing pluperfect mode that the gate's own notes list. The grammar gates keep known false positives out of the output with a whitelist: 6 rows for Russian and 14 for Italian, each with one stated reason.
+
+## Zeros need a control
+
+Russian and Korean report 0 on main, so I fed each gate sentences I knew were wrong:
+
+- Russian: `два окно`, `две окна` and `нет сестра` all fail. `два окна` passes, correctly, because it is correct.
+- Korean: `선생님가`, `서울으로` and `친구과` all fail.
+- Italian: `Ho già andato` and `Lo amico` both fail.
+
+The three self-test suites also pass (16, 16 and 19 tests). The grammar gates' own pull requests report the same kind of control: a seeded set of 22 wrong Italian sentences, 19 hit on the first pass, with `ho caduto`, `hanno diventati` and `ho già andato` missed until I fixed them. A Korean set of 25 had 6 misses on the first pass.
+
+## What it cost
+
+The gates were written by Codex and Cursor and reviewed in session. The three grammar-gate pull requests are 919, 692 and 1,049 added lines, with the Italian one also folding the three gates onto one shared reader. The Italian model is a 42 MB download, so a cold first run took 43 seconds. A warm Russian run over 107 articles took 3 minutes 55 seconds of wall time.
+
+After the code, every gate still needs a whitelist, a mark for deliberate wrong forms, and a decision about what it covers. The Korean gate documents a list of things it cannot see in a test called `test_does_not_cover`. I recommend writing that test first.
+
+## What the gates cannot see
+
+The gates missed three kinds of error:
+
+1. **A wrong form that is a valid form of the word.** An article had `В до́ме два о́кна`. After два the noun takes the genitive singular, окна́, but о́кна is also the nominative plural, so the grammar gate has nothing to flag. I ran this sentence with and without the marks through the gate: 0 findings both times.
+2. **Everything about meaning.** The gates read tense, aspect, word choice and glosses as fine. A model-scored report of Russian gloss pairs rated 95 of 629 below 0.8. I read the five lowest by hand: one was a real mismatch, four were defensible Japanese.
+3. **Places I did not point them at.** An independent Gemini review of the 29 Russian skills articles reported 124 language errors, and 111 of them involved stress marks. Thirty of the 124 quotes sat in source-list lines, where the shape gate did not look. The stress gate only checks marks that are present, so an unmarked word is invisible to it.
+
+The same review of all 87 skills drafts reported 145 language errors, 168 explanation errors and 11 verdicts of "rewrite" (a model's opinion, not a ground truth; the fixers rejected some of it with sources). Examples of findings no grammar gate can make: an English month glossed with the wrong Italian one (`January` against `marzo`), a claim that 흐르다 has a double ㄹ, and a rule quoted from the wrong clause of the Korean spelling standard.
+
+## What still needs a human
+
+Russian is my first language, so I can read that site natively. I am still learning Korean and Italian, so those two have no native read at all. I treat the gates as the floor under that, not as a substitute. Their output is a short list of article, line and form, which I can read in minutes. That leaves my attention for the claims no gate checks.
+
+If you are building one of these for your own content product:
+
+1. Start with a dictionary lookup for the thing that is cheapest to look up. It found my only real errors.
+2. Add a way to mark a wrong form as intentional on day one, or you will whitelist your way out of every finding.
+3. Write the seeded wrong sentences before the rule, and run the gate on them every time.
+4. Point the gates at the whole page, including source lists and quiz choices.
+5. Put a gate in CI if you want it to run on every PR. Mine run locally, so a PR can skip them.
+
+## Not measured
+
+- The Korean gate read 111 of 112 files; I did not find out which one it skipped.
+- The 152 Russian words the dictionary does not know. I did not triage them one by one. A sample was names, inflected adjectives and deliberate misspellings.
+- The 10% quoting cap on the culture articles. The only measured value I have is 3.2% for the first article; I have no record of it stopping anything.
+- How many of the reviewer's 145 language errors were correct.
+
+The style lint, run over the same first drafts with rules written later, reports 1,361 findings in 232 of 317 files, mostly word choices. I do not count that as the model being wrong, since the rules did not exist when it wrote.
