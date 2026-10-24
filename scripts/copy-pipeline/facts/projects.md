@@ -1,6 +1,6 @@
 # Fact sheet: projects
 
-REVIEW ME — the pipeline may only make claims listed here. Drafted 2026-09-05 from `_ground-truth.md`; statuses are the point of this page, so get them right.
+REVIEW ME — the pipeline may only make claims listed here. Drafted 2026-09-05 from `_ground-truth.md`, product statuses refreshed 2026-10-01; statuses are the point of this page, so get them right.
 
 ## Page intent
 
@@ -17,15 +17,27 @@ REVIEW ME — the pipeline may only make claims listed here. Drafted 2026-09-05 
 - CI agents that triage code-quality debt and pick up backlog items and open reviewable PRs; a guard that prevents review agents from approving their own changes; a Slack agent that investigates Sentry alerts across repositories.
 - Same client as above; do not name it.
 
-### Kanyomi (カンヨミ) — status: 開発中 (landing page live since 2026-09-08; **no app yet**)
-- Korean reading app for Japanese speakers: level-matched stories with Japanese-native support (particles mapped to は/を, 漢字語 cognates, 語尾/敬語 mapped to です・ます).
-- Content pipeline generates and QA-checks stories with LLMs; 21 stories drafted, none approved yet.
-- kanyomi.app returns 200 (verified 2026-09-08, redirects to www.kanyomi.app). The waitlist form is wired to Supabase and works. The app itself is not out; the iOS code has not moved since 2026-05.
+### sglypper — status: 公開中 (side project, private repo, no link)
+- A Telegram and LINE bot that imports a group chat's history, learns the group's voice with a Markov chain plus an LLM (Gemini), and replies in character. Runs for one group.
+- Do not claim: revenue, user numbers, that it is a product.
 
-### Pechka — status: unpublished (codebase complete, never submitted to the App Store)
-- Russian-learning app for Japanese speakers (spaced repetition + extensive reading). It is NOT the Korean app.
-- Either describe it as 未公開 / 開発を一時停止 or leave it off the page. Never 公開中.
-- **Left off the page (2026-09-08).** A draft had put Kanyomi's description under the Pechka name; the entry is now Kanyomi and Pechka is not listed.
+### Kanyomi (カンヨミ) — status: 公開中 (web, since 2026-09-16)
+- Korean reading for Japanese speakers, web-first: three short stories a week within TOPIK I (1級・2級) vocabulary and grammar, with Japanese explanations only where a reader would stumble.
+- Also live (sitemap, 2026-10-01): the 学習コンテンツ library at /contents (TOPIK-from-zero, terms, grammar, words), drills under /drill (穴埋め問題, 活用練習, listening, numbers, time), TOPIK I 模試 at /mogi, 今日の1問 at /kyou, a level check at /level, small tools under /tools (活用を調べる, 名前のハングル表記, 韓国の年齢, 数詞 and others), study-method essays at /blog.
+- Counts on 2026-10-01, for reference only: 34 stories, 111 library articles, 15 tools, 6 drills, 2 mock exams. The library doubled within nine days of 2026-09-22, so page copy carries no counts.
+- An LLM pipeline drafts, glosses, level-tags and QA-checks every story; two LLM judges (not people) gate publication. Do not write that humans review the stories.
+- Do not claim: the paid archive (live-mode checkout is not switched on as of 2026-10-01), subscriber or reader numbers, an iOS app (no Swift code since 2026-05; the product is the web reader, so the page does not mention an app).
+
+### pechka.app (ペチカ) — status: 公開中 (since 2026-09-21)
+- Russian for Japanese speakers, keyed to the ТРКИ levels: a grammar library (one item per article, each with an optional 日本語・英語とくらべると note), short graded stories at /yomimono written within A1・A2, drills (cloze, forms, numerals, stress), three small tools (cursive, patronymics, proverbs) and level-crosswalk pages (ТРКИ, 露検).
+- Counts on 2026-10-01, for reference only: 98 grammar articles, 30 stories, 4 drills, 3 tools. Page copy carries no counts.
+- Static site on the same pipeline, gates and deploy as Kanyomi (Cloudflare). No app, no accounts, no pricing.
+- The old Pechka iOS codebase (spaced repetition + reading) is unrelated to this site and stays off the page.
+
+### storyling.app — status: 公開中 (since 2026-09-21)
+- Italian for Japanese speakers, keyed to the CILS levels: a grammar library in the same format as pechka.app, drills (cloze, forms, accent, numbers, time), a level check keyed to 伊検 5級–3級, two small tools (conjugation, proverbs).
+- Counts on 2026-10-01, for reference only: 93 grammar articles, 5 drills, 2 tools. Page copy carries no counts.
+- Do not describe it as the 2025 StoryLing app; that LP is gone.
 
 ### nerixim.dev — status: 公開中
 - This site. Next.js App Router, four languages (ja/en/ru/uk), statically generated.
@@ -37,5 +49,5 @@ REVIEW ME — the pipeline may only make claims listed here. Drafted 2026-09-05 
 ## Do not claim
 
 - User numbers, downloads, revenue, launch dates, "coming soon" dates.
-- That Pechka or Kanyomi can be downloaded.
+- That Kanyomi, pechka.app or storyling.app can be downloaded as apps, or that any of them has paying users.
 - Client names.
